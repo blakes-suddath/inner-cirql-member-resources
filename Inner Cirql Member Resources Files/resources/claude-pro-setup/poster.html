@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Set Up Claude Pro. The Always-On Agent System. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#ffffff; --offwhite:#faf8f4; --ink:#1a1a1a;
+    --ink-60:rgba(26,26,26,0.60); --ink-40:rgba(26,26,26,0.40); --ink-12:rgba(26,26,26,0.12);
+    --gold:#c9a96e; --gold-soft:rgba(201,169,110,0.14); --coral:#d97757;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #e9e9e9; color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0;
+  }
+  .sheet { width: 1275px; height: 1650px; background: var(--bg); position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.16); }
+  .poster { width: 1275px; height: 1650px; padding: 56px 80px; display: flex; flex-direction: column; }
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    body { display: block; padding: 0; margin: 0; gap: 0; }
+    .sheet { width: 816px; height: 1056px; box-shadow: none; break-after: page; page-break-after: always; }
+    .sheet:last-child { break-after: auto; page-break-after: auto; }
+    .poster { transform: scale(0.64); transform-origin: top left; }
+  }
+
+  .header { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; padding-bottom: 22px; border-bottom: 3px solid var(--ink); }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-word { font-weight: 600; font-size: 22px; letter-spacing: -0.01em; }
+  .brand-word .gold { color: var(--gold); }
+  .brand-word .the { color: var(--ink-40); font-weight: 500; }
+  .header-meta { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-40); }
+
+  .hero { flex-shrink: 0; padding: 28px 0 20px; position: relative; }
+  .hero-logo { position: absolute; top: 30px; right: 0; width: 96px; height: 96px; opacity: 0.92; }
+  .hero-logo svg { width: 100%; height: 100%; }
+  .eyebrow { color: var(--gold); font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; font-size: 14px; margin-bottom: 14px; }
+  h1 { font-size: 78px; line-height: 0.96; letter-spacing: -0.04em; font-weight: 700; color: var(--ink); }
+  .subhead { font-size: 33px; font-style: italic; color: var(--gold); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-top: 10px; }
+  .lede { margin-top: 16px; font-size: 19px; color: var(--ink-60); line-height: 1.42; max-width: 82ch; font-weight: 500; }
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  .cont-head { flex-shrink: 0; display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 22px; margin-bottom: 4px; border-bottom: 3px solid var(--ink); }
+  .cont-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .cont-title .gold { color: var(--gold); font-style: italic; }
+  .cont-meta { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-40); }
+
+  .steps { flex: 1 1 0; display: flex; flex-direction: column; border-top: 3px solid var(--ink); padding-top: 14px; }
+  .steps.p2 { border-top: none; padding-top: 18px; }
+  .step { flex: 1 1 0; display: grid; grid-template-columns: 74px 1fr; gap: 26px; padding: 14px 0; border-bottom: 1px solid var(--ink-12); align-items: start; }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-size: 50px; font-weight: 700; color: var(--gold); line-height: 0.9; letter-spacing: -0.04em; text-align: center; padding-top: 4px; }
+  .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 5px; flex-wrap: wrap; }
+  .step-title { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.04; }
+  .skip-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: var(--gold); padding: 4px 9px; border-radius: 5px; line-height: 1; }
+  .step-action { font-size: 18px; line-height: 1.36; color: var(--ink); font-weight: 500; }
+  .step-action strong { font-weight: 700; }
+  .lnk { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+  .step-why { margin-top: 7px; font-size: 16px; line-height: 1.36; color: var(--ink-60); font-weight: 500; }
+  .step-why b { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; margin-right: 6px; }
+
+  .closing { flex-shrink: 0; margin-top: 22px; background: var(--ink); color: #fff; border-radius: 18px; padding: 32px 40px; display: flex; align-items: center; gap: 26px; }
+  .closing-logo { flex-shrink: 0; width: 56px; height: 56px; }
+  .closing-logo svg { width: 100%; height: 100%; }
+  .closing-label { color: var(--gold); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
+  .closing-text { font-size: 23px; font-weight: 600; line-height: 1.32; letter-spacing: -0.01em; }
+  .closing-text .gold { color: var(--gold); }
+
+  .foot { flex-shrink: 0; margin-top: 16px; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-40); }
+  .foot .pg { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+      <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="logo-claude" viewBox="0 0 24 24">
+      <path fill="#D97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="sheet">
+  <div class="poster">
+
+    <div class="header">
+      <div class="brand">
+        <svg width="46" height="46"><use href="#brand-mark"/></svg>
+        <span class="brand-word"><span class="the">The</span> <span class="gold">Always-On</span> Agent System</span>
+      </div>
+      <div class="header-meta">Claude Pro Setup</div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-logo"><svg><use href="#logo-claude"/></svg></div>
+      <div class="eyebrow">For Real Estate Agents</div>
+      <h1>Set Up Claude Pro.</h1>
+      <div class="subhead">Your content engine, done right.</div>
+      <p class="lede">Claude Pro writes your GEO blog content in minutes, in your voice. Set up wrong, it sounds like generic AI. Set up right, it sounds like <strong>you</strong> and compounds into AI citations. Most agents stop at a free account and miss the part that matters. Here is the right way. Every link is clickable.</p>
+    </section>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-head"><span class="step-title">Create your account</span></div>
+          <div class="step-action">Go to <a class="lnk" href="https://claude.ai/">claude.ai</a> and sign up with Google or your email.</div>
+          <div class="step-why"><b>Why</b>This is your AI workspace. One login for everything that follows.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-head"><span class="step-title">Upgrade to Pro</span><span class="skip-tag">Do not skip</span></div>
+          <div class="step-action">Open Settings, then Billing, and upgrade to <strong>Pro</strong> ($20/mo). <a class="lnk" href="https://claude.ai/settings/billing">claude.ai/settings/billing</a></div>
+          <div class="step-why"><b>Why it matters</b>Free runs out of messages fast and locks you out of the best models and Projects. Pro is the difference between a toy and a content engine.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-head"><span class="step-title">Switch on the best model</span></div>
+          <div class="step-action">In the model menu at the top, pick the <strong>most capable model</strong>, not the default fast one.</div>
+          <div class="step-why"><b>Why it matters</b>The top model writes the most natural, GEO-ready content. The wrong model is the number one reason agents get mediocre output.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-head"><span class="step-title">Create a Project</span><span class="skip-tag">Do not skip</span></div>
+          <div class="step-action">Open Projects and create one called <strong>My GEO Blog</strong>. <a class="lnk" href="https://claude.ai/projects">claude.ai/projects</a></div>
+          <div class="step-why"><b>Why it matters</b>A Project remembers your voice, market, and specialty across every chat, so you never re-explain yourself. This is the step almost everyone skips.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      <span>The Always-On Agent System · Claude Pro Setup</span>
+      <span class="pg">Page 1 of 2</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="sheet">
+  <div class="poster">
+
+    <div class="cont-head">
+      <div class="cont-title">Set Up Claude Pro. <span class="gold">Continued.</span></div>
+      <div class="cont-meta">The Always-On Agent System</div>
+    </div>
+
+    <div class="steps p2">
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-head"><span class="step-title">Load your brand into the Project</span><span class="skip-tag">Do not skip</span></div>
+          <div class="step-action">Paste your bio, your market, your specialty, your entity statement, and a few samples of your writing into the Project knowledge.</div>
+          <div class="step-why"><b>Why it matters</b>This is how Claude writes in <strong>your</strong> voice instead of generic AI. Skip it and your blog reads like everyone else's.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">06</div>
+        <div>
+          <div class="step-head"><span class="step-title">Get the apps</span></div>
+          <div class="step-action">Install the desktop and mobile app so Claude is one click away. <a class="lnk" href="https://claude.ai/download">claude.ai/download</a></div>
+          <div class="step-why"><b>Why it matters</b>Easy access is what makes the daily content habit actually stick.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">07</div>
+        <div>
+          <div class="step-head"><span class="step-title">Write your first post</span></div>
+          <div class="step-action">Inside your Project, ask Claude to draft a <strong>GEO blog post</strong> that answers a real buyer question for your market.</div>
+          <div class="step-why"><b>Why it matters</b>This is the payoff. Every post you publish becomes a new chance for AI to cite you by name.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="closing">
+      <div class="closing-logo"><svg><use href="#logo-claude"/></svg></div>
+      <div class="closing-body">
+        <div class="closing-label">Why you cannot skip this</div>
+        <div class="closing-text">Claude Pro is the engine. The <span class="gold">upgrade, the Project, and your voice</span> are what make it yours. Get those three right and every post sounds like you and works while you sleep.</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>The Always-On Agent System</span>
+      <span class="pg">Page 2 of 2</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

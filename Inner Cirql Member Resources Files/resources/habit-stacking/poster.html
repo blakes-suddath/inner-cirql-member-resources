@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Habit Stacking. Find Your Anchor. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --offwhite:  #faf8f4;
+    --ink:       #1a1a1a;
+    --ink-60:    rgba(26,26,26,0.60);
+    --ink-40:    rgba(26,26,26,0.40);
+    --ink-12:    rgba(26,26,26,0.12);
+    --gold:      #c9a96e;
+    --gold-soft: rgba(201,169,110,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Print: real 8.5x11 letter PDF, scaled from 1275px design. */
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { width: 8.5in; height: 11in; margin: 0; padding: 0; overflow: hidden; }
+    .poster {
+      width: 1275px;
+      height: 1650px;
+      transform: scale(0.64);
+      transform-origin: top left;
+      box-shadow: none !important;
+    }
+  }
+
+  /* 8.5 x 11 in @ 150 DPI = 1275 x 1650 */
+  .poster {
+    width: 1275px;
+    min-height: 1650px;
+    height: 1650px;
+    background: var(--bg);
+    padding: 56px 80px 56px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    flex-shrink: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-word {
+    font-weight: 600; font-size: 24px;
+    letter-spacing: -0.005em;
+  }
+  .brand-word .cirql { color: var(--gold); }
+  .header-meta {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-40);
+  }
+
+  /* HERO */
+  .hero {
+    flex-shrink: 0;
+    padding: 36px 0 28px;
+  }
+  .eyebrow {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    font-size: 14px; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 92px;
+    line-height: 0.94; letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .subhead {
+    font-size: 46px;
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-top: 10px;
+  }
+  .lede {
+    margin-top: 22px;
+    font-size: 23px;
+    color: var(--ink-60);
+    line-height: 1.45;
+    max-width: 62ch;
+    font-weight: 500;
+  }
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  /* BODY */
+  .body {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-top: 3px solid var(--ink);
+    padding-top: 26px;
+  }
+  .section-label {
+    flex-shrink: 0;
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  /* ANCHOR GRID */
+  .anchors {
+    flex: 1 1 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 24px;
+    min-height: 0;
+  }
+  .anchor {
+    border: 2px solid var(--ink-12);
+    border-radius: 20px;
+    background: var(--offwhite);
+    padding: 34px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0;
+  }
+  .anchor-top {
+    display: flex; align-items: center; gap: 20px;
+  }
+  .anchor-badge {
+    flex-shrink: 0;
+    width: 86px; height: 86px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .anchor-icon { width: 46px; height: 46px; color: var(--gold); }
+  .anchor-icon svg { display: block; width: 100%; height: 100%; }
+  .anchor-num {
+    font-size: 15px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold);
+  }
+  .anchor-title {
+    font-size: 26px; font-weight: 700;
+    line-height: 1.15; letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .anchor-desc {
+    font-size: 18px; line-height: 1.42;
+    color: var(--ink-60);
+    font-weight: 500;
+  }
+
+  /* FORMULA */
+  .formula {
+    flex-shrink: 0;
+    margin-top: 24px;
+    background: var(--ink);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 42px 48px;
+  }
+  .formula-label {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    font-size: 14px; margin-bottom: 18px;
+  }
+  .formula-text {
+    font-size: 31px; line-height: 1.32;
+    font-weight: 600; color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+  .formula-text .blank { color: var(--gold); }
+  .formula-text .clara { color: var(--gold); font-style: italic; }
+  .formula-text strong { color: #ffffff; font-weight: 700; }
+  .formula-sub {
+    margin-top: 18px;
+    font-size: 19px; line-height: 1.45;
+    color: rgba(255,255,255,0.68);
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="12" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="50" cy="88" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+    </symbol>
+
+    <!-- Coffee: cup with handle, saucer, and steam -->
+    <symbol id="i-coffee" viewBox="0 0 24 24">
+      <path d="M5 8h12v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M17 9.2h1.6a2.4 2.4 0 0 1 0 4.8H17" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <line x1="4.5" y1="21" x2="15.5" y2="21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M9 3.4c-.7 1 .7 1.7 0 2.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M13 3.4c-.7 1 .7 1.7 0 2.7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Car: side profile with two wheels and a window line -->
+    <symbol id="i-car" viewBox="0 0 24 24">
+      <path d="M3 13l2-5.4A2.5 2.5 0 0 1 7.4 6h9.2a2.5 2.5 0 0 1 2.4 1.6L21 13v4a1 1 0 0 1-1 1h-1.4a1 1 0 0 1-1-1H7.4a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <line x1="4.2" y1="13" x2="19.8" y2="13" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="8" cy="15.6" r="1.4" fill="currentColor"/>
+      <circle cx="16" cy="15.6" r="1.4" fill="currentColor"/>
+    </symbol>
+
+    <!-- Hourglass: waiting / dead time -->
+    <symbol id="i-hourglass" viewBox="0 0 24 24">
+      <line x1="6.5" y1="4" x2="17.5" y2="4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="6.5" y1="20" x2="17.5" y2="20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M8 4c0 4.2 8 4.2 8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M16 4c0 4.2-8 4.2-8 8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M8 20c0-4.2 8-4.2 8-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M16 20c0-4.2-8-4.2-8-8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Moon: winding down at night -->
+    <symbol id="i-moon" viewBox="0 0 24 24">
+      <path d="M21 13.2A8.4 8.4 0 1 1 10.8 3 6.6 6.6 0 0 0 21 13.2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <svg width="44" height="44"><use href="#brand-mark"/></svg>
+      <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+    </div>
+    <div class="header-meta">Daily Habit System.</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">For Real Estate Agents</div>
+    <h1>Habit Stacking.</h1>
+    <div class="subhead">Find your anchor.</div>
+    <p class="lede">You don't build a new habit from scratch. You attach it to something you already do <strong>every single day</strong> without thinking.</p>
+  </section>
+
+  <!-- BODY -->
+  <section class="body">
+    <div class="section-label">Pick the anchor that fits your day</div>
+
+    <div class="anchors">
+
+      <div class="anchor">
+        <div class="anchor-top">
+          <div class="anchor-badge"><div class="anchor-icon"><svg><use href="#i-coffee"/></svg></div></div>
+          <div class="anchor-num">Anchor 01</div>
+        </div>
+        <div class="anchor-title">Morning coffee, before the house wakes up.</div>
+        <div class="anchor-desc">Ten minutes, phone in hand, before anyone needs anything from you.</div>
+      </div>
+
+      <div class="anchor">
+        <div class="anchor-top">
+          <div class="anchor-badge"><div class="anchor-icon"><svg><use href="#i-car"/></svg></div></div>
+          <div class="anchor-num">Anchor 02</div>
+        </div>
+        <div class="anchor-title">In your car, before you walk into the office.</div>
+        <div class="anchor-desc">You are already there. The door can wait ten minutes.</div>
+      </div>
+
+      <div class="anchor">
+        <div class="anchor-top">
+          <div class="anchor-badge"><div class="anchor-icon"><svg><use href="#i-hourglass"/></svg></div></div>
+          <div class="anchor-num">Anchor 03</div>
+        </div>
+        <div class="anchor-title">Waiting for your first appointment.</div>
+        <div class="anchor-desc">Dead time turned into relationship deposits. Best trade of the week.</div>
+      </div>
+
+      <div class="anchor">
+        <div class="anchor-top">
+          <div class="anchor-badge"><div class="anchor-icon"><svg><use href="#i-moon"/></svg></div></div>
+          <div class="anchor-num">Anchor 04</div>
+        </div>
+        <div class="anchor-title">Winding down after your last showing.</div>
+        <div class="anchor-desc">The day is already done. Close it out by building tomorrow's pipeline.</div>
+      </div>
+
+    </div>
+
+    <!-- FORMULA -->
+    <div class="formula">
+      <div class="formula-label">The Formula</div>
+      <p class="formula-text">After <span class="blank">[your anchor habit]</span>, I will open <span class="clara">Clara</span> and complete my touches <strong>every day.</strong></p>
+      <p class="formula-sub">Clara already knows who to reach out to and what to say. My job is to review and click send.</p>
+    </div>
+
+  </section>
+
+</div>
+</body>
+</html>

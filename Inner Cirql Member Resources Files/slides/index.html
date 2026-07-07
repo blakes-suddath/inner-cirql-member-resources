@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inner Cirql — Weekly Slides Library</title>
+<meta name="description" content="Every week's Inner Cirql coaching deck — wins, industry news, the quote of the week, accountability, and the teaching segment. The live deck we run every Wednesday at 10 AM CT.">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#1a1a1a">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://resources.yourinnercirql.com/slides/">
+<meta property="og:title" content="Inner Cirql — Weekly Slides Library">
+<meta property="og:description" content="Every week's Inner Cirql coaching deck. Updated every Wednesday.">
+<meta property="og:site_name" content="Inner Cirql">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg:        #ffffff;
+    --offwhite:  #faf8f4;
+    --ink:       #1a1a1a;
+    --ink-80:    rgba(26,26,26,0.80);
+    --ink-60:    rgba(26,26,26,0.60);
+    --ink-40:    rgba(26,26,26,0.40);
+    --ink-28:    rgba(26,26,26,0.28);
+    --ink-12:    rgba(26,26,26,0.12);
+    --ink-08:    rgba(26,26,26,0.08);
+    --gold:      #c9a96e;
+    --gold-soft: rgba(201,169,110,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 56px) clamp(24px, 6vw, 80px) clamp(64px, 8vw, 96px);
+  }
+
+  /* CHROME */
+  .chrome {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-40); font-weight: 600;
+    padding-bottom: 18px; border-bottom: 1px solid var(--ink-08);
+    margin-bottom: clamp(40px, 6vw, 72px);
+    gap: 12px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+  .brand-mark svg { display: block; }
+  .brand-word {
+    font-weight: 600; font-size: 18px;
+    letter-spacing: -0.005em; text-transform: none;
+    white-space: nowrap;
+  }
+  .brand-word .cirql { color: var(--gold); font-weight: 600; }
+  .chrome-right { display: flex; align-items: center; gap: 20px; }
+  .chrome-cta {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 9px 16px;
+    background: var(--ink); color: var(--bg);
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    line-height: 1;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .chrome-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+  .chrome-cta svg { width: 11px; height: 11px; }
+  .chrome .meta { display: flex; gap: 14px; align-items: center; }
+  .chrome .meta .sep { width: 3px; height: 3px; background: var(--ink-28); border-radius: 50%; }
+  @media (max-width: 720px) {
+    .brand-word { font-size: 14px; }
+    .chrome-cta { padding: 8px 10px; font-size: 0; letter-spacing: 0; }
+    .chrome-cta svg { width: 14px; height: 14px; }
+    .chrome-cta span { display: none; }
+    .chrome .meta { font-size: 9px; gap: 8px; }
+  }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-bottom: clamp(24px, 3vw, 32px);
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-40);
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--ink); }
+  .back-link svg { width: 12px; height: 12px; transform: rotate(180deg); }
+
+  /* HERO */
+  .hero { margin-bottom: clamp(40px, 6vw, 64px); }
+  .eyebrow {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 11px; margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(40px, 7vw, 88px);
+    line-height: 1.0; letter-spacing: -0.035em;
+    font-weight: 700;
+  }
+  h1 .cirql { font-style: italic; color: var(--gold); }
+  .lede {
+    margin-top: 24px;
+    font-size: clamp(16px, 1.4vw, 19px);
+    color: var(--ink-60); max-width: 62ch;
+    line-height: 1.55;
+  }
+
+  /* SECTION HEADER */
+  .weeks-section { margin-bottom: clamp(40px, 5vw, 56px); }
+  .weeks-section:last-of-type { margin-bottom: 0; }
+
+  .section-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: clamp(16px, 1.8vw, 22px);
+    padding-bottom: clamp(12px, 1.2vw, 16px);
+    border-bottom: 1px solid var(--ink-08);
+    gap: 12px; flex-wrap: wrap;
+  }
+  .section-label {
+    font-size: clamp(15px, 1.4vw, 19px);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-meta {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-40);
+  }
+
+  /* CARD GRID */
+  .weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+  @media (max-width: 1024px) { .weeks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .weeks-grid { grid-template-columns: 1fr; } }
+
+  /* COMING SOON variant */
+.week-card {
+    background: var(--bg);
+    border: 1px solid var(--ink-12);
+    display: flex; flex-direction: column;
+    box-shadow: 0 1px 2px rgba(26,26,26,0.03), 0 8px 24px rgba(26,26,26,0.04);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    color: var(--ink);
+  }
+  .week-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    box-shadow: 0 2px 4px rgba(26,26,26,0.04), 0 16px 40px rgba(26,26,26,0.08);
+  }
+
+  .week-image {
+    display: block; width: 100%;
+    aspect-ratio: 1200 / 630;
+    background: var(--offwhite);
+    position: relative;
+    overflow: hidden;
+  }
+  .week-image svg { display: block; width: 100%; height: 100%; }
+
+  .week-body {
+    padding: clamp(16px, 1.4vw, 22px);
+    display: flex; flex-direction: column;
+    flex: 1;
+  }
+
+  .week-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 10px; margin-bottom: clamp(10px, 1vw, 14px);
+  }
+  .week-date {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-soft);
+    padding: 5px 10px;
+    line-height: 1;
+  }
+  .week-tag {
+    font-size: 9px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-40);
+    align-self: flex-start;
+    padding-top: 5px;
+  }
+  .week-tag.live {
+    color: var(--ink); background: var(--ink); color: var(--bg);
+    padding: 5px 10px;
+    font-weight: 700; letter-spacing: 0.20em;
+    line-height: 1;
+  }
+
+  .week-title {
+    font-weight: 700;
+    font-size: clamp(16px, 1.4vw, 20px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+
+  .week-desc {
+    font-size: clamp(12px, 0.95vw, 13.5px); line-height: 1.55;
+    color: var(--ink-60);
+    margin: 0 0 auto;
+  }
+  .week-desc b { font-weight: 600; color: var(--ink); }
+
+  .week-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: clamp(12px, 1.2vw, 18px);
+    padding: 8px 12px;
+    background: var(--ink); color: var(--bg);
+    font-size: 9.5px; font-weight: 600;
+    letter-spacing: 0.20em; text-transform: uppercase;
+    line-height: 1; align-self: flex-start;
+    transition: opacity 0.2s;
+  }
+  .week-card:hover .week-link { opacity: 0.88; }
+  .week-link svg { width: 12px; height: 12px; }
+
+  /* FOOTER */
+  footer {
+    margin-top: clamp(56px, 8vw, 96px);
+    padding-top: 24px;
+    border-top: 1px solid var(--ink-08);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-40); font-weight: 600;
+    flex-wrap: wrap; gap: 12px;
+  }
+  footer a {
+    color: var(--ink-60);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--ink); }
+
+  /* uniform co-brand header */
+  .cb{display:flex;align-items:center;gap:10px;}
+  .cb svg{display:block;flex-shrink:0;}
+  .ao-word{display:flex;flex-direction:column;line-height:1.06;white-space:nowrap;text-align:left;}
+  .ao-word .ao-sans{font-family:'DM Sans','Inter',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-0.04em;color:var(--ink);text-transform:none;}
+  .ao-word .ao-serif{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:14.5px;letter-spacing:-0.01em;color:var(--gold);text-transform:none;}
+  .brand-div{width:1px;height:26px;background:var(--ink-12);flex-shrink:0;}
+  @media(max-width:640px){.ao-word .ao-sans{font-size:11.5px;}.ao-word .ao-serif{font-size:12.5px;}}
+</style>
+</head>
+<body>
+
+<!-- Shared SVG defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ao-mark" viewBox="0 0 100 100">
+    <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+    <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="brand-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="12" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="50" cy="88" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="page">
+
+  <!-- CHROME -->
+  <div class="chrome">
+    <a class="brand" href="/" style="gap:16px;">
+      <span class="cb"><svg width="32" height="32"><use href="#ao-mark"/></svg><span class="ao-word"><span class="ao-sans">The Always-On</span><span class="ao-serif">Agent System</span></span></span>
+      <span class="brand-div"></span>
+      <span class="cb"><svg width="27" height="27"><use href="#brand-mark"/></svg><span class="brand-word">Inner <span class="cirql">Cirql</span></span></span>
+    </a>
+    <div class="chrome-right">
+      <div class="meta">
+        <span>Resources</span>
+        <span class="sep"></span>
+        <span>Weekly Slides</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACK LINK -->
+  <a class="back-link" href="/">
+    <svg><use href="#i-arrow"/></svg>
+    <span>Home</span>
+  </a>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Weekly Coaching Call</div>
+    <h1>Slide <span class="cirql">Library.</span></h1>
+    <p class="lede">The live coaching call we run every Wednesday at 10 AM CT: wins, industry news, the quote of the week, accountability, and the teaching segment. Every week's deck is here. Open the one you missed.</p>
+  </section>
+
+  <!-- ALL WEEKS -->
+  <section class="weeks-section">
+    <div class="section-head">
+      <span class="section-label">Past Weeks</span>
+      <span class="section-meta">Every Wednesday · 10 AM CT</span>
+    </div>
+    <div class="weeks-grid">
+      <a href="https://coach.theinnercirql.com/" target="_blank" rel="noopener" class="week-card">
+        <div class="week-image" aria-hidden="true">
+          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="1200" height="630" fill="#faf8f4"/>
+            <g transform="translate(720, 180)">
+              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
+              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
+              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
+              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 8</text>
+            </g>
+            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
+            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · MAY 27, 2026</text>
+            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Done-For-You</text>
+            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Installs Launch.</text>
+            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">GEO. Origin. Clara. We install all three.</text>
+            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
+          </svg>
+        </div>
+        <div class="week-body">
+          <div class="week-top">
+            <span class="week-date">May 27, 2026</span>
+            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
+          </div>
+          <h2 class="week-title">Done-For-You Installs Launch.</h2>
+          <p class="week-desc">Week one of the recurring coaching call. Launching <b>Done-For-You installs</b> of GEO, Origin, and Clara. Plus wins, the Tony Robbins quote on consistency, accountability, and upcoming MN events.</p>
+          <span class="week-link">
+            <span>Open Slides</span>
+            <svg><use href="#i-arrow"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://coach.theinnercirql.com/2026-06-03/" target="_blank" rel="noopener" class="week-card">
+        <div class="week-image" aria-hidden="true">
+          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="1200" height="630" fill="#faf8f4"/>
+            <g transform="translate(720, 180)">
+              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
+              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
+              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
+              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 8</text>
+            </g>
+            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
+            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 3, 2026</text>
+            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Week</text>
+            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Two.</text>
+            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">Topic gets locked the morning of.</text>
+            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
+          </svg>
+        </div>
+        <div class="week-body">
+          <div class="week-top">
+            <span class="week-date">June 3, 2026</span>
+            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
+          </div>
+          <h2 class="week-title">Done-For-You Installs Launch · Week 2.</h2>
+          <p class="week-desc">Melissa's 3.5% listing win. Tony Robbins on consistency. <b>Up Next teed up Niche + Offer</b> for the Positioning Series. Plus four upcoming events in MN.</p>
+          <span class="week-link">
+            <span>Open Slides</span>
+            <svg><use href="#i-arrow"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://coach.theinnercirql.com/2026-06-10/" target="_blank" rel="noopener" class="week-card">
+        <div class="week-image" aria-hidden="true">
+          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="1200" height="630" fill="#faf8f4"/>
+            <g transform="translate(720, 180)">
+              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
+              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
+              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
+              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 18</text>
+            </g>
+            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
+            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 10, 2026</text>
+            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Define Your</text>
+            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Niche.</text>
+            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Positioning Series &#183; Week 1 of 3</text>
+            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
+          </svg>
+        </div>
+        <div class="week-body">
+          <div class="week-top">
+            <span class="week-date">June 10, 2026</span>
+            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
+          </div>
+          <h2 class="week-title">The Positioning Series &#183; Week 1 &#183; Niche.</h2>
+          <p class="week-desc">Define your <b>Niche</b> with The 3 P's: Person, Problem, Process. <b>Bren&#233; Brown</b> on clarity, the Realtor.com / ChatGPT story, and a 'Niche Hot Seat' workshop.</p>
+          <span class="week-link">
+            <span>Open Slides</span>
+            <svg><use href="#i-arrow"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://coach.theinnercirql.com/2026-06-17/" target="_blank" rel="noopener" class="week-card">
+        <div class="week-image" aria-hidden="true">
+          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="1200" height="630" fill="#faf8f4"/>
+            <g transform="translate(720, 180)">
+              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
+              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
+              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
+              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 19</text>
+            </g>
+            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
+            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 17, 2026</text>
+            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Craft Your</text>
+            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Offer.</text>
+            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Positioning Series &#183; Week 2 of 3</text>
+            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
+          </svg>
+        </div>
+        <div class="week-body">
+          <div class="week-top">
+            <span class="week-date">June 17, 2026</span>
+            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
+          </div>
+          <h2 class="week-title">The Positioning Series &#183; Week 2 &#183; Offer.</h2>
+          <p class="week-desc">Wrap your Niche in an <b>Offer</b>: Promise &#183; Container &#183; Guarantee &#183; Pillars. <b>James Clear</b> on systems, the Alloy Advisors 'AI breaks the commission model' report, and an 'Offer Hot Seat' workshop.</p>
+          <span class="week-link">
+            <span>Open Slides</span>
+            <svg><use href="#i-arrow"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://coach.theinnercirql.com/2026-06-24/" target="_blank" rel="noopener" class="week-card">
+        <div class="week-image" aria-hidden="true">
+          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="1200" height="630" fill="#faf8f4"/>
+            <g transform="translate(720, 180)">
+              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
+              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
+              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
+              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 19</text>
+            </g>
+            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
+            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 24, 2026</text>
+            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Build Your</text>
+            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Mechanism.</text>
+            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Positioning Series &#183; Week 3 of 3</text>
+            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
+          </svg>
+        </div>
+        <div class="week-body">
+          <div class="week-top">
+            <span class="week-date">June 24, 2026</span>
+            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
+          </div>
+          <h2 class="week-title">The Positioning Series &#183; Week 3 &#183; Mechanism.</h2>
+          <p class="week-desc">The capstone: the <b>six-line Mechanism</b> &#8212; why everything they've tried failed, and why your way is different. <b>Simon Sinek</b> on "why," the Forrester differentiation report, and a 'Mechanism Hot Seat' workshop.</p>
+          <span class="week-link">
+            <span>Open Slides</span>
+            <svg><use href="#i-arrow"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://coach.theinnercirql.com/2026-07-01/" target="_blank" rel="noopener" class="week-card">
+        <div class="week-image" aria-hidden="true">
+          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+            <rect width="1200" height="630" fill="#faf8f4"/>
+            <g transform="translate(720, 180)">
+              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
+              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
+              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
+              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
+              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
+              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
+              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 17</text>
+            </g>
+            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
+            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUL 1, 2026</text>
+            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Lock Your</text>
+            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Claim.</text>
+            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The CITED Series &#183; Week 1 of 5</text>
+            <g transform="translate(72, 522)"><rect width="155" height="32" fill="#1a1a1a"/><text x="16" y="21" fill="#ffffff" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">THIS WEEK</text><circle cx="135" cy="16" r="4" fill="#c9a96e"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle></g>
+          </svg>
+        </div>
+        <div class="week-body">
+          <div class="week-top">
+            <span class="week-date">July 1, 2026</span>
+            <span class="week-tag live">This Week</span>
+          </div>
+          <h2 class="week-title">The CITED Series &#183; Week 1 &#183; Claim.</h2>
+          <p class="week-desc">Launch of the five places AI looks for you: Claim, Index, Trust, Entity, Domain. Week 1 locks your <b>Claim</b>, the exact words AI repeats. FlyDragon's 91%-invisible stat, Goethe, and the live Claim Read-Off.</p>
+          <span class="week-link">
+            <span>Open Slides</span>
+            <svg><use href="#i-arrow"/></svg>
+          </span>
+        </div>
+      </a>
+
+
+
+
+
+</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>Inner Cirql · Weekly Slides Library</span>
+    <span>Updated every Wednesday · <a href="/">All Resources →</a></span>
+  </footer>
+
+</div>
+
+</body>
+</html>

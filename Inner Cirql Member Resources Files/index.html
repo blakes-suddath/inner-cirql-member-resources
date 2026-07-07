@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resources | The Inner Cirql</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --offwhite:#faf8f4; --ink:#1a1a1a;
+    --ink-60:rgba(26,26,26,0.60); --ink-40:rgba(26,26,26,0.40); --ink-12:rgba(26,26,26,0.12); --ink-08:rgba(26,26,26,0.08);
+    --gold:#c9a96e; --gold-soft:rgba(201,169,110,0.14);
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--ink);}
+  body{font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
+
+  /* chrome */
+  .chrome{display:flex;align-items:center;gap:12px;padding:26px 0 0;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand-word{font-weight:600;font-size:18px;letter-spacing:-0.005em;}
+  .brand-word .cirql{color:var(--gold);}
+  /* co-brand lockup */
+  .cobrand{display:flex;align-items:center;justify-content:center;gap:38px;margin-bottom:clamp(28px,4vw,44px);flex-wrap:wrap;}
+  .colo{display:flex;align-items:center;gap:16px;}
+  .colo svg{display:block;flex-shrink:0;}
+  .ao-word{display:flex;flex-direction:column;line-height:1.06;white-space:nowrap;text-align:left;}
+  .ao-word .ao-sans{font-family:'DM Sans',var(--font);font-weight:700;font-size:27px;letter-spacing:-0.045em;color:var(--ink);}
+  .ao-word .ao-serif{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:29px;letter-spacing:-0.01em;color:var(--gold);}
+  .colo-word{font-weight:600;font-size:29px;letter-spacing:-0.015em;white-space:nowrap;}
+  .colo-word .cirql{color:var(--gold);}
+  .colo-div{width:1px;height:54px;background:var(--ink-12);}
+  @media(max-width:640px){
+    .cobrand{gap:20px;}
+    .colo{gap:11px;}
+    .colo svg{width:40px;height:40px;}
+    .ao-word .ao-sans{font-size:18px;}
+    .ao-word .ao-serif{font-size:19px;}
+    .colo-word{font-size:19px;}
+    .colo-div{height:38px;}
+  }
+
+  /* hero */
+  header.hero{text-align:center;padding:clamp(48px,8vw,96px) 0 clamp(36px,5vw,56px);}
+  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;font-size:11px;margin-bottom:16px;}
+  h1{font-size:clamp(40px,6.5vw,68px);line-height:1.02;letter-spacing:-0.03em;font-weight:700;}
+  h1 .cirql{font-style:italic;color:var(--gold);}
+  .lede{font-size:17px;color:var(--ink-60);max-width:52ch;margin:18px auto 0;line-height:1.6;}
+
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:8px 0 clamp(64px,9vw,120px);}
+  @media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr);max-width:660px;margin:0 auto;}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr;max-width:460px;}}
+  .card{
+    position:relative;background:var(--bg);border:1px solid var(--ink-08);border-radius:18px;
+    overflow:hidden;display:flex;flex-direction:column;
+    box-shadow:0 1px 2px rgba(26,26,26,0.04),0 4px 14px -6px rgba(26,26,26,0.05);
+    transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,box-shadow .22s ease;
+  }
+  .card:hover{
+    transform:translateY(-4px);border-color:rgba(201,169,110,0.55);
+    box-shadow:0 1px 2px rgba(26,26,26,0.04),0 24px 48px -16px rgba(26,26,26,0.18);
+  }
+  .card:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  /* visual header */
+  .card-visual{
+    position:relative;height:148px;flex-shrink:0;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 20% 0%,rgba(201,169,110,0.13),transparent 55%),
+      linear-gradient(160deg,var(--offwhite) 0%,#f5f0e7 100%);
+    border-bottom:1px solid var(--ink-08);
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .card-visual .illus{display:block;width:78%;height:auto;margin-bottom:-1px;filter:drop-shadow(0 10px 18px rgba(26,26,26,0.10));transition:transform .3s cubic-bezier(.2,.7,.3,1);}
+  .card:hover .card-visual .illus{transform:translateY(-4px) scale(1.025);}
+  /* body */
+  .card-body{padding:20px 22px 20px;display:flex;flex-direction:column;flex:1;}
+  .card-kicker{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-40);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .card-kicker .dot{width:4px;height:4px;border-radius:50%;background:var(--gold);}
+  .card h2{font-size:19px;font-weight:700;letter-spacing:-0.015em;line-height:1.2;margin-bottom:7px;}
+  .card p{font-size:13.5px;color:var(--ink-60);line-height:1.55;flex:1;}
+  /* footer row */
+  .card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:18px;padding-top:16px;border-top:1px solid var(--ink-08);}
+  .card-cta{font-size:12.5px;font-weight:600;letter-spacing:0.01em;color:var(--ink);transition:color .2s ease;}
+  .card:hover .card-cta{color:var(--gold);}
+  .card-go{width:30px;height:30px;border-radius:50%;border:1px solid var(--ink-12);display:flex;align-items:center;justify-content:center;color:var(--ink-40);transition:background .22s ease,border-color .22s ease,color .22s ease,transform .22s ease;}
+  .card-go svg{width:13px;height:13px;}
+  .card:hover .card-go{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateX(3px);}
+
+  footer{border-top:1px solid var(--ink-08);padding:26px 0 40px;text-align:center;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-40);font-weight:600;}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="mark" viewBox="0 0 100 100">
+    <circle cx="50" cy="12" r="5" fill="#c9a96e"/><circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/><circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/><circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/><circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/><circle cx="50" cy="88" r="5" fill="#c9a96e"/><circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/><circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/><circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/><circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+  </symbol>
+  <symbol id="ao-mark" viewBox="0 0 100 100">
+    <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+    <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 10.5l5-3v9l-5-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/></symbol>
+  <symbol id="i-docs" viewBox="0 0 24 24"><path d="M6 2.5h8l4 4v15H6v-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/><path d="M14 2.5v4h4M9 11h6M9 14.5h6M9 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/></symbol>
+  <symbol id="i-slides" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 17v3M8.5 21h7" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+  <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2.5 20c.8-3.4 3.4-5.5 6.5-5.5s5.7 2.1 6.5 5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/><path d="M15.5 4.9a3.5 3.5 0 0 1 0 6.2M17.8 14.9c1.9.8 3.3 2.6 3.7 5.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+</defs></svg>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="cobrand">
+      <span class="colo"><svg width="62" height="62"><use href="#ao-mark"/></svg><span class="ao-word"><span class="ao-sans">The Always-On</span><span class="ao-serif">Agent System</span></span></span>
+      <span class="colo-div"></span>
+      <span class="colo"><svg width="48" height="48"><use href="#mark"/></svg><span class="colo-word">Inner <span class="cirql">Cirql</span></span></span>
+    </div>
+    <h1>Member <span class="cirql">Resources.</span></h1>
+    <p class="lede">Your training, your resources, every coaching call slide, and the community. Bookmark this page.</p>
+  </header>
+
+  <div class="cards">
+
+    <a class="card" href="#">
+      <div class="card-visual">
+        <svg class="illus" viewBox="0 0 220 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12 A12 12 0 0 1 20 0 H200 A12 12 0 0 1 212 12 V118 H8 Z" fill="#ffffff" stroke="#e7e2d8"/>
+          <circle cx="24" cy="13" r="2.4" fill="#e3ded4"/><circle cx="33" cy="13" r="2.4" fill="#e3ded4"/><circle cx="42" cy="13" r="2.4" fill="#e3ded4"/>
+          <line x1="8" y1="24" x2="212" y2="24" stroke="#efeae1"/>
+          <rect x="22" y="36" width="176" height="56" rx="6" fill="#faf8f4" stroke="#ece7db"/>
+          <circle cx="110" cy="64" r="14" fill="#c9a96e"/>
+          <path d="M106 57.5 L117 64 L106 70.5 Z" fill="#ffffff"/>
+          <rect x="22" y="102" width="176" height="5" rx="2.5" fill="#f0ece2"/>
+          <rect x="22" y="102" width="74" height="5" rx="2.5" fill="#c9a96e"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-kicker"><span class="dot"></span>01 · On Demand</div>
+        <h2>Training Library</h2>
+        <p>Every course, on demand. The full video library behind the coaching, ready whenever a question comes up.</p>
+        <div class="card-foot">
+          <span class="card-cta">Open Library</span>
+          <span class="card-go"><svg><use href="#i-arrow"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="/resources">
+      <div class="card-visual">
+        <svg class="illus" viewBox="0 0 220 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12 A12 12 0 0 1 20 0 H200 A12 12 0 0 1 212 12 V118 H8 Z" fill="#ffffff" stroke="#e7e2d8"/>
+          <circle cx="24" cy="13" r="2.4" fill="#e3ded4"/><circle cx="33" cy="13" r="2.4" fill="#e3ded4"/><circle cx="42" cy="13" r="2.4" fill="#e3ded4"/>
+          <line x1="8" y1="24" x2="212" y2="24" stroke="#efeae1"/>
+          <rect x="22" y="34" width="176" height="24" rx="5" fill="#faf8f4"/>
+          <rect x="30" y="40" width="12" height="12" rx="3" fill="rgba(201,169,110,0.35)"/>
+          <rect x="50" y="42" width="86" height="4" rx="2" fill="#ddd8cc"/>
+          <rect x="50" y="49" width="56" height="3.5" rx="1.75" fill="#eae5da"/>
+          <circle cx="184" cy="46" r="8" fill="#c9a96e"/><path d="M184 42v6M181 46l3 3 3-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          <rect x="22" y="64" width="176" height="24" rx="5" fill="#faf8f4"/>
+          <rect x="30" y="70" width="12" height="12" rx="3" fill="rgba(201,169,110,0.35)"/>
+          <rect x="50" y="72" width="72" height="4" rx="2" fill="#ddd8cc"/>
+          <rect x="50" y="79" width="94" height="3.5" rx="1.75" fill="#eae5da"/>
+          <circle cx="184" cy="76" r="8" fill="#c9a96e"/><path d="M184 72v6M181 76l3 3 3-3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+          <rect x="22" y="94" width="176" height="24" rx="5" fill="#faf8f4"/>
+          <rect x="30" y="100" width="12" height="12" rx="3" fill="rgba(201,169,110,0.35)"/>
+          <rect x="50" y="102" width="92" height="4" rx="2" fill="#ddd8cc"/>
+          <rect x="50" y="109" width="60" height="3.5" rx="1.75" fill="#eae5da"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-kicker"><span class="dot"></span>02 · Guides + Tools</div>
+        <h2>Resources</h2>
+        <p>Guides, checklists, and playbooks. Everything you can download, print, and put to work today.</p>
+        <div class="card-foot">
+          <span class="card-cta">Browse Resources</span>
+          <span class="card-go"><svg><use href="#i-arrow"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="/slides">
+      <div class="card-visual">
+        <svg class="illus" viewBox="0 0 220 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12 A12 12 0 0 1 20 0 H200 A12 12 0 0 1 212 12 V118 H8 Z" fill="#ffffff" stroke="#e7e2d8"/>
+          <circle cx="24" cy="13" r="2.4" fill="#e3ded4"/><circle cx="33" cy="13" r="2.4" fill="#e3ded4"/><circle cx="42" cy="13" r="2.4" fill="#e3ded4"/>
+          <line x1="8" y1="24" x2="212" y2="24" stroke="#efeae1"/>
+          <rect x="22" y="34" width="176" height="78" rx="6" fill="#faf8f4" stroke="#ece7db"/>
+          <rect x="36" y="48" width="70" height="8" rx="4" fill="#2a2a28"/>
+          <rect x="36" y="62" width="34" height="5" rx="2.5" fill="#c9a96e"/>
+          <rect x="36" y="78" width="52" height="3.5" rx="1.75" fill="#ddd8cc"/>
+          <rect x="36" y="86" width="44" height="3.5" rx="1.75" fill="#eae5da"/>
+          <rect x="140" y="76" width="12" height="22" rx="2.5" fill="rgba(201,169,110,0.35)"/>
+          <rect x="156" y="66" width="12" height="32" rx="2.5" fill="rgba(201,169,110,0.6)"/>
+          <rect x="172" y="54" width="12" height="44" rx="2.5" fill="#c9a96e"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-kicker"><span class="dot"></span>03 · Every Wednesday</div>
+        <h2>Slides</h2>
+        <p>The weekly coaching call decks. Every session, saved so you can catch up or revisit any week.</p>
+        <div class="card-foot">
+          <span class="card-cta">View Slides</span>
+          <span class="card-go"><svg><use href="#i-arrow"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="https://the-inner-cirql.app.clientclub.net/communities/groups/the-inner-cirql-community/home" target="_blank" rel="noopener">
+      <div class="card-visual">
+        <svg class="illus" viewBox="0 0 220 118" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 12 A12 12 0 0 1 20 0 H200 A12 12 0 0 1 212 12 V118 H8 Z" fill="#ffffff" stroke="#e7e2d8"/>
+          <circle cx="24" cy="13" r="2.4" fill="#e3ded4"/><circle cx="33" cy="13" r="2.4" fill="#e3ded4"/><circle cx="42" cy="13" r="2.4" fill="#e3ded4"/>
+          <line x1="8" y1="24" x2="212" y2="24" stroke="#efeae1"/>
+          <circle cx="86" cy="56" r="15" fill="#f2ead9" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="86" cy="51.5" r="5" fill="#d9c39a"/><path d="M76 64c1.8-5 5.5-7.5 10-7.5s8.2 2.5 10 7.5" fill="#d9c39a"/>
+          <circle cx="110" cy="56" r="15" fill="#e9ddc2" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="110" cy="51.5" r="5" fill="#c9a96e"/><path d="M100 64c1.8-5 5.5-7.5 10-7.5s8.2 2.5 10 7.5" fill="#c9a96e"/>
+          <circle cx="134" cy="56" r="15" fill="#f2ead9" stroke="#ffffff" stroke-width="3"/>
+          <circle cx="134" cy="51.5" r="5" fill="#d9c39a"/><path d="M124 64c1.8-5 5.5-7.5 10-7.5s8.2 2.5 10 7.5" fill="#d9c39a"/>
+          <rect x="66" y="84" width="88" height="24" rx="12" fill="#c9a96e"/>
+          <circle cx="98" cy="96" r="2.6" fill="#ffffff"/><circle cx="110" cy="96" r="2.6" fill="#ffffff"/><circle cx="122" cy="96" r="2.6" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-kicker"><span class="dot"></span>04 · Members</div>
+        <h2>Community</h2>
+        <p>The Inner Cirql group. Post your wins, ask your questions, and stay accountable with the rest of the room.</p>
+        <div class="card-foot">
+          <span class="card-cta">Open Community</span>
+          <span class="card-go"><svg><use href="#i-arrow"/></svg></span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<footer>The Inner Cirql · Member Resources</footer>
+
+</body>
+</html>

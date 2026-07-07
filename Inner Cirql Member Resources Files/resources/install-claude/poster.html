@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>How to Install Claude. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --offwhite:  #faf8f4;
+    --ink:       #1a1a1a;
+    --ink-60:    rgba(26,26,26,0.60);
+    --ink-40:    rgba(26,26,26,0.40);
+    --ink-12:    rgba(26,26,26,0.12);
+    --gold:      #c9a96e;
+    --gold-soft: rgba(201,169,110,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Print: real 8.5x11 letter PDF, scaled from 1275px design. */
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { width: 8.5in; height: 11in; margin: 0; padding: 0; overflow: hidden; }
+    .poster {
+      width: 1275px;
+      height: 1650px;
+      transform: scale(0.64);
+      transform-origin: top left;
+      box-shadow: none !important;
+    }
+  }
+
+  /* 8.5 x 11 in @ 150 DPI = 1275 x 1650 */
+  .poster {
+    width: 1275px;
+    min-height: 1650px;
+    height: 1650px;
+    background: var(--bg);
+    padding: 56px 80px 56px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    flex-shrink: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 24px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-word {
+    font-weight: 600; font-size: 24px;
+    letter-spacing: -0.005em;
+  }
+  .brand-word .cirql { color: var(--gold); }
+  .header-meta {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-40);
+  }
+
+  /* HERO */
+  .hero {
+    flex-shrink: 0;
+    padding: 32px 0 28px;
+  }
+  .eyebrow {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    font-size: 14px; margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 92px;
+    line-height: 0.94; letter-spacing: -0.04em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  h1 .cirql { font-style: italic; color: var(--gold); }
+  .lede {
+    margin-top: 20px;
+    font-size: 22px;
+    color: var(--ink-60);
+    line-height: 1.45;
+    max-width: 38ch;
+    font-weight: 500;
+  }
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  /* STEPS - vertical flow chart */
+  .steps {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    border-top: 3px solid var(--ink);
+    padding-top: 8px;
+  }
+  .step {
+    flex: 1 1 0;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    align-items: stretch;
+    gap: 44px;
+    min-height: 0;
+  }
+  /* node column with the connecting through-line */
+  .step-node {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-node::before,
+  .step-node::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 4px;
+    background: var(--gold);
+    transform: translateX(-50%);
+    z-index: 0;
+  }
+  .step:not(:first-child) .step-node::before { top: 0; height: 50%; }
+  .step:not(:last-child) .step-node::after { bottom: 0; height: 50%; }
+  .node-circle {
+    position: relative;
+    z-index: 2;
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-icon {
+    width: 60px; height: 60px;
+    color: var(--gold);
+  }
+  .step-icon svg { display: block; width: 100%; height: 100%; }
+  /* downward flow arrow sitting on the through-line between nodes */
+  .flow-arrow {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    z-index: 3;
+    width: 30px; height: 30px;
+    color: var(--gold);
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flow-arrow svg { display: block; width: 100%; height: 100%; }
+  .step-text {
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    gap: 8px;
+    min-width: 0;
+  }
+  .step-num {
+    font-size: 16px; font-weight: 700;
+    letter-spacing: 0.30em; text-transform: uppercase;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .step-title {
+    font-size: 40px; font-weight: 700;
+    line-height: 1.04; letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .step-title .cirql { color: var(--gold); font-style: italic; }
+  .step-body {
+    font-size: 20px; line-height: 1.38;
+    color: var(--ink-60);
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .step-body strong { color: var(--ink); font-weight: 700; }
+  .step-body .url {
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* FOOTER */
+  .footer {
+    flex-shrink: 0;
+    margin-top: 32px;
+    padding-top: 22px;
+    border-top: 3px solid var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px;
+  }
+  .footer-line {
+    font-size: 19px;
+    font-weight: 600; letter-spacing: -0.01em;
+  }
+  .footer-line .cirql { font-style: italic; color: var(--gold); }
+  .footer-url {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="12" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="50" cy="88" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+    </symbol>
+
+    <!-- Browser: window with address bar and traffic-light dots -->
+    <symbol id="i-browser" viewBox="0 0 24 24">
+      <rect x="2" y="4" width="20" height="16" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <line x1="2" y1="9" x2="22" y2="9" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="4.8" cy="6.5" r="0.7" fill="currentColor"/>
+      <circle cx="7.2" cy="6.5" r="0.7" fill="currentColor"/>
+      <circle cx="9.6" cy="6.5" r="0.7" fill="currentColor"/>
+    </symbol>
+
+    <!-- Sign up: person silhouette with plus -->
+    <symbol id="i-signup" viewBox="0 0 24 24">
+      <circle cx="10" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M3 20c0-3.5 3.13-6 7-6 1.6 0 3.07.43 4.27 1.18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      <line x1="18" y1="14" x2="18" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      <line x1="15" y1="17" x2="21" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+    </symbol>
+
+    <!-- Chat: speech bubble with three dots -->
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <path d="M3 5h18v12H9l-5 4V5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+      <circle cx="8" cy="11" r="1.1" fill="currentColor"/>
+      <circle cx="12" cy="11" r="1.1" fill="currentColor"/>
+      <circle cx="16" cy="11" r="1.1" fill="currentColor"/>
+    </symbol>
+
+    <!-- Choice: a fork splitting into two paths -->
+    <symbol id="i-choice" viewBox="0 0 24 24">
+      <path d="M12 21V12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      <path d="M12 12C12 8 9 7 5 7M12 12C12 8 15 7 19 7" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      <circle cx="5" cy="7" r="2.4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="19" cy="7" r="2.4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+
+    <!-- Confirm: check mark inside a circle -->
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M8 12.2l2.6 2.6L16 9.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="miter"/>
+    </symbol>
+
+    <!-- User: simple person silhouette for "add your name" -->
+    <symbol id="i-user" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4.5 20c0-3.8 3.4-6.4 7.5-6.4s7.5 2.6 7.5 6.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+    </symbol>
+
+    <!-- Down chevron: flow direction between steps -->
+    <symbol id="i-arrow-down" viewBox="0 0 24 24">
+      <path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <svg width="44" height="44"><use href="#brand-mark"/></svg>
+      <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+    </div>
+    <div class="header-meta">Claude 101. Install Guide.</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">For Real Estate Agents</div>
+    <h1>How to Install <span class="cirql">Claude.</span></h1>
+    <p class="lede">Six easy steps. Five minutes. <strong>No tech experience needed.</strong></p>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps">
+
+    <div class="step">
+      <div class="step-node">
+        <div class="node-circle"><div class="step-icon"><svg><use href="#i-browser"/></svg></div></div>
+        <div class="flow-arrow"><svg><use href="#i-arrow-down"/></svg></div>
+      </div>
+      <div class="step-text">
+        <div class="step-num">Step 01</div>
+        <div class="step-title">Go to <span class="cirql">claude.ai</span></div>
+        <div class="step-body">Type <span class="url">claude.ai</span> in your browser. Hit enter.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-node">
+        <div class="node-circle"><div class="step-icon"><svg><use href="#i-signup"/></svg></div></div>
+        <div class="flow-arrow"><svg><use href="#i-arrow-down"/></svg></div>
+      </div>
+      <div class="step-text">
+        <div class="step-num">Step 02</div>
+        <div class="step-title">Click <span class="cirql">Sign Up.</span></div>
+        <div class="step-body">Look top-right. Click the button.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-node">
+        <div class="node-circle"><div class="step-icon"><svg><use href="#i-choice"/></svg></div></div>
+        <div class="flow-arrow"><svg><use href="#i-arrow-down"/></svg></div>
+      </div>
+      <div class="step-text">
+        <div class="step-num">Step 03</div>
+        <div class="step-title">Pick how to <span class="cirql">join.</span></div>
+        <div class="step-body">Use <strong>Google</strong>, or type your email.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-node">
+        <div class="node-circle"><div class="step-icon"><svg><use href="#i-check"/></svg></div></div>
+        <div class="flow-arrow"><svg><use href="#i-arrow-down"/></svg></div>
+      </div>
+      <div class="step-text">
+        <div class="step-num">Step 04</div>
+        <div class="step-title">Confirm it's <span class="cirql">you.</span></div>
+        <div class="step-body">Google: click your account. Email: type the code they send.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-node">
+        <div class="node-circle"><div class="step-icon"><svg><use href="#i-user"/></svg></div></div>
+        <div class="flow-arrow"><svg><use href="#i-arrow-down"/></svg></div>
+      </div>
+      <div class="step-text">
+        <div class="step-num">Step 05</div>
+        <div class="step-title">Add your <span class="cirql">name.</span></div>
+        <div class="step-body">Type your first name. Click continue.</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-node">
+        <div class="node-circle"><div class="step-icon"><svg><use href="#i-chat"/></svg></div></div>
+      </div>
+      <div class="step-text">
+        <div class="step-num">Step 06</div>
+        <div class="step-title">Ask a <span class="cirql">question.</span></div>
+        <div class="step-body">Type. Hit enter. <strong>Claude answers.</strong></div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+</body>
+</html>

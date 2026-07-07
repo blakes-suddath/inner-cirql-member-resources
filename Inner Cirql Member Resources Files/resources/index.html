@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resources | The Always-On Agent System</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --offwhite:#faf8f4; --ink:#1a1a1a;
+    --ink-60:rgba(26,26,26,0.60); --ink-40:rgba(26,26,26,0.40); --ink-12:rgba(26,26,26,0.12); --ink-08:rgba(26,26,26,0.08);
+    --gold:#c9a96e; --gold-soft:rgba(201,169,110,0.14);
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--bg);color:var(--ink);}
+  body{font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img{display:block;}
+  .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
+
+  /* chrome */
+  .chrome{display:flex;align-items:center;justify-content:space-between;padding:26px 0 0;}
+  .brand{display:flex;align-items:center;gap:11px;}
+  .brand-word{font-weight:600;font-size:18px;letter-spacing:-0.005em;}
+  .brand-word .cirql{color:var(--gold);}
+  .brand-word .the{color:var(--ink-40);font-weight:500;}
+  .back{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-40);display:inline-flex;align-items:center;gap:7px;transition:color .15s ease;}
+  .back:hover{color:var(--ink);}
+  .back svg{width:13px;height:13px;color:var(--gold);}
+
+  /* hero */
+  header.hero{padding:clamp(40px,7vw,72px) 0 clamp(24px,4vw,36px);}
+  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;font-size:11px;margin-bottom:14px;}
+  h1{font-size:clamp(38px,6vw,58px);line-height:1.03;letter-spacing:-0.03em;font-weight:700;}
+  .lede{font-size:16.5px;color:var(--ink-60);max-width:56ch;margin:16px 0 0;line-height:1.6;}
+
+  /* groups */
+  .group{padding:0 0 clamp(26px,4vw,42px);}
+  .group-title{font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-40);padding:0 0 12px;border-bottom:1px solid var(--ink-12);margin-bottom:2px;}
+
+  /* rows */
+  .res-row{display:flex;align-items:center;gap:20px;padding:18px 4px;border-bottom:1px solid var(--ink-08);transition:padding-left .16s ease,background .16s ease;}
+  .res-row:hover{padding-left:12px;background:linear-gradient(90deg,var(--gold-soft),transparent 70%);}
+  .res-row:last-child{border-bottom:none;}
+  .res-thumb{width:62px;height:80px;flex-shrink:0;border-radius:8px;border:1px solid var(--ink-12);object-fit:cover;object-position:top center;background:var(--bg);box-shadow:0 3px 10px rgba(26,26,26,0.07);transition:transform .16s ease,box-shadow .16s ease;}
+  .res-row:hover .res-thumb{transform:translateY(-2px);box-shadow:0 8px 20px rgba(26,26,26,0.12);}
+  .res-main{flex:1;min-width:0;}
+  .res-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .res-desc{font-size:14px;color:var(--ink-60);margin-top:3px;line-height:1.5;}
+  .tag{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:3px 9px;flex-shrink:0;}
+  .res-arrow{width:18px;height:18px;color:var(--ink-40);flex-shrink:0;transition:color .16s ease,transform .16s ease;}
+  .res-row:hover .res-arrow{color:var(--gold);transform:translateX(3px);}
+  @media(max-width:560px){
+    .res-thumb{width:52px;height:67px;}
+    .res-row{gap:15px;}
+  }
+
+  footer{border-top:1px solid var(--ink-08);padding:26px 0 40px;text-align:center;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-40);font-weight:600;margin-top:24px;}
+
+  /* uniform co-brand header */
+  .cb{display:flex;align-items:center;gap:10px;}
+  .cb svg{display:block;flex-shrink:0;}
+  .ao-word{display:flex;flex-direction:column;line-height:1.06;white-space:nowrap;text-align:left;}
+  .ao-word .ao-sans{font-family:'DM Sans','Inter',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-0.04em;color:var(--ink);text-transform:none;}
+  .ao-word .ao-serif{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:14.5px;letter-spacing:-0.01em;color:var(--gold);text-transform:none;}
+  .brand-div{width:1px;height:26px;background:var(--ink-12);flex-shrink:0;}
+  @media(max-width:640px){.ao-word .ao-sans{font-size:11.5px;}.ao-word .ao-serif{font-size:12.5px;}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ao-mark" viewBox="0 0 100 100">
+    <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+    <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="mark" viewBox="0 0 100 100">
+    <circle cx="50" cy="12" r="5" fill="#c9a96e"/><circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/><circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/><circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/><circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/><circle cx="50" cy="88" r="5" fill="#c9a96e"/><circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/><circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/><circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/><circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+  </symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+</defs></svg>
+
+<div class="wrap">
+  <div class="chrome">
+    <a class="brand" href="/" style="gap:16px;">
+      <span class="cb"><svg width="32" height="32"><use href="#ao-mark"/></svg><span class="ao-word"><span class="ao-sans">The Always-On</span><span class="ao-serif">Agent System</span></span></span>
+      <span class="brand-div"></span>
+      <span class="cb"><svg width="26" height="26"><use href="#mark"/></svg><span class="brand-word">Inner <span class="cirql">Cirql</span></span></span>
+    </a>
+    <a class="back" href="/"><svg><use href="#i-back"/></svg> All Resources</a>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Member Resources</div>
+    <h1>Resources</h1>
+    <p class="lede">Guides, checklists, playbooks, and tools. Everything you can open, download, and put to work today.</p>
+  </header>
+
+  <section class="group">
+    <div class="group-title">Start Here</div>
+
+    <a class="res-row" href="/resources/positioning-workbook/">
+      <img class="res-thumb" src="/assets/positioning-workbook-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">Positioning Workbook <span class="tag">Workbook</span></div>
+        <div class="res-desc">Define your niche, craft your offer, and build your mechanism. Make your own editable copy and fill it in.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/always-on-roadmap/">
+      <img class="res-thumb" src="/assets/always-on-roadmap-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">Always-On System Roadmap <span class="tag">Roadmap</span></div>
+        <div class="res-desc">Your week-by-week 12-week run, plus the four-phase flowchart. The whole system on one page.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/install-claude/">
+      <img class="res-thumb" src="/assets/install-claude-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">How to Install Claude <span class="tag">Guide</span></div>
+        <div class="res-desc">Step-by-step setup to get Claude running as your everyday tool.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/claude-pro-setup/">
+      <img class="res-thumb" src="/assets/claude-pro-setup-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">Claude Pro Setup <span class="tag">Guide</span></div>
+        <div class="res-desc">Configure Claude Pro for the highest-leverage real estate workflows.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/ai-vocab/">
+      <img class="res-thumb" src="/assets/ai-vocab-cheatsheet-v6.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">AI Vocab Cheatsheet <span class="tag">Cheatsheet</span></div>
+        <div class="res-desc">SEO, GEO, LLM, and the top AI brands, in plain English. Free download.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+  </section>
+
+  <section class="group">
+    <div class="group-title">Get Found Online</div>
+
+    <a class="res-row" href="/resources/google-business-profile/">
+      <img class="res-thumb" src="/assets/google-business-profile-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">Google Business Profile <span class="tag">Checklist</span></div>
+        <div class="res-desc">Set up and optimize your GBP so you show up in local search.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/gbp-setup/">
+      <img class="res-thumb" src="/assets/gbp-setup-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">GBP Setup Guide <span class="tag">Guide</span></div>
+        <div class="res-desc">Get your Google Business Profile from zero to verified.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/gbp-ai-checklist/">
+      <img class="res-thumb" src="/assets/gbp-ai-checklist-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">GBP AI Checklist <span class="tag">Checklist</span></div>
+        <div class="res-desc">A 15-point checklist to optimize your Google Business Profile with AI.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/geo-framework/">
+      <img class="res-thumb" src="/assets/geo-framework-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">GEO Framework <span class="tag">Playbook</span></div>
+        <div class="res-desc">The generative engine optimization blueprint. How to get found by AI.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+  </section>
+
+  <section class="group">
+    <div class="group-title">Level Up</div>
+
+    <a class="res-row" href="/resources/habit-stacking/">
+      <img class="res-thumb" src="/assets/habit-stacking-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">Habit Stacking <span class="tag">Guide</span></div>
+        <div class="res-desc">A daily AI habits framework built for real estate agents.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+    <a class="res-row" href="/resources/ai-toolkit/">
+      <img class="res-thumb" src="/assets/ai-toolkit-preview.png" alt="" loading="lazy">
+      <div class="res-main">
+        <div class="res-title">AI Toolkit <span class="tag">Toolkit</span></div>
+        <div class="res-desc">A curated AI tool list for real estate operators.</div>
+      </div>
+      <svg class="res-arrow"><use href="#i-arrow"/></svg>
+    </a>
+
+  </section>
+
+</div>
+
+<footer>The Always-On Agent System · Member Resources</footer>
+
+</body>
+</html>

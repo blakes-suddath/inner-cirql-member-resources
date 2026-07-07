@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The 5-Step GEO Framework. The Always-On Agent System. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --offwhite:  #faf8f4;
+    --ink:       #1a1a1a;
+    --ink-60:    rgba(26,26,26,0.60);
+    --ink-40:    rgba(26,26,26,0.40);
+    --ink-12:    rgba(26,26,26,0.12);
+    --gold:      #c9a96e;
+    --gold-soft: rgba(201,169,110,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #e9e9e9; color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    display: flex; flex-direction: column; align-items: center; gap: 40px;
+    padding: 40px 0;
+  }
+
+  .sheet {
+    width: 1275px; height: 1650px;
+    background: var(--bg); position: relative; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+  }
+  .poster { width: 1275px; height: 1650px; padding: 56px 80px; display: flex; flex-direction: column; }
+
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    body { display: block; padding: 0; margin: 0; gap: 0; }
+    .sheet { width: 816px; height: 1056px; box-shadow: none; break-after: page; page-break-after: always; }
+    .sheet:last-child { break-after: auto; page-break-after: auto; }
+    .poster { transform: scale(0.64); transform-origin: top left; }
+  }
+
+  /* HEADER */
+  .header {
+    flex-shrink: 0; display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 22px; border-bottom: 3px solid var(--ink);
+  }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-word { font-weight: 600; font-size: 23px; letter-spacing: -0.01em; }
+  .brand-word .gold { color: var(--gold); }
+  .brand-word .the { color: var(--ink-40); font-weight: 500; }
+  .header-meta {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-40);
+  }
+
+  /* HERO (page 1) */
+  .hero { flex-shrink: 0; padding: 30px 0 24px; }
+  .eyebrow {
+    color: var(--gold); font-weight: 700; letter-spacing: 0.24em;
+    text-transform: uppercase; font-size: 14px; margin-bottom: 16px;
+  }
+  h1 { font-size: 82px; line-height: 0.94; letter-spacing: -0.04em; font-weight: 700; color: var(--ink); }
+  .subhead {
+    font-size: 36px; font-style: italic; color: var(--gold); font-weight: 700;
+    line-height: 1.05; letter-spacing: -0.02em; margin-top: 10px;
+  }
+  .lede {
+    margin-top: 18px; font-size: 20px; color: var(--ink-60);
+    line-height: 1.45; max-width: 80ch; font-weight: 500;
+  }
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  /* CONTINUATION HEADER (page 2) */
+  .cont-head {
+    flex-shrink: 0; display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 22px; margin-bottom: 4px; border-bottom: 3px solid var(--ink);
+  }
+  .cont-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .cont-title .gold { color: var(--gold); font-style: italic; }
+  .cont-meta { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-40); }
+
+  /* STEP ROWS (page 1) */
+  .steps { flex: 1 1 0; display: flex; flex-direction: column; padding-top: 18px; }
+  .step {
+    flex: 1 1 0; display: grid; grid-template-columns: 96px 1fr;
+    gap: 30px; align-items: center; padding: 18px 0;
+    border-bottom: 1px solid var(--ink-12);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    font-size: 64px; font-weight: 700; color: var(--gold);
+    line-height: 1; letter-spacing: -0.04em; text-align: center;
+  }
+  .step-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 6px; }
+  .step-action { font-size: 18.5px; line-height: 1.4; color: var(--ink); font-weight: 500; }
+  .step-action strong { font-weight: 700; }
+  .step-why { font-size: 16px; line-height: 1.4; color: var(--gold); font-weight: 600; margin-top: 5px; }
+
+  /* SECTION (page 2) */
+  .sections { flex: 1 1 0; display: flex; flex-direction: column; padding-top: 22px; gap: 26px; }
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section-label {
+    color: var(--gold); font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; font-size: 14px;
+  }
+  .section-title { font-size: 32px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.04; }
+  .section-title .gold { color: var(--gold); font-style: italic; }
+
+  /* ENTITY TEMPLATE */
+  .tpl {
+    background: var(--offwhite); border: 2px solid var(--ink-12);
+    border-radius: 16px; padding: 30px 32px;
+  }
+  .tpl-tag {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--ink-40); margin-bottom: 12px;
+  }
+  .tpl-text { font-size: 23px; line-height: 1.5; color: var(--ink); font-weight: 500; }
+  .tpl-text .blank { color: var(--gold); font-weight: 700; }
+  .tpl-example {
+    margin-top: 18px; background: var(--ink); color: #fff;
+    border-radius: 12px; padding: 22px 26px;
+  }
+  .tpl-example .tpl-tag { color: var(--gold); margin-bottom: 10px; }
+  .tpl-example .ex { font-size: 19px; line-height: 1.5; color: #fff; font-weight: 500; }
+  .tpl-do {
+    margin-top: 14px; font-size: 17px; line-height: 1.4;
+    color: var(--ink-60); font-weight: 600;
+  }
+  .tpl-do strong { color: var(--ink); }
+
+  /* SIGNALS CHECK LIST */
+  .signals { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 36px; }
+  .sig { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; padding: 6px 0; }
+  .sig-box { width: 22px; height: 22px; border: 2.5px solid var(--ink); border-radius: 5px; margin-top: 2px; }
+  .sig-text { font-size: 17.5px; line-height: 1.35; color: var(--ink); font-weight: 500; }
+  .sig-text strong { font-weight: 700; }
+
+  /* CLOSING BAND */
+  .closing {
+    flex-shrink: 0; margin-top: 22px; background: var(--ink); color: #fff;
+    border-radius: 18px; padding: 32px 40px; display: flex; align-items: center; gap: 26px;
+  }
+  .closing-mark { flex-shrink: 0; width: 60px; height: 60px; color: var(--gold); }
+  .closing-mark svg { width: 100%; height: 100%; }
+  .closing-label {
+    color: var(--gold); font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; font-size: 13px; margin-bottom: 8px;
+  }
+  .closing-text { font-size: 25px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+  .closing-text .gold { color: var(--gold); }
+
+  /* FOOTER */
+  .foot {
+    flex-shrink: 0; margin-top: auto; padding-top: 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--ink-40);
+  }
+  .foot .pg { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Always-On signal mark: filled center dot with concentric broadcast arcs -->
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+      <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="sheet">
+  <div class="poster">
+
+    <div class="header">
+      <div class="brand">
+        <svg width="46" height="46"><use href="#brand-mark"/></svg>
+        <span class="brand-word"><span class="the">The</span> <span class="gold">Always-On</span> Agent System</span>
+      </div>
+      <div class="header-meta">AI Visibility Playbook</div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">For Real Estate Agents</div>
+      <h1>The 5-Step GEO Framework.</h1>
+      <div class="subhead">Become the agent AI recommends.</div>
+      <p class="lede"><strong>67% of buyers</strong> now start their agent search with AI. <strong>91% of agents</strong> are invisible to it. This is the exact system to become the name ChatGPT, Perplexity, and Gemini give when a buyer asks, "who is the best agent near me?"</p>
+    </section>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-text">
+          <div class="step-title">Claim your entity</div>
+          <div class="step-action">Lock one consistent name, role, market, and specialty everywhere AI looks: Google Business Profile, your website, your socials, your brokerage page.</div>
+          <div class="step-why">Why: AI builds your profile from these. Conflicting or thin info makes you invisible.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-text">
+          <div class="step-title">Feed the 5 signals</div>
+          <div class="step-action">Stack <strong>Zillow and Google reviews</strong>, add 5 to 8 keyword-rich Q&amp;As to your Google Business Profile, and keep publishing GEO content.</div>
+          <div class="step-why">Why: ChatGPT now reads Zillow and Realtor.com live. These are the signals it scores.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-text">
+          <div class="step-title">Answer the questions</div>
+          <div class="step-action">Write content that matches how buyers ask AI in full sentences, like "best first-time buyer agent in [your city]."</div>
+          <div class="step-why">Why: answer the exact question and AI starts quoting you by name.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-text">
+          <div class="step-title">Build authority</div>
+          <div class="step-action">Earn mentions on the local pages, directories, and publications AI already trusts.</div>
+          <div class="step-why">Why: a few of the right citations outrank a hundred of the wrong ones.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-text">
+          <div class="step-title">Compound daily</div>
+          <div class="step-action">Run the 30-second daily move that stacks small signals into authority over a season.</div>
+          <div class="step-why">Why: consistent beats big. The agents who show up daily win the recommendation.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      <span>The Always-On Agent System · GEO Framework</span>
+      <span class="pg">Page 1 of 2</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="sheet">
+  <div class="poster">
+
+    <div class="cont-head">
+      <div class="cont-title">Start here. <span class="gold">Your first move.</span></div>
+      <div class="cont-meta">The Always-On Agent System</div>
+    </div>
+
+    <div class="sections">
+
+      <!-- ENTITY STATEMENT -->
+      <div class="section">
+        <div class="section-label">Step 01 Tool · Your Entity Statement</div>
+        <div class="section-title">The exact words <span class="gold">AI needs.</span></div>
+        <div class="tpl">
+          <div class="tpl-tag">The template</div>
+          <div class="tpl-text"><span class="blank">[Full Name]</span>, REALTOR&reg;, is a licensed real estate agent in <span class="blank">[State]</span> serving <span class="blank">[City / Area]</span>. <span class="blank">[He / She / They]</span> work with <span class="blank">[buyer or seller type]</span> looking for <span class="blank">[need or price range]</span>.</div>
+          <div class="tpl-example">
+            <div class="tpl-tag">Real example</div>
+            <div class="ex">Sarah Chen, REALTOR&reg;, is a licensed real estate agent in Minnesota serving Plymouth and the northwest suburbs. She works with first-time buyers searching for homes under $450K.</div>
+          </div>
+          <div class="tpl-do">Paste it <strong>word for word</strong> into your Google Business Profile description, your website bio, and every social profile. Same words, everywhere.</div>
+        </div>
+      </div>
+
+      <!-- 5 SIGNALS -->
+      <div class="section">
+        <div class="section-label">Step 02 Tool · The Signals</div>
+        <div class="section-title">The 5 signals <span class="gold">to feed.</span></div>
+        <div class="signals">
+          <div class="sig"><div class="sig-box"></div><div class="sig-text"><strong>Zillow reviews</strong> — grow the count, keep them recent.</div></div>
+          <div class="sig"><div class="sig-box"></div><div class="sig-text"><strong>Google reviews</strong> — grow the count, keep them recent.</div></div>
+          <div class="sig"><div class="sig-box"></div><div class="sig-text"><strong>GBP Q&amp;A</strong> — add 5 to 8 keyword-rich questions and answers.</div></div>
+          <div class="sig"><div class="sig-box"></div><div class="sig-text"><strong>GEO content</strong> — publish answers to real buyer questions, consistently.</div></div>
+          <div class="sig"><div class="sig-box"></div><div class="sig-text"><strong>A consistent entity</strong> — same name, role, and market across the web.</div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <div class="closing-mark"><svg><use href="#brand-mark"/></svg></div>
+      <div class="closing-body">
+        <div class="closing-label">Five steps. One outcome.</div>
+        <div class="closing-text">Become the one name AI gives when a buyer asks, <span class="gold">"who is the best agent near me?"</span></div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>The Always-On Agent System</span>
+      <span class="pg">Page 2 of 2</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

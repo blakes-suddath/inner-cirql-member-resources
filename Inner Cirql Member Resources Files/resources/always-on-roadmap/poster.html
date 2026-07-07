@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Always-On System Roadmap. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #faf8f4;
+    --ink: #1a1a1a;
+    --ink-60: rgba(26,26,26,0.60);
+    --ink-40: rgba(26,26,26,0.40);
+    --ink-12: rgba(26,26,26,0.12);
+    --ink-08: rgba(26,26,26,0.08);
+    --accent: #c9a96e;
+    --accent-soft: rgba(201,169,110,0.14);
+    --dark: #1a1a1a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #e9e9e9; color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 400; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    display: flex; flex-direction: column; align-items: center; gap: 40px;
+    padding: 40px 0;
+  }
+  .sheet {
+    width: 1275px; height: 1650px;
+    background: var(--bg); position: relative; overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+  }
+  .poster { width: 1275px; height: 1650px; padding: 52px 76px 48px; display: flex; flex-direction: column; }
+
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    body { display: block; padding: 0; margin: 0; gap: 0; }
+    .sheet { width: 816px; height: 1056px; box-shadow: none; break-after: page; page-break-after: always; }
+    .sheet:last-child { break-after: auto; page-break-after: auto; }
+    .poster { transform: scale(0.64); transform-origin: top left; }
+  }
+
+  /* HEADER */
+  .brand-row { display: flex; align-items: center; justify-content: space-between; padding-bottom: 18px; border-bottom: 3px solid var(--ink); }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand-word { font-weight: 600; font-size: 23px; letter-spacing: -0.005em; }
+  .brand-word .cirql { color: var(--accent); }
+  .brand-meta { font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-40); }
+
+  .hero { padding: 22px 0 16px; }
+  .eyebrow { color: var(--accent); font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
+  h1 { font-size: 52px; line-height: 1.04; letter-spacing: -0.025em; font-weight: 700; margin-bottom: 8px; }
+  h1 .cirql { font-style: italic; color: var(--accent); }
+  .lede { font-size: 17.5px; color: var(--ink-60); max-width: 78ch; line-height: 1.45; }
+
+  /* FLOW */
+  .flow { flex: 1 1 0; position: relative; display: flex; flex-direction: column; margin-top: 6px; }
+  .flow::before {
+    content: ""; position: absolute; left: 25px; top: 18px; bottom: 18px;
+    width: 3px; background: var(--accent); opacity: 0.45;
+  }
+
+  .phase-head { display: flex; align-items: center; gap: 16px; padding: 10px 0 8px; position: relative; }
+  .phase-node {
+    position: relative; z-index: 2; width: 50px; height: 50px; flex: 0 0 50px; border-radius: 50%;
+    background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; letter-spacing: 0.02em;
+  }
+  .phase-title { font-size: 25px; font-weight: 700; letter-spacing: -0.02em; }
+  .phase-title .cirql { font-style: italic; color: var(--accent); }
+  .phase-meta { margin-left: auto; font-size: 12.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-40); }
+
+  .step { flex: 1 1 0; display: flex; align-items: center; gap: 16px; padding: 4.5px 0; position: relative; }
+  .step-dot {
+    position: relative; z-index: 2; width: 14px; height: 14px; flex: 0 0 14px; margin-left: 19px;
+    border-radius: 50%; background: var(--bg); border: 3.5px solid var(--accent);
+  }
+  .card {
+    flex: 1 1 auto; display: flex; align-items: center; gap: 20px;
+    background: var(--surface); border: 2px solid var(--ink-12); border-radius: 18px;
+    padding: 12px 26px 12px 16px; height: 100%;
+  }
+  .card-chip {
+    width: 56px; height: 56px; flex: 0 0 56px; border-radius: 50%;
+    background: var(--accent-soft); display: flex; align-items: center; justify-content: center;
+  }
+  .card-chip svg { width: 30px; height: 30px; color: var(--accent); }
+  .card-text { min-width: 0; }
+  .card-title-row { display: flex; align-items: baseline; gap: 12px; }
+  .card-num { font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: var(--accent); }
+  .card-title { font-size: 21px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.15; }
+  .card-desc { font-size: 14.5px; line-height: 1.35; color: var(--ink-60); font-weight: 500; margin-top: 3px; }
+
+  /* SCHEDULE PAGE (12-week run) */
+  .ao-banner {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--dark); color: #fff; border-radius: 16px;
+    padding: 18px 24px; margin: 16px 0 14px;
+  }
+  .ao-chip { flex: 0 0 auto; color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; padding-top: 3px; white-space: nowrap; }
+  .ao-text { font-size: 15px; line-height: 1.5; color: rgba(255,255,255,0.80); }
+  .ao-text strong { color: var(--accent); font-weight: 600; }
+
+  .wks { flex: 1 1 0; position: relative; display: flex; flex-direction: column; }
+  .wks::before { content: ""; position: absolute; left: 25px; top: 16px; bottom: 16px; width: 3px; background: var(--accent); opacity: 0.32; }
+  .wrow { flex: 1 1 0; display: flex; align-items: center; gap: 18px; padding: 3px 0; position: relative; }
+  .wnode {
+    position: relative; z-index: 2; width: 50px; height: 50px; flex: 0 0 50px; border-radius: 50%;
+    background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 700;
+  }
+  .wrow.launch .wnode { background: var(--accent); color: var(--ink); }
+  .wbody { display: flex; align-items: baseline; gap: 14px; min-width: 0; }
+  .wtag { flex: 0 0 auto; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 5px 10px; line-height: 1; white-space: nowrap; }
+  .wrow.launch .wtag { color: var(--ink); }
+  .wtask { font-size: 18px; font-weight: 600; color: var(--ink); line-height: 1.25; }
+  .wrow.launch .wtask { font-weight: 700; }
+
+  /* FOOTER BAND */
+  .band {
+    margin-top: 14px; background: var(--dark); color: #fff; border-radius: 18px;
+    padding: 17px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .band-label { color: var(--accent); font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; font-size: 12px; }
+  .band-text { font-size: 18px; font-weight: 600; line-height: 1.3; }
+  .band-text .accent { color: var(--accent); }
+  .band-url { font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: rgba(255,255,255,0.55); white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="12" r="5" fill="#c9a96e"/><circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/><circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/><circle cx="50" cy="88" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/><circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/><circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+    </symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24">
+      <path d="M4 5h16v11H9l-5 4V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/>
+      <path d="M8 9.5h8M8 12.5h5" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+      <path d="M10.5 7.5l.85 2.15 2.15.85-2.15.85-.85 2.15-.85-2.15-2.15-.85 2.15-.85z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-origin" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="2.4" fill="currentColor"/>
+      <path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+    <symbol id="i-ring" viewBox="0 0 24 24">
+      <circle cx="12" cy="3.5" r="2" fill="currentColor"/><circle cx="18" cy="6" r="2" fill="currentColor"/>
+      <circle cx="20.5" cy="12" r="2" fill="currentColor"/><circle cx="18" cy="18" r="2" fill="currentColor"/>
+      <circle cx="12" cy="20.5" r="2" fill="currentColor"/><circle cx="6" cy="18" r="2" fill="currentColor"/>
+      <circle cx="3.5" cy="12" r="2" fill="currentColor"/><circle cx="6" cy="6" r="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-video" viewBox="0 0 24 24">
+      <rect x="3" y="6" width="13" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M16 10.5l5-3v9l-5-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/>
+    </symbol>
+    <symbol id="i-target" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4.8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="1.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-id" viewBox="0 0 24 24">
+      <rect x="2.5" y="5" width="19" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="8" cy="11" r="2.2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M5.5 16c.5-1.6 1.5-2.3 2.5-2.3s2 .7 2.5 2.3M13.5 9.5H19M13.5 13h4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/>
+    </symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24">
+      <path d="M12 2.5c3 2 4.5 5.5 4.5 9l-2 5h-5l-2-5c0-3.5 1.5-7 4.5-9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/>
+      <circle cx="12" cy="9.5" r="1.8" fill="currentColor"/>
+      <path d="M9.5 19.5h5M10.5 22h3" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+    <symbol id="i-week" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="16" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3 9.5h18M8 2.5V6M16 2.5V6" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+      <rect x="6.5" y="12" width="3.5" height="6" fill="currentColor"/>
+      <path d="M13 13.5h4M13 16.5h4" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+    <symbol id="i-calendar-check" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="16" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3 9.5h18M8 2.5V6M16 2.5V6" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+      <path d="M8.5 14.5l2.5 2.5 4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24">
+      <path d="M6 2.5h8l4 4v15H6v-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/>
+      <path d="M14 2.5v4h4M9 11h6M9 14.5h6M9 18h4" stroke="currentColor" stroke-width="2" stroke-linecap="square" fill="none"/>
+    </symbol>
+    <symbol id="i-cycle" viewBox="0 0 24 24">
+      <path d="M4 12a8 8 0 0 1 13.7-5.6M20 3.5V8h-4.5M20 12a8 8 0 0 1-13.7 5.6M4 20.5V16h4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M9.5 12l1.8 1.8 3.2-3.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3 12h18M12 3c2.6 2.7 2.6 15.3 0 18M12 3c-2.6 2.7-2.6 15.3 0 18" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 24 24">
+      <path d="M12 2.5l2.7 5.9 6.5.6-4.9 4.3 1.4 6.4L12 16.9 5.8 19.7l1.4-6.4L2.3 9l6.5-.6z" fill="currentColor" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M10 8l5.5 4-5.5 4z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M3.5 6.5l8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="miter"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- PAGE 1: THE 12-WEEK RUN -->
+<div class="sheet"><div class="poster">
+
+  <div class="brand-row">
+    <div class="brand">
+      <svg width="36" height="36"><use href="#brand-mark"/></svg>
+      <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+    </div>
+    <div class="brand-meta">12-Week Run · 1 of 3</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">The Plan</div>
+    <h1>Your 12-Week <span class="cirql">Run.</span></h1>
+    <p class="lede">One focus per week, so you roll the system out at a sustainable pace instead of all at once. In the back half you craft each amplifier, then launch it.</p>
+  </div>
+
+  <div class="ao-banner">
+    <div class="ao-chip">Always On</div>
+    <div class="ao-text">From <strong>Week 2</strong>, Clara works your sphere every day and GEO posts blogs twice a week, both on their own. From <strong>Week 5</strong>, Origin audits your brand every week. You never have to remember any of it.</div>
+  </div>
+
+  <div class="wks">
+    <div class="wrow"><div class="wnode">1</div><div class="wbody"><span class="wtag">Set Up</span><span class="wtask">Install Clara, GEO, and Origin. Join the community.</span></div></div>
+    <div class="wrow"><div class="wnode">2</div><div class="wbody"><span class="wtag">Build</span><span class="wtask">Start running Clara daily and get on your first coaching call. GEO begins posting blogs on its own.</span></div></div>
+    <div class="wrow"><div class="wnode">3</div><div class="wbody"><span class="wtag">Build</span><span class="wtask">Finish your 3Ps: niche, offer, and mechanism.</span></div></div>
+    <div class="wrow"><div class="wnode">4</div><div class="wbody"><span class="wtag">Build</span><span class="wtask">Update your online profiles and launch your brand from Origin.</span></div></div>
+    <div class="wrow"><div class="wnode">5</div><div class="wbody"><span class="wtag">Build</span><span class="wtask">Build your perfect week. Origin starts its weekly brand audit.</span></div></div>
+    <div class="wrow"><div class="wnode">6</div><div class="wbody"><span class="wtag">Craft</span><span class="wtask">Craft your website messaging.</span></div></div>
+    <div class="wrow launch"><div class="wnode">7</div><div class="wbody"><span class="wtag">Launch</span><span class="wtask">Launch your personal website.</span></div></div>
+    <div class="wrow launch"><div class="wnode">8</div><div class="wbody"><span class="wtag">Launch</span><span class="wtask">Host and launch your 5-star review system, then request a review every Friday.</span></div></div>
+    <div class="wrow"><div class="wnode">9</div><div class="wbody"><span class="wtag">Craft</span><span class="wtask">Write your VSL script and shoot your video.</span></div></div>
+    <div class="wrow launch"><div class="wnode">10</div><div class="wbody"><span class="wtag">Launch</span><span class="wtask">Launch your listing appointment VSL.</span></div></div>
+    <div class="wrow"><div class="wnode">11</div><div class="wbody"><span class="wtag">Craft</span><span class="wtask">Craft your niche email messaging.</span></div></div>
+    <div class="wrow launch"><div class="wnode">12</div><div class="wbody"><span class="wtag">Launch</span><span class="wtask">Launch email marketing for your niche.</span></div></div>
+  </div>
+
+</div></div>
+
+<!-- PAGE 2: INSTALL + FOUNDATION -->
+<div class="sheet"><div class="poster">
+
+  <div class="brand-row">
+    <div class="brand">
+      <svg width="36" height="36"><use href="#brand-mark"/></svg>
+      <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+    </div>
+    <div class="brand-meta">Onboarding Roadmap · 2 of 3</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">For Real Estate Agents</div>
+    <h1>The Always-On System <span class="cirql">Roadmap.</span></h1>
+    <p class="lede">Sixteen steps from day one to a business that markets itself. Install the three systems, build your foundation with coaching, let the system run on its own, then add the amplifiers that scale it.</p>
+  </div>
+
+  <div class="flow">
+
+    <div class="phase-head">
+      <div class="phase-node">01</div>
+      <div class="phase-title">Install the <span class="cirql">System.</span></div>
+      <div class="phase-meta">Set Up · Done Once</div>
+    </div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-chat"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">01</span><span class="card-title">Install Clara AI</span></div>
+        <div class="card-desc">Your sphere manager. Clara installs on your phone, syncs with Follow Up Boss, and works your database for you.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-search"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">02</span><span class="card-title">Install GEO</span></div>
+        <div class="card-desc">Your generative engine optimization employee. GEO connects to your site so AI search starts citing you.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-origin"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">03</span><span class="card-title">Install Origin</span></div>
+        <div class="card-desc">Your brand engine. Origin learns your voice, then builds and maintains your online brand so it sounds like you.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-ring"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">04</span><span class="card-title">Join YourInnerCirql.com</span></div>
+        <div class="card-desc">Your community. Wins, questions, call replays, and the agents running the same system you are.</div>
+      </div>
+    </div></div>
+
+    <div class="phase-head">
+      <div class="phase-node">02</div>
+      <div class="phase-title">Build the <span class="cirql">Foundation.</span></div>
+      <div class="phase-meta">Build · With Coaching</div>
+    </div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-video"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">05</span><span class="card-title">Coaching Call &amp; Workshop</span></div>
+        <div class="card-desc">Get on the standing Wednesday call. We fix sticking points and work the system together, live.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-target"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">06</span><span class="card-title">Craft Your Niche, Offer, Mechanism (3Ps)</span></div>
+        <div class="card-desc">The three decisions everything else is built on. Who you serve, what you offer, and how it works.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-id"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">07</span><span class="card-title">Update Online Profiles with the 3Ps</span></div>
+        <div class="card-desc">Push the 3Ps to every public profile. Google, Zillow, Realtor.com, and socials all say the same thing.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-rocket"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">08</span><span class="card-title">Brand Launch from Origin</span></div>
+        <div class="card-desc">Origin publishes your brand. Your story, positioning, and presence go live in your voice.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-week"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">09</span><span class="card-title">Build Your Perfect Week</span></div>
+        <div class="card-desc">Time-block the week that makes the system run. Lead-gen, appointments, and your ten minutes with Clara each get a spot on the calendar.</div>
+      </div>
+    </div></div>
+
+  </div>
+
+</div></div>
+
+<!-- PAGE 3: ALWAYS ON + AMPLIFIERS -->
+<div class="sheet"><div class="poster">
+
+  <div class="brand-row">
+    <div class="brand">
+      <svg width="36" height="36"><use href="#brand-mark"/></svg>
+      <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+    </div>
+    <div class="brand-meta">Onboarding Roadmap · 3 of 3</div>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">The System, Running</div>
+    <h1>Run it. Then <span class="cirql">scale it.</span></h1>
+    <p class="lede">Phase 3 is what your business does every week without you. Phase 4 is what you launch to amplify it, once each, when you are ready.</p>
+  </div>
+
+  <div class="flow">
+
+    <div class="phase-head">
+      <div class="phase-node">03</div>
+      <div class="phase-title">Always <span class="cirql">On.</span></div>
+      <div class="phase-meta">Run · Works On Its Own</div>
+    </div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-calendar-check"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">10</span><span class="card-title">Work with Clara Daily</span></div>
+        <div class="card-desc">Ten minutes a day. Clara works your sphere, you approve and go. The habit that compounds.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-doc"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">11</span><span class="card-title">GEO Posts Blogs Twice a Week</span></div>
+        <div class="card-desc">Two posts a week, written to get you cited by AI search. You never touch a keyboard.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-cycle"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">12</span><span class="card-title">Origin Audits Your Brand Weekly</span></div>
+        <div class="card-desc">A weekly audit checks your brand everywhere it lives and fixes drift before anyone notices.</div>
+      </div>
+    </div></div>
+
+    <div class="phase-head">
+      <div class="phase-node">04</div>
+      <div class="phase-title">Launch the <span class="cirql">Amplifiers.</span></div>
+      <div class="phase-meta">Scale · One At A Time</div>
+    </div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-globe"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">13</span><span class="card-title">Launch Your Personal Website</span></div>
+        <div class="card-desc">Your home base, not the brokerage's. A site that turns visitors into appointments and gives Clara, GEO, and Origin one place to send everyone.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-star"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">14</span><span class="card-title">Launch Your 5-Star Review System</span></div>
+        <div class="card-desc">Every closing becomes public proof. An automatic ask fills your Google profile with reviews while you are on to the next deal.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-play"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">15</span><span class="card-title">Launch Your Listing Appointment Engine</span></div>
+        <div class="card-desc">One short VSL does the pre-selling. Sellers watch, warm up, and show up to the appointment ready to sign.</div>
+      </div>
+    </div></div>
+
+    <div class="step"><div class="step-dot"></div><div class="card">
+      <div class="card-chip"><svg><use href="#i-mail"/></svg></div>
+      <div class="card-text">
+        <div class="card-title-row"><span class="card-num">16</span><span class="card-title">Launch Email Marketing for Your Niche</span></div>
+        <div class="card-desc">One email a week to the niche from your 3Ps. You stay top of mind with the exact people you want to work with.</div>
+      </div>
+    </div></div>
+
+  </div>
+
+  <div class="band">
+    <div>
+      <div class="band-label">The One Rule</div>
+      <div class="band-text">Install once. Show up Wednesdays. <span class="accent">The system does the rest.</span></div>
+    </div>
+    <div class="band-url">resources.theinnercirql.com/always-on-roadmap</div>
+  </div>
+
+</div></div>
+
+</body>
+</html>

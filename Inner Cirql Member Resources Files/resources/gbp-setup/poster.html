@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Set Up Your Google Business Profile. The Always-On Agent System. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#ffffff; --offwhite:#faf8f4; --ink:#1a1a1a;
+    --ink-60:rgba(26,26,26,0.60); --ink-40:rgba(26,26,26,0.40); --ink-12:rgba(26,26,26,0.12);
+    --gold:#c9a96e; --gold-soft:rgba(201,169,110,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #e9e9e9; color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400; line-height: 1.5;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 0;
+  }
+  .sheet { width: 1275px; height: 1650px; background: var(--bg); position: relative; overflow: hidden; box-shadow: 0 12px 40px rgba(0,0,0,0.16); }
+  .poster { width: 1275px; height: 1650px; padding: 56px 80px; display: flex; flex-direction: column; }
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    body { display: block; padding: 0; margin: 0; gap: 0; }
+    .sheet { width: 816px; height: 1056px; box-shadow: none; }
+    .poster { transform: scale(0.64); transform-origin: top left; }
+  }
+
+  .header { flex-shrink: 0; display: flex; justify-content: space-between; align-items: center; padding-bottom: 22px; border-bottom: 3px solid var(--ink); }
+  .brand { display: flex; align-items: center; gap: 15px; }
+  .brand-word { font-weight: 600; font-size: 22px; letter-spacing: -0.01em; }
+  .brand-word .gold { color: var(--gold); }
+  .brand-word .the { color: var(--ink-40); font-weight: 500; }
+  .header-meta { font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-40); }
+
+  .hero { flex-shrink: 0; padding: 30px 0 22px; }
+  .eyebrow { color: var(--gold); font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; font-size: 14px; margin-bottom: 14px; }
+  h1 { font-size: 64px; line-height: 0.98; letter-spacing: -0.035em; font-weight: 700; color: var(--ink); }
+  .subhead { font-size: 32px; font-style: italic; color: var(--gold); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; margin-top: 10px; }
+  .lede { margin-top: 16px; font-size: 19px; color: var(--ink-60); line-height: 1.45; max-width: 82ch; font-weight: 500; }
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  .steps { flex: 1 1 0; display: flex; flex-direction: column; border-top: 3px solid var(--ink); padding-top: 14px; }
+  .step { flex: 1 1 0; display: grid; grid-template-columns: 84px 1fr; gap: 28px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--ink-12); }
+  .step:last-child { border-bottom: none; }
+  .step-num { font-size: 50px; font-weight: 700; color: var(--gold); line-height: 1; letter-spacing: -0.04em; text-align: center; }
+  .step-title { font-size: 25px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin-bottom: 4px; }
+  .step-body { font-size: 17.5px; line-height: 1.38; color: var(--ink-60); font-weight: 500; }
+  .step-body strong { color: var(--ink); font-weight: 700; }
+  .lnk { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+
+  .nextbar {
+    flex-shrink: 0; margin-top: 18px; background: var(--ink); color: #fff;
+    border-radius: 14px; padding: 22px 30px; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  }
+  .nextbar-text { font-size: 19px; font-weight: 600; line-height: 1.3; }
+  .nextbar-text .gold { color: var(--gold); }
+  .nextbar-link { flex-shrink: 0; font-size: 16px; font-weight: 700; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; white-space: nowrap; }
+
+  .foot { flex-shrink: 0; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-40); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+      <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="sheet">
+  <div class="poster">
+
+    <div class="header">
+      <div class="brand">
+        <svg width="46" height="46"><use href="#brand-mark"/></svg>
+        <span class="brand-word"><span class="the">The</span> <span class="gold">Always-On</span> Agent System</span>
+      </div>
+      <div class="header-meta">GBP Setup Guide</div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">For Real Estate Agents</div>
+      <h1>Set up your Google Business Profile.</h1>
+      <div class="subhead">Step by step, start to finish.</div>
+      <p class="lede">No profile yet, or you never finished setup? Follow these seven steps to get a <strong>verified profile live</strong>. Tap any gold link to jump straight to the page.</p>
+    </section>
+
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">01</div>
+        <div>
+          <div class="step-title">Get a Google account</div>
+          <div class="step-body">If you do not have one yet, create a free Google account. <a class="lnk" href="https://accounts.google.com/signup">accounts.google.com/signup</a></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">02</div>
+        <div>
+          <div class="step-title">Open Business Profile Manager</div>
+          <div class="step-body">Start a brand new profile here. <a class="lnk" href="https://business.google.com/create">business.google.com/create</a></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">03</div>
+        <div>
+          <div class="step-title">Name your business</div>
+          <div class="step-body">Use your full professional name, exactly as on your license. Example: <strong>Sarah Chen, REALTOR&reg;</strong>.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">04</div>
+        <div>
+          <div class="step-title">Choose your category</div>
+          <div class="step-body">Set the primary business category to <strong>Real estate agent</strong>.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">05</div>
+        <div>
+          <div class="step-title">Set your service area</div>
+          <div class="step-body">Most agents have no public office. Turn off the storefront address and add the <strong>cities and ZIP codes you serve</strong>.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">06</div>
+        <div>
+          <div class="step-title">Add your contact info</div>
+          <div class="step-body">Add a <strong>local phone number</strong> and your <strong>website</strong>.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">07</div>
+        <div>
+          <div class="step-title">Verify your profile</div>
+          <div class="step-body">Follow the prompts to verify, usually a short video. Until you verify, you stay invisible. Stuck? <a class="lnk" href="https://support.google.com/business/answer/7107242">support.google.com/business</a></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="nextbar">
+      <div class="nextbar-text">Profile live? <span class="gold">Now optimize it</span> so AI recommends you.</div>
+      <a class="nextbar-link" href="https://resources.theinnercirql.com/gbp-ai-checklist/">Get the AI checklist</a>
+    </div>
+
+    <div class="foot">
+      <span>The Always-On Agent System · GBP Setup</span>
+      <span>resources.theinnercirql.com</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

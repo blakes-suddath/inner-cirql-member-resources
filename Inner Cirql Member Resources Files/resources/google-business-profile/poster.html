@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Google Business Profile. AI Citation Checklist. Print Poster.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --offwhite:  #faf8f4;
+    --ink:       #1a1a1a;
+    --ink-60:    rgba(26,26,26,0.60);
+    --ink-40:    rgba(26,26,26,0.40);
+    --ink-12:    rgba(26,26,26,0.12);
+    --gold:      #c9a96e;
+    --gold-soft: rgba(201,169,110,0.14);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: #e9e9e9; color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    display: flex; flex-direction: column; align-items: center; gap: 40px;
+    padding: 40px 0;
+  }
+
+  /* SHEET = one physical 8.5x11 page */
+  .sheet {
+    width: 1275px; height: 1650px;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+  }
+  .poster {
+    width: 1275px; height: 1650px;
+    padding: 56px 80px;
+    display: flex; flex-direction: column;
+  }
+
+  /* Print: real 8.5x11 letter pages, scaled from 1275px design. */
+  @page { size: 8.5in 11in; margin: 0; }
+  @media print {
+    html, body { background: #fff; }
+    body { display: block; padding: 0; margin: 0; gap: 0; }
+    .sheet {
+      width: 816px; height: 1056px;
+      box-shadow: none;
+      break-after: page; page-break-after: always;
+    }
+    .sheet:last-child { break-after: auto; page-break-after: auto; }
+    .poster {
+      transform: scale(0.64);
+      transform-origin: top left;
+    }
+  }
+
+  /* HEADER */
+  .header {
+    flex-shrink: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 22px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-word { font-weight: 600; font-size: 24px; letter-spacing: -0.005em; }
+  .brand-word .cirql { color: var(--gold); }
+  .header-meta {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--ink-40);
+  }
+
+  /* HERO (page 1) */
+  .hero { flex-shrink: 0; padding: 34px 0 26px; }
+  .eyebrow {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    font-size: 14px; margin-bottom: 16px;
+  }
+  h1 {
+    font-size: 88px;
+    line-height: 0.94; letter-spacing: -0.04em;
+    font-weight: 700; color: var(--ink);
+  }
+  .subhead {
+    font-size: 38px; font-style: italic;
+    color: var(--gold); font-weight: 700;
+    line-height: 1.05; letter-spacing: -0.02em;
+    margin-top: 10px;
+  }
+  .lede {
+    margin-top: 20px;
+    font-size: 21px; color: var(--ink-60);
+    line-height: 1.45; max-width: 74ch; font-weight: 500;
+  }
+  .lede strong { color: var(--ink); font-weight: 700; }
+
+  /* CONTINUATION HEADER (page 2) */
+  .cont-head {
+    flex-shrink: 0;
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 22px; margin-bottom: 8px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .cont-title { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .cont-title .cirql { color: var(--gold); font-style: italic; }
+  .cont-meta {
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink-40);
+  }
+
+  /* SECTIONS */
+  .sections { flex: 1 1 0; display: flex; flex-direction: column; padding-top: 22px; gap: 26px; }
+  .section { display: flex; flex-direction: column; gap: 14px; }
+  .section-head { display: flex; align-items: center; gap: 18px; }
+  .section-badge {
+    flex-shrink: 0;
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--ink); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; font-weight: 700;
+  }
+  .section-title {
+    font-size: 30px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1.05;
+  }
+  .ai-note {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--gold-soft);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    padding: 13px 18px;
+  }
+  .ai-note-icon { flex-shrink: 0; width: 22px; height: 22px; color: var(--gold); margin-top: 1px; }
+  .ai-note-icon svg { display: block; width: 100%; height: 100%; }
+  .ai-note-text { font-size: 17px; line-height: 1.4; color: var(--ink-60); font-weight: 500; }
+  .ai-note-text b { color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px; }
+
+  .checks { display: flex; flex-direction: column; }
+  .check {
+    display: grid; grid-template-columns: 34px 1fr;
+    gap: 18px; align-items: start;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--ink-12);
+  }
+  .check:last-child { border-bottom: none; }
+  .checkbox {
+    width: 28px; height: 28px;
+    border: 2.5px solid var(--ink);
+    border-radius: 6px;
+    margin-top: 1px;
+  }
+  .check-text {
+    font-size: 18.5px; line-height: 1.4;
+    color: var(--ink); font-weight: 500;
+  }
+  .check-text strong { font-weight: 700; }
+  .check-text .gold { color: var(--gold); font-weight: 700; }
+  .check-text .url { font-weight: 700; color: var(--ink); }
+
+  /* CLOSING BAND (page 2) */
+  .closing {
+    flex-shrink: 0;
+    margin-top: 24px;
+    background: var(--ink); color: #fff;
+    border-radius: 18px;
+    padding: 34px 40px;
+    display: flex; align-items: center; gap: 28px;
+  }
+  .closing-mark {
+    flex-shrink: 0;
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+  }
+  .closing-mark svg { width: 34px; height: 34px; }
+  .closing-label {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 13px; margin-bottom: 8px;
+  }
+  .closing-text { font-size: 24px; font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+  .closing-text .gold { color: var(--gold); }
+
+  /* FOOTER */
+  .foot {
+    flex-shrink: 0;
+    margin-top: auto;
+    padding-top: 18px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-40);
+  }
+  .foot .pg { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="12" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="50" cy="88" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+    </symbol>
+    <!-- Spark: AI signal -->
+    <symbol id="i-spark" viewBox="0 0 24 24">
+      <path d="M12 2l1.7 6.1L20 10l-6.3 1.9L12 18l-1.7-6.1L4 10l6.3-1.9z" fill="currentColor"/>
+      <path d="M19 3l.7 2.3L22 6l-2.3.7L19 9l-.7-2.3L16 6l2.3-.7z" fill="currentColor"/>
+    </symbol>
+    <!-- Check: closing mark -->
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" stroke-linejoin="miter"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="sheet">
+  <div class="poster">
+
+    <div class="header">
+      <div class="brand">
+        <svg width="44" height="44"><use href="#brand-mark"/></svg>
+        <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+      </div>
+      <div class="header-meta">Google Business Profile. AI Checklist.</div>
+    </div>
+
+    <section class="hero">
+      <div class="eyebrow">For Real Estate Agents</div>
+      <h1>Get Cited by AI.</h1>
+      <div class="subhead">The Google Business Profile checklist.</div>
+      <p class="lede">ChatGPT, Perplexity, Gemini, and Google's AI Overviews recommend agents by name. They pull from Google Business Profiles with <strong>complete, consistent, fresh</strong> data. This is how you become the agent they cite.</p>
+    </section>
+
+    <div class="sections">
+
+      <!-- SECTION 1 -->
+      <div class="section">
+        <div class="section-head">
+          <div class="section-badge">1</div>
+          <div class="section-title">Claim and verify the foundation</div>
+        </div>
+        <div class="ai-note">
+          <div class="ai-note-icon"><svg><use href="#i-spark"/></svg></div>
+          <div class="ai-note-text"><b>Why AI cares</b><br>AI trusts verified, fully completed profiles. A half-filled or unclaimed profile is invisible to it.</div>
+        </div>
+        <div class="checks">
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Claim your profile at <span class="url">google.com/business</span> and finish verification (video or postcard).</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Lock your <strong>NAP</strong> (name, address, phone) to match your license and website <strong>exactly</strong>. Pick one format and never vary it.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Set your primary category to <strong>Real Estate Agent</strong>. Add only secondary categories you truly serve.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Fill in <strong>100% of every field</strong>. Completeness is the single biggest ranking and citation signal.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="section">
+        <div class="section-head">
+          <div class="section-badge">2</div>
+          <div class="section-title">Optimize every field</div>
+        </div>
+        <div class="ai-note">
+          <div class="ai-note-icon"><svg><use href="#i-spark"/></svg></div>
+          <div class="ai-note-text"><b>Why AI cares</b><br>AI quotes the exact words you give it. Write in plain, natural sentences a buyer would actually say.</div>
+        </div>
+        <div class="checks">
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Write a <strong>750-character description</strong> in natural language. Lead with who you help and where. Work in your city and "real estate agent" naturally, no keyword stuffing.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Add your <strong>service areas</strong>: the cities, neighborhoods, and ZIP codes you actually work.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">List your <strong>services</strong> (buyer's agent, listing agent, relocation, first-time buyers) with a one-line description each.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Set accurate <strong>hours</strong>, including holidays. Add your website, a booking link, and a local phone number.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">
+      <span>Inner Cirql · Google Business Profile Checklist</span>
+      <span class="pg">Page 1 of 2</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="sheet">
+  <div class="poster">
+
+    <div class="cont-head">
+      <div class="cont-title">Get Cited by AI. <span class="cirql">Continued.</span></div>
+      <div class="cont-meta">Google Business Profile</div>
+    </div>
+
+    <div class="sections">
+
+      <!-- SECTION 3 -->
+      <div class="section">
+        <div class="section-head">
+          <div class="section-badge">3</div>
+          <div class="section-title">Build proof AI can quote</div>
+        </div>
+        <div class="ai-note">
+          <div class="ai-note-icon"><svg><use href="#i-spark"/></svg></div>
+          <div class="ai-note-text"><b>Why AI cares</b><br>AI pulls real language from photos, posts, reviews, and Q&amp;A. Give it fresh, human substance to repeat.</div>
+        </div>
+        <div class="checks">
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Upload <strong>10+ real photos</strong>: headshot, logo, team, sold signs, the neighborhoods you serve. Add a few every month.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Post a <strong>Google Update weekly</strong>: a new listing, a just-sold, an open house, or a market tip. Fresh activity signals an active business.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Ask every happy client for a <strong>review that names the service and city</strong> ("helped us buy our first home in [your city]").</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Respond to <strong>every review</strong> within 48 hours. Repeat the service and location naturally in your reply.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Seed the <strong>Q&amp;A section</strong>: post 5 to 8 real buyer questions and answer them in full sentences. AI reads this directly.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="section">
+        <div class="section-head">
+          <div class="section-badge">4</div>
+          <div class="section-title">Get cited by AI (GEO)</div>
+        </div>
+        <div class="ai-note">
+          <div class="ai-note-icon"><svg><use href="#i-spark"/></svg></div>
+          <div class="ai-note-text"><b>Why AI cares</b><br>AI cross-checks your profile against the rest of the web. Make every source say the exact same thing.</div>
+        </div>
+        <div class="checks">
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Match your <strong>NAP exactly</strong> across your website, Zillow, Realtor.com, Facebook, and every directory. Inconsistency makes AI drop you.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Add <strong>RealEstateAgent schema markup</strong> to your website with the same NAP, so AI can read it cleanly. Ask your web person or use a free generator.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Put a plain-language <strong>About page</strong> on your site that answers who, what, and where. AI quotes pages that answer questions directly.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Claim and match the big directories AI trusts: <strong>Bing Places, Apple Business Connect, Zillow, Realtor.com</strong>.</div>
+          </div>
+          <div class="check">
+            <div class="checkbox"></div>
+            <div class="check-text">Review the whole profile <strong>monthly</strong>. Outdated info gets you dropped from AI answers.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CLOSING -->
+    <div class="closing">
+      <div class="closing-mark"><svg><use href="#i-check"/></svg></div>
+      <div class="closing-body">
+        <div class="closing-label">The rule AI rewards</div>
+        <div class="closing-text"><span class="gold">Complete. Consistent. Fresh.</span> Profiles that are all three get named in AI answers. The rest get skipped.</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>resources.theinnercirql.com</span>
+      <span class="pg">Page 2 of 2</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

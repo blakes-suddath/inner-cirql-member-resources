@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Vocab Cheatsheet — Print Poster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #ffffff;
+    --offwhite:  #faf8f4;
+    --ink:       #1a1a1a;
+    --ink-60:    rgba(26,26,26,0.60);
+    --ink-40:    rgba(26,26,26,0.40);
+    --ink-12:    rgba(26,26,26,0.12);
+    --ink-08:    rgba(26,26,26,0.08);
+    --gold:      #c9a96e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 8.5 x 11 in @ 150 DPI = 1275 x 1650 */
+  .poster {
+    width: 1275px;
+    min-height: 1650px;
+    height: 1650px;
+    background: var(--bg);
+    padding: 64px 72px 56px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    flex-shrink: 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .brand-word {
+    font-weight: 600; font-size: 22px;
+    letter-spacing: -0.005em;
+  }
+  .brand-word .cirql { color: var(--gold); }
+  .header-meta {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-40);
+  }
+
+  /* HERO */
+  .hero {
+    flex-shrink: 0;
+    padding: 56px 0 44px;
+  }
+  .eyebrow {
+    color: var(--gold); font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 12px; margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 88px;
+    line-height: 0.96; letter-spacing: -0.035em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  h1 .cirql { font-style: italic; color: var(--gold); }
+  .lede {
+    margin-top: 22px;
+    font-size: 19px;
+    color: var(--ink-60); max-width: 80ch;
+    line-height: 1.5;
+  }
+
+  /* TERMS — flex row, no lines, just rhythm */
+  .terms-section {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .terms-grid {
+    flex: 1 1 0;
+    display: flex;
+    gap: 40px;
+    min-height: 0;
+  }
+  .term-col {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .col-head {
+    flex-shrink: 0;
+    font-size: 26px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1;
+    color: var(--ink);
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 6px;
+  }
+  .col-head .cirql { color: var(--gold); font-style: italic; }
+
+  .term-list {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 0;
+  }
+  .term {
+    padding: 12px 0;
+    border-top: 1px solid var(--ink-08);
+  }
+  .term:first-child { border-top: none; }
+  .term-acronym {
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .term-body {
+    font-size: 14px; line-height: 1.5;
+    color: var(--ink-60);
+    margin-top: 6px;
+  }
+  .term-body strong { color: var(--ink); font-weight: 600; }
+  .term-app {
+    font-size: 12.5px; line-height: 1.45;
+    color: var(--ink);
+    margin-top: 8px;
+    padding-left: 14px;
+    position: relative;
+    font-weight: 500;
+  }
+  .term-app::before {
+    content: "→";
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .term-app .label {
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* BRANDS — minimal, divider above */
+  .brands-section {
+    flex-shrink: 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--ink-08);
+    margin-top: 32px;
+  }
+  .brands-header {
+    font-size: 26px; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1;
+    color: var(--ink);
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 18px;
+  }
+  .brands {
+    display: flex;
+    gap: 32px;
+  }
+  .brand-card {
+    flex: 1 1 0;
+    display: flex; flex-direction: column;
+    gap: 10px;
+  }
+  .brand-card .head { display: flex; align-items: center; gap: 12px; }
+  .brand-card .logo {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .brand-card .logo img {
+    display: block;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
+  .brand-card .logo svg { display: block; }
+  .brand-card .name {
+    font-weight: 700; font-size: 22px;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .brand-card .desc {
+    font-size: 14px; line-height: 1.5;
+    color: var(--ink-60);
+  }
+  .brand-card .url {
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* FOOTER — simple, no box */
+  .footer {
+    flex-shrink: 0;
+    margin-top: 36px;
+    padding-top: 22px;
+    border-top: 1px solid var(--ink-08);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px;
+  }
+  .footer-line {
+    font-size: 18px;
+    font-weight: 600; letter-spacing: -0.01em;
+  }
+  .footer-line .cirql { font-style: italic; color: var(--gold); }
+  .footer-url {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="brand-mark" viewBox="0 0 100 100">
+      <circle cx="50" cy="12" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="50" cy="88" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
+      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>
+      <circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">
+      <svg width="40" height="40"><use href="#brand-mark"/></svg>
+      <span class="brand-word">Inner <span class="cirql">Cirql</span></span>
+    </div>
+    <div class="header-meta">AI Vocab · Cheatsheet</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">For Real Estate Agents</div>
+    <h1>The AI Vocab <span class="cirql">Cheatsheet.</span></h1>
+    <p class="lede">Plain English. No jargon. The terms your team is using — so you can stop nodding through every AI conversation.</p>
+  </section>
+
+  <!-- TERMS — 3 categorized columns, minimal styling -->
+  <section class="terms-section">
+    <div class="terms-grid">
+
+      <!-- COLUMN 1: Foundations -->
+      <div class="term-col">
+        <div class="col-head">Foundations<span class="cirql">.</span></div>
+        <div class="term-list">
+          <div class="term">
+            <div class="term-acronym">LLM</div>
+            <div class="term-body">The <strong>"brain"</strong> behind tools like ChatGPT, Claude, and Gemini.</div>
+            <div class="term-app">Ask Claude to write a listing description from your MLS data.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">Prompt</div>
+            <div class="term-body">What you type to the AI. <strong>Better prompts get better answers.</strong></div>
+            <div class="term-app">"Write a 150-word listing description for a 4-bed in Woodbury, MN."</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">Token</div>
+            <div class="term-body">How LLMs count text. <strong>Roughly ¾ of a word</strong>.</div>
+            <div class="term-app">A full purchase agreement ≈ 8,000 tokens. Plan your prompts around it.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">Context Window</div>
+            <div class="term-body">The AI's working memory. Bigger = longer docs without forgetting.</div>
+            <div class="term-app">Drop a 40-page inspection report in. Ask: "Flag every red flag."</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">Hallucination</div>
+            <div class="term-body">When AI confidently invents facts. <strong>The #1 risk to verify against.</strong></div>
+            <div class="term-app">AI made up the school rating. Never send AI numbers to a client unchecked.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 2: Mechanics -->
+      <div class="term-col">
+        <div class="col-head">Mechanics<span class="cirql">.</span></div>
+        <div class="term-list">
+          <div class="term">
+            <div class="term-acronym">Agent</div>
+            <div class="term-body">AI that <strong>takes action</strong>, not just answers. Books, sends, pulls.</div>
+            <div class="term-app">An agent watches your sphere, drafts replies, queues them in your CRM.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">MCP</div>
+            <div class="term-body">The <strong>"USB port"</strong> connecting AI to Gmail, Drive, Follow Up Boss.</div>
+            <div class="term-app">"Claude, summarize every conversation with the Henderson lead."</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">API</div>
+            <div class="term-body">The <strong>plumbing</strong> that lets software tools talk to each other.</div>
+            <div class="term-app">Zapier uses APIs to push new Zillow leads straight into Follow Up Boss.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">Embedding</div>
+            <div class="term-body">Turning words into numbers so AI can compare meaning.</div>
+            <div class="term-app">"Find me a past listing that feels like 4521 Oak Ave." — that's embeddings.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COLUMN 3: Visibility -->
+      <div class="term-col">
+        <div class="col-head">Visibility<span class="cirql">.</span></div>
+        <div class="term-list">
+          <div class="term">
+            <div class="term-acronym">SEO</div>
+            <div class="term-body"><strong>The old game.</strong> Writing so Google ranks you for keywords.</div>
+            <div class="term-app">Your blog "Best Schools in Woodbury" ranks #1 and pulls leads monthly.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">GEO</div>
+            <div class="term-body"><strong>The new game.</strong> Writing so AI engines cite <strong>you</strong> in their answers.</div>
+            <div class="term-app">A buyer asks ChatGPT "best agent in Woodbury?" Your name shows up.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">Backlinks</div>
+            <div class="term-body">Other sites linking to yours. Google treats them like <strong>votes</strong>.</div>
+            <div class="term-app">A link from your local chamber of commerce beats 100 spam directories.</div>
+          </div>
+          <div class="term">
+            <div class="term-acronym">AI&nbsp;Crawlers</div>
+            <div class="term-body">Bots that read the web for AI. <strong>Block them and you disappear</strong>.</div>
+            <div class="term-app">Allow GPTBot + ClaudeBot in robots.txt so AI quotes your content.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BRANDS — no boxes, just rows -->
+  <section class="brands-section">
+    <div class="brands-header">The Top 4 AI Brands<span style="color:var(--gold);font-style:italic;">.</span></div>
+    <div class="brands">
+
+      <div class="brand-card">
+        <div class="head">
+          <div class="logo"><img src="../assets/brand-logos/claude.png" alt="Claude"></div>
+          <div class="name">Claude</div>
+        </div>
+        <p class="desc">Long-form writing, strategy, content.</p>
+        <span class="url">claude.ai</span>
+      </div>
+
+      <div class="brand-card">
+        <div class="head">
+          <div class="logo"><img src="../assets/brand-logos/chatgpt.png" alt="ChatGPT"></div>
+          <div class="name">ChatGPT</div>
+        </div>
+        <p class="desc">General tasks, images, brainstorming.</p>
+        <span class="url">chatgpt.com</span>
+      </div>
+
+      <div class="brand-card">
+        <div class="head">
+          <div class="logo"><img src="../assets/brand-logos/gemini.png" alt="Gemini"></div>
+          <div class="name">Gemini</div>
+        </div>
+        <p class="desc">Gmail, Docs, Sheets, Maps.</p>
+        <span class="url">gemini.google.com</span>
+      </div>
+
+      <div class="brand-card">
+        <div class="head">
+          <div class="logo"><img src="../assets/brand-logos/perplexity.png" alt="Perplexity"></div>
+          <div class="name">Perplexity</div>
+        </div>
+        <p class="desc">Research with cited sources.</p>
+        <span class="url">perplexity.ai</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-line">Build your team of AI employees inside the <span class="cirql">Inner Cirql.</span></div>
+    <div class="footer-url">resources.theinnercirql.com</div>
+  </div>
+
+</div>
+</body>
+</html>
