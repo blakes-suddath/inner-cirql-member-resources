@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Leaderboard | Inner Cirql Coaching</title>
+<link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#ffffff;--offwhite:#faf8f4;--ink:#1a1a1a;--ink-60:rgba(26,26,26,0.60);--ink-40:rgba(26,26,26,0.40);--ink-28:rgba(26,26,26,0.28);--ink-12:rgba(26,26,26,0.12);--ink-08:rgba(26,26,26,0.08);--gold:#c9a96e;--gold-soft:rgba(201,169,110,0.14);--gold-deep:#a8874e;--green:#3f9668;--red:#c0603f;--font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--offwhite);color:var(--ink);}
+  body{font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px;}
+  .chrome{display:flex;align-items:center;justify-content:space-between;padding:24px 0 16px;border-bottom:1px solid var(--ink-08);gap:12px;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .hbw{display:flex;flex-direction:column;line-height:1.04;}
+  .hbw-n{font-weight:600;font-size:15px;letter-spacing:0.09em;text-transform:uppercase;white-space:nowrap;color:var(--ink);}
+  .hbw-c{font-weight:600;font-size:8.5px;letter-spacing:0.26em;padding-left:0.26em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+  .back{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-40);display:inline-flex;align-items:center;gap:7px;transition:color .15s;}
+  .back:hover{color:var(--ink);} .back svg{width:13px;height:13px;color:var(--gold);}
+  header.hero{padding:clamp(30px,5vw,52px) 0 clamp(18px,3vw,26px);}
+  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;font-size:11px;margin-bottom:12px;}
+  h1{font-size:clamp(34px,5.5vw,54px);line-height:1.02;letter-spacing:-0.03em;font-weight:700;}
+  h1 .g{font-style:italic;color:var(--gold);}
+  .lede{font-size:16px;color:var(--ink-60);max-width:62ch;margin:14px 0 0;line-height:1.55;}
+  .demo-banner{display:flex;align-items:center;gap:10px;background:var(--gold-soft);border:1px solid rgba(201,169,110,0.4);border-radius:10px;padding:11px 16px;margin:20px 0 4px;font-size:12.5px;color:var(--gold-deep);font-weight:600;}
+  .demo-banner svg{width:15px;height:15px;flex-shrink:0;}
+  .grid{display:grid;grid-template-columns:340px 1fr;gap:22px;padding:22px 0 clamp(64px,9vw,110px);align-items:start;}
+  @media(max-width:900px){.grid{grid-template-columns:1fr;}}
+  .card{background:var(--bg);border:1px solid var(--ink-08);border-radius:18px;box-shadow:0 1px 2px rgba(26,26,26,0.04),0 8px 24px -12px rgba(26,26,26,0.10);}
+  .card-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px 13px;border-bottom:1px solid var(--ink-08);gap:10px;}
+  .card-title{font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:9px;}
+  .card-title svg{width:16px;height:16px;color:var(--gold);}
+  .card-meta{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-40);}
+  .form{position:sticky;top:20px;}
+  .form-body{padding:18px 22px 22px;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-40);margin-bottom:6px;}
+  .field input,.field select{width:100%;border:1px solid var(--ink-12);border-radius:9px;padding:11px 12px;font-size:15px;font-family:inherit;color:var(--ink);background:var(--bg);outline:none;transition:border-color .15s;}
+  .field input:focus,.field select:focus{border-color:var(--gold);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .submit{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-top:4px;padding:14px 18px;background:var(--ink);color:#fff;border:0;border-radius:10px;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;font-family:inherit;transition:background .18s,transform .15s;}
+  .submit:hover{background:var(--gold);transform:translateY(-1px);} .submit svg{width:14px;height:14px;}
+  .form-note{margin-top:12px;font-size:11.5px;color:var(--ink-40);text-align:center;line-height:1.5;}
+  .toast{margin-top:12px;background:rgba(63,150,104,0.12);border:1px solid rgba(63,150,104,0.4);color:var(--green);border-radius:9px;padding:10px 12px;font-size:12.5px;font-weight:600;text-align:center;display:none;} .toast.show{display:block;}
+  .boards{display:grid;grid-template-columns:1.45fr 1fr;gap:22px;align-items:start;}
+  @media(max-width:640px){.boards{grid-template-columns:1fr;}}
+  .leader{display:flex;align-items:center;gap:14px;padding:16px 20px;background:linear-gradient(120deg,rgba(201,169,110,0.16),rgba(201,169,110,0.05));border:1px solid rgba(201,169,110,0.4);border-radius:14px;margin:0 14px 4px;}
+  .leader .crown{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;} .leader .crown svg{width:20px;height:20px;color:#fff;}
+  .leader .lt{font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-deep);} .leader .ln{font-size:17px;font-weight:700;letter-spacing:-0.01em;margin-top:1px;}
+  .seg{display:inline-flex;background:var(--offwhite);border:1px solid var(--ink-12);border-radius:999px;padding:3px;}
+  .seg button{border:0;background:none;font-family:inherit;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-40);padding:6px 13px;border-radius:999px;cursor:pointer;transition:.15s;} .seg button.on{background:var(--ink);color:#fff;}
+  .rows{padding:6px 10px 12px;}
+  .row{display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;transition:background .15s;}
+  .row:hover{background:var(--offwhite);} .row+.row{border-top:1px solid var(--ink-08);}
+  .rank{font-weight:800;font-size:15px;color:var(--ink-28);text-align:center;letter-spacing:-0.02em;}
+  .row.top1 .rank{color:var(--gold);}.row.top2 .rank,.row.top3 .rank{color:var(--gold-deep);}
+  .who{display:flex;align-items:center;gap:11px;min-width:0;}
+  .av{position:relative;overflow:hidden;width:38px;height:38px;border-radius:50%;flex-shrink:0;background:var(--gold-soft);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--gold-deep);border:1px solid rgba(201,169,110,0.3);}
+  .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .nm{min-width:0;} .nm .n{font-weight:600;font-size:14.5px;letter-spacing:-0.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;} .nm .s{font-size:11px;color:var(--ink-40);margin-top:1px;}
+  .stat{text-align:right;display:flex;align-items:center;gap:9px;} .stat .big{font-weight:800;font-size:19px;letter-spacing:-0.02em;} .stat .lbl{font-size:9px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-40);display:block;text-align:right;margin-top:-2px;}
+  .mv{font-size:11px;font-weight:700;width:20px;text-align:center;}
+  .mv.up{color:var(--green);}.mv.down{color:var(--red);}.mv.same{color:var(--ink-28);}
+  .clara-lock{position:relative;} .clara-rows{filter:blur(3px);opacity:0.5;pointer-events:none;}
+  .clara-badge{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;}
+  .clara-badge .pill{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);border:1px solid rgba(201,169,110,0.4);border-radius:999px;padding:6px 14px;margin-bottom:12px;}
+  .clara-badge .t{font-weight:700;font-size:16px;margin-bottom:6px;} .clara-badge .d{font-size:12.5px;color:var(--ink-60);max-width:24ch;line-height:1.5;}
+  footer{border-top:1px solid var(--ink-08);padding:26px 0 40px;text-align:center;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-40);font-weight:600;}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="sig" viewBox="0 0 100 100" fill="none"><path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/><path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/><circle cx="50" cy="50" r="6" fill="#c9a96e"/><path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/><path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 6H4v1a3 3 0 0 0 3 3M17 6h3v1a3 3 0 0 1-3 3M9 20h6M12 14v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="currentColor"/></symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24"><path d="M4 8l4 4 4-6 4 6 4-4-1.5 11h-13z" fill="currentColor"/></symbol>
+</defs></svg>
+<div class="wrap">
+  <div class="chrome">
+    <a class="brand" href="/"><svg width="34" height="34"><use href="#sig"/></svg><span class="hbw"><span class="hbw-n">Inner Cirql</span><span class="hbw-c">Coaching</span></span></a>
+    <a class="back" href="/community/"><svg><use href="#i-back"/></svg> Community</a>
+  </div>
+  <header class="hero">
+    <div class="eyebrow">Weekly Accountability</div>
+    <h1>The <span class="g">Leaderboard.</span></h1>
+    <p class="lede">Log your new buyer and seller appointments every week. Held appointments drive closings, so the board ranks on appointments held. Top of the board takes the crown each month, and your all-time record builds all program long.</p>
+    <div class="demo-banner"><svg><use href="#i-info"/></svg> Preview &middot; sample numbers for this demo. The roster is the real cohort pulled from Origin; the board goes live the moment member logins are connected.</div>
+  </header>
+  <div class="grid">
+    <div class="card form">
+      <div class="card-head"><span class="card-title"><svg><use href="#i-plus"/></svg> Log Your Week</span><span class="card-meta" id="weekLabel">This Week</span></div>
+      <div class="form-body">
+        <form id="entryForm">
+          <div class="field"><label for="agent">Your Name</label><select id="agent" required><option value="" disabled selected>Find yourself&hellip;</option></select></div>
+          <div class="field-row">
+            <div class="field"><label for="buyer">New Buyer Appts</label><input id="buyer" type="number" min="0" inputmode="numeric" placeholder="0"></div>
+            <div class="field"><label for="seller">New Seller Appts</label><input id="seller" type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="missed">Missed</label><input id="missed" type="number" min="0" inputmode="numeric" placeholder="0"></div>
+            <div class="field"><label for="closings">Closings</label><input id="closings" type="number" min="0" inputmode="numeric" placeholder="0"></div>
+          </div>
+          <button class="submit" type="submit"><svg><use href="#i-plus"/></svg> Submit My Week</button>
+          <div class="toast" id="toast"></div>
+          <p class="form-note">At the end of each Wednesday call, everyone logs their week. Monthly resets; all-time keeps building.</p>
+        </form>
+      </div>
+    </div>
+    <div class="boards">
+      <div class="card">
+        <div class="card-head"><span class="card-title"><svg><use href="#i-trophy"/></svg> Appointments Held</span>
+          <span class="seg"><button id="segMonth" class="on" type="button">This Month</button><button id="segAll" type="button">All-Time</button></span>
+        </div>
+        <div class="leader" id="leader"></div>
+        <div class="rows" id="mainBoard"></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-title"><svg><use href="#i-spark"/></svg> Clara Cirq</span><span class="card-meta">Coming Soon</span></div>
+        <div class="clara-lock"><div class="rows clara-rows" id="claraBoard"></div>
+          <div class="clara-badge"><span class="pill">Clara Cirq Board</span><div class="t">Metric coming soon</div><div class="d">Ranks sphere engagement through Clara. We'll lock the exact metric together.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>Inner Cirql Coaching &middot; Leaderboard</footer>
+<script>
+var agents = [
+  {name:"Aaron Rolfsrud",init:"AR",m:{b:6,s:5,c:2},t:{b:28,s:24,c:14},prev:3},
+  {name:"Alexa Neterer",init:"AN",m:{b:2,s:1,c:0},t:{b:9,s:8,c:4},prev:14},
+  {name:"Annessa Fackelman",init:"AF",m:{b:1,s:1,c:0},t:{b:7,s:5,c:3},prev:16},
+  {name:"Anton Louis Martinez",init:"AM",photo:"/assets/roster/anton-louis-martinez.jpg",m:{b:1,s:2,c:1},t:{b:8,s:7,c:4},prev:15},
+  {name:"Antonio Mena",init:"AM",m:{b:3,s:4,c:2},t:{b:20,s:17,c:10},prev:9},
+  {name:"Bill Hill",init:"BH",photo:"/assets/roster/bill-hill.jpg",m:{b:3,s:3,c:1},t:{b:16,s:15,c:8},prev:11},
+  {name:"Danny Davis",init:"DD",photo:"/assets/roster/danny-davis.jpg",m:{b:0,s:0,c:0},t:{b:2,s:2,c:1},prev:null},
+  {name:"Diana Rolfsrud",init:"DR",m:{b:7,s:5,c:4},t:{b:34,s:28,c:18},prev:1},
+  {name:"KaLynn Okerstrom",init:"KO",m:{b:4,s:4,c:2},t:{b:24,s:20,c:12},prev:5},
+  {name:"Lauren Cottrill",init:"LC",m:{b:4,s:2,c:1},t:{b:15,s:13,c:7},prev:8},
+  {name:"Malcolm Wallaker",init:"MW",m:{b:2,s:3,c:0},t:{b:12,s:10,c:5},prev:10},
+  {name:"Maura Mena",init:"MM",m:{b:3,s:2,c:1},t:{b:14,s:11,c:6},prev:12},
+  {name:"Melissa Roberts",init:"MR",photo:"/assets/roster/melissa-roberts.jpg",m:{b:2,s:2,c:1},t:{b:11,s:9,c:6},prev:13},
+  {name:"Melissa Suddath",init:"MS",m:{b:5,s:5,c:3},t:{b:26,s:22,c:16},prev:6},
+  {name:"Morgan Leone",init:"ML",m:{b:6,s:3,c:2},t:{b:22,s:18,c:11},prev:4},
+  {name:"Nick Bock",init:"NB",photo:"/assets/roster/nick-bock.jpg",m:{b:8,s:6,c:3},t:{b:30,s:26,c:15},prev:2},
+  {name:"Sarah Brown",init:"SB",photo:"/assets/roster/sarah-brown.jpg",m:{b:5,s:2,c:1},t:{b:19,s:14,c:9},prev:7},
+  {name:"Sebastien Dixon",init:"SD",photo:"/assets/roster/sebastien-dixon.jpg",m:{b:1,s:1,c:0},t:{b:5,s:4,c:2},prev:18},
+  {name:"Tina Marie Fox",init:"TF",photo:"/assets/roster/tina-marie-fox.jpg",m:{b:1,s:0,c:0},t:{b:4,s:3,c:2},prev:17}
+];
+var view="month";
+function bucket(a){ return view==="month"?a.m:a.t; }
+function held(a){ var x=bucket(a); return x.b+x.s; }
+function av(a){ var h='<span class="av">'+a.init; if(a.photo){ h+='<img src="'+a.photo+'" alt="" loading="lazy" onerror="this.remove()">'; } return h+'</span>'; }
+function mv(cur,prev){ if(prev==null||prev===cur) return '<span class="mv same">–</span>'; if(prev>cur) return '<span class="mv up">▲'+(prev-cur)+'</span>'; return '<span class="mv down">▼'+(cur-prev)+'</span>'; }
+function sorted(){ return agents.slice().sort(function(a,b){ return held(b)-held(a) || bucket(b).c-bucket(a).c || a.name.localeCompare(b.name); }); }
+function renderLeader(){ var top=sorted()[0]; var el=document.getElementById('leader'); var t=view==="month"?"This Month's Leader":"All-Time Leader";
+  if(!top||held(top)===0){ el.innerHTML='<div class="crown"><svg><use href="#i-crown"/></svg></div><div><div class="lt">'+t+'</div><div class="ln">Up for grabs &mdash; first appointment takes it</div></div>'; return; }
+  el.innerHTML='<div class="crown"><svg><use href="#i-crown"/></svg></div><div><div class="lt">'+t+'</div><div class="ln">'+top.name+' &middot; '+held(top)+' held</div></div>';
+}
+function renderMain(){ var list=sorted(); var html="";
+  list.forEach(function(a,i){ var rank=i+1; var x=bucket(a);
+    html+='<div class="row'+(rank<=3&&held(a)>0?' top'+rank:'')+'"><div class="rank">'+rank+'</div>'
+      +'<div class="who">'+av(a)+'<div class="nm"><div class="n">'+a.name+'</div><div class="s">'+x.b+' buyer &middot; '+x.s+' seller &middot; '+x.c+' closings</div></div></div>'
+      +'<div class="stat">'+mv(rank,a.prev)+'<div><div class="big">'+held(a)+'</div><span class="lbl">held</span></div></div></div>';
+  });
+  document.getElementById('mainBoard').innerHTML=html; renderLeader();
+}
+function renderClara(){ var html=""; agents.slice(0,8).forEach(function(a,i){ html+='<div class="row"><div class="rank">'+(i+1)+'</div><div class="who">'+av(a)+'<div class="nm"><div class="n">'+a.name+'</div></div></div><div class="stat"><div><div class="big">0</div><span class="lbl">&mdash;</span></div></div></div>'; }); document.getElementById('claraBoard').innerHTML=html; }
+function fillSelect(){ var sel=document.getElementById('agent'); agents.slice().sort(function(a,b){return a.name.localeCompare(b.name);}).forEach(function(a){ var o=document.createElement('option'); o.value=a.name; o.textContent=a.name; sel.appendChild(o); }); }
+document.getElementById('segMonth').addEventListener('click',function(){ view="month"; this.classList.add('on'); document.getElementById('segAll').classList.remove('on'); renderMain(); });
+document.getElementById('segAll').addEventListener('click',function(){ view="all"; this.classList.add('on'); document.getElementById('segMonth').classList.remove('on'); renderMain(); });
+document.getElementById('entryForm').addEventListener('submit',function(e){ e.preventDefault();
+  var name=document.getElementById('agent').value;
+  var b=parseInt(document.getElementById('buyer').value||"0",10), s=parseInt(document.getElementById('seller').value||"0",10), c=parseInt(document.getElementById('closings').value||"0",10);
+  var a=agents.find(function(x){return x.name===name;}); if(!a) return;
+  a.prev=sorted().indexOf(a)+1;
+  a.m.b+=b; a.m.s+=s; a.m.c+=c; a.t.b+=b; a.t.s+=s; a.t.c+=c;
+  renderMain();
+  var t=document.getElementById('toast'); t.textContent="Logged — "+name+": +"+(b+s)+" held, +"+c+" closings."; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},3500); this.reset();
+});
+fillSelect(); renderMain(); renderClara();
+</script>
+</body>
+</html>
