@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>/*ic-portal-guard*/(function(){try{document.documentElement.style.visibility='hidden'}catch(e){}fetch('/.netlify/functions/me',{credentials:'same-origin'}).then(function(r){return r.ok?r.json():Promise.reject()}).then(function(d){if(!d||!d.authenticated)return Promise.reject();window.__member=d;try{document.documentElement.style.visibility=''}catch(e){}}).catch(function(){location.replace('/login/?next='+encodeURIComponent(location.pathname+location.search))})})();</script>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team Admin | Inner Cirql Coaching</title>
+<link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;--offwhite:#faf8f4;--ink:#1a1a1a;
+    --ink-60:rgba(26,26,26,0.60);--ink-40:rgba(26,26,26,0.40);--ink-12:rgba(26,26,26,0.12);--ink-08:rgba(26,26,26,0.08);
+    --gold:#c9a96e;--gold-soft:rgba(201,169,110,0.14);--gold-deep:#a8874e;--green:#3f9668;--red:#c0603f;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:var(--offwhite);color:var(--ink);}
+  body{font-family:var(--font);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;padding:32px 20px;}
+  .wrap{max-width:640px;margin:0 auto;}
+  .cobrand{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:8px;}
+  .cobrand svg.sig{width:42px;height:42px;margin-bottom:12px;}
+  .hname{font-weight:700;font-size:18px;letter-spacing:0.16em;text-transform:uppercase;}
+  .hcoach{font-weight:600;font-size:9px;letter-spacing:0.34em;padding-left:0.34em;text-transform:uppercase;color:var(--gold);margin-top:5px;}
+  .whoami{text-align:center;font-size:12px;color:var(--ink-40);margin-bottom:22px;}
+  .whoami b{color:var(--ink);font-weight:600;}
+  .whoami a{color:var(--gold-deep);font-weight:600;text-decoration:none;margin-left:8px;}
+  .card{background:var(--bg);border:1px solid var(--ink-08);border-radius:18px;box-shadow:0 1px 2px rgba(26,26,26,0.04),0 14px 34px -18px rgba(26,26,26,0.18);padding:26px 26px 24px;margin-bottom:18px;}
+  .card h2{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:4px;}
+  .card .sub{font-size:12.5px;color:var(--ink-40);margin-bottom:18px;line-height:1.5;}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-40);margin-bottom:6px;}
+  .field input{width:100%;border:1px solid var(--ink-12);border-radius:10px;padding:12px 13px;font-size:15px;font-family:inherit;color:var(--ink);background:var(--bg);outline:none;transition:border-color .15s,box-shadow .15s;}
+  .field input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);}
+  .btn{width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;margin-top:6px;padding:14px 18px;background:var(--ink);color:#fff;border:0;border-radius:11px;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;font-family:inherit;transition:background .18s,transform .15s;}
+  .btn:hover{background:var(--gold);transform:translateY(-1px);}
+  .btn:disabled{opacity:0.6;transform:none;background:var(--ink);cursor:default;}
+  .out{display:none;margin-top:16px;border-radius:12px;padding:14px 16px;font-size:13px;}
+  .out.ok{display:block;background:rgba(63,150,104,0.10);border:1px solid rgba(63,150,104,0.35);color:#2c6b4b;}
+  .out.bad{display:block;background:rgba(192,96,63,0.10);border:1px solid rgba(192,96,63,0.35);color:var(--red);font-weight:600;}
+  .linkbox{background:#fff;border:1px dashed rgba(26,26,26,0.2);border-radius:10px;padding:12px 14px;margin-top:10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--ink);word-break:break-all;line-height:1.6;}
+  .copy{margin-top:10px;border:0;background:var(--gold-soft);color:var(--gold-deep);border-radius:9px;padding:9px 14px;font:inherit;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;}
+  table{width:100%;border-collapse:collapse;margin-top:4px;}
+  th{text-align:left;font-size:9px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-40);padding:0 8px 10px;border-bottom:1px solid var(--ink-08);}
+  td{padding:12px 8px;border-bottom:1px solid var(--ink-08);font-size:13.5px;vertical-align:middle;}
+  td .mem-name{font-weight:600;} td .mem-email{font-size:11.5px;color:var(--ink-40);}
+  .tag{display:inline-block;font-size:8.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border-radius:999px;}
+  .tag.admin{background:var(--gold-soft);color:var(--gold-deep);} .tag.member{background:rgba(26,26,26,0.06);color:var(--ink-60);}
+  .tag.pending{background:rgba(192,96,63,0.12);color:var(--red);}
+  .rowbtn{border:1px solid var(--ink-12);background:#fff;border-radius:8px;padding:7px 11px;font:inherit;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-60);cursor:pointer;white-space:nowrap;transition:.15s;}
+  .rowbtn:hover{border-color:var(--gold);color:var(--gold-deep);}
+  .muted{font-size:12px;color:var(--ink-40);padding:14px 4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="cobrand">
+    <svg class="sig" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+      <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <div class="hname">Inner Cirql</div>
+    <div class="hcoach">Coaching &middot; Team Admin</div>
+  </div>
+  <div class="whoami" id="whoami"></div>
+
+  <div class="card" id="notAdmin" style="display:none">
+    <h2>Admins only</h2>
+    <div class="sub">This area is for the coaching team. Your account doesn't have admin access. If you think that's a mistake, reach out to Blake or Tyler.</div>
+    <a class="btn" href="/" style="text-decoration:none">Back to the portal</a>
+  </div>
+
+  <div id="adminUI" style="display:none">
+    <div class="card">
+      <h2>Add a Member</h2>
+      <div class="sub">Enter their name and email. They'll get a private link to set their own password, then they can sign in any time.</div>
+      <form id="createForm" autocomplete="off">
+        <div class="field"><label for="name">Full Name</label><input id="name" type="text" required placeholder="Jane Agent"></div>
+        <div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="jane@brokerage.com"></div>
+        <button class="btn" id="createBtn" type="submit">Create Account &amp; Get Link</button>
+        <div class="out" id="createOut"></div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Members</h2>
+      <div class="sub">Everyone with portal access. Use <b>Reset</b> to generate a fresh set-password link for anyone who's locked out.</div>
+      <div id="memberList"><div class="muted">Loading members&hellip;</div></div>
+      <div class="out" id="resetOut"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var whoami=document.getElementById('whoami');
+  var esc=function(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); };
+
+  function copyBtn(text,label){
+    var b=document.createElement('button'); b.className='copy'; b.type='button'; b.textContent=label||'Copy link';
+    b.addEventListener('click',function(){ navigator.clipboard.writeText(text).then(function(){ b.textContent='Copied'; setTimeout(function(){b.textContent=label||'Copy link';},1600); }); });
+    return b;
+  }
+
+  fetch('/.netlify/functions/me',{credentials:'same-origin'})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(d){
+      if(!d||!d.authenticated){ location.replace('/login/?next=/admin/'); return; }
+      whoami.innerHTML='Signed in as <b>'+esc(d.name)+'</b> &middot; '+esc(d.role)+'<a href="/.netlify/functions/logout">Sign out</a>';
+      if(d.role!=='admin'){ document.getElementById('notAdmin').style.display='block'; return; }
+      document.getElementById('adminUI').style.display='block';
+      loadMembers();
+    });
+
+  var createOut=document.getElementById('createOut');
+  document.getElementById('createForm').addEventListener('submit',function(e){
+    e.preventDefault(); createOut.className='out';
+    var name=document.getElementById('name').value.trim();
+    var email=document.getElementById('email').value.trim();
+    var btn=document.getElementById('createBtn'); btn.disabled=true; btn.textContent='Creating…';
+    fetch('/.netlify/functions/admin-create-member',{
+      method:'POST',credentials:'same-origin',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({name:name,email:email})
+    })
+    .then(function(r){ return r.json().then(function(d){ return {ok:r.ok,status:r.status,d:d}; }); })
+    .then(function(res){
+      if(!res.ok){ createOut.className='out bad'; createOut.textContent=(res.d&&res.d.error)||'Could not create the account.'; return; }
+      createOut.className='out ok';
+      createOut.innerHTML='<strong>'+esc(res.d.name)+' added.</strong> Send them this private link to set their password (valid 14 days):<div class="linkbox">'+esc(res.d.link)+'</div>';
+      createOut.appendChild(copyBtn(res.d.link,'Copy set-password link'));
+      document.getElementById('createForm').reset();
+      loadMembers();
+    })
+    .catch(function(){ createOut.className='out bad'; createOut.textContent='Network error. Try again.'; })
+    .finally(function(){ btn.disabled=false; btn.textContent='Create Account & Get Link'; });
+  });
+
+  var resetOut=document.getElementById('resetOut');
+  function loadMembers(){
+    var box=document.getElementById('memberList');
+    fetch('/.netlify/functions/admin-list-members',{credentials:'same-origin'})
+      .then(function(r){return r.ok?r.json():Promise.reject();})
+      .then(function(d){
+        var ms=d.members||[];
+        if(!ms.length){ box.innerHTML='<div class="muted">No members yet.</div>'; return; }
+        var html='<table><thead><tr><th>Member</th><th>Role</th><th></th></tr></thead><tbody>';
+        ms.forEach(function(m){
+          var tag=m.role==='admin'?'<span class="tag admin">Admin</span>':'<span class="tag member">Member</span>';
+          if(!m.active) tag+=' <span class="tag pending">No password yet</span>';
+          html+='<tr><td><div class="mem-name">'+esc(m.name)+'</div><div class="mem-email">'+esc(m.email)+'</div></td>'
+            +'<td>'+tag+'</td>'
+            +'<td style="text-align:right"><button class="rowbtn" data-email="'+esc(m.email)+'" data-name="'+esc(m.name)+'">Reset</button></td></tr>';
+        });
+        html+='</tbody></table>';
+        box.innerHTML=html;
+        box.querySelectorAll('.rowbtn').forEach(function(btn){
+          btn.addEventListener('click',function(){ resetMember(btn.getAttribute('data-email'),btn.getAttribute('data-name'),btn); });
+        });
+      })
+      .catch(function(){ box.innerHTML='<div class="muted">Could not load members.</div>'; });
+  }
+
+  function resetMember(email,name,btn){
+    resetOut.className='out'; btn.disabled=true; var orig=btn.textContent; btn.textContent='…';
+    fetch('/.netlify/functions/admin-reset-member',{
+      method:'POST',credentials:'same-origin',
+      headers:{'content-type':'application/json'},
+      body:JSON.stringify({email:email})
+    })
+    .then(function(r){ return r.json().then(function(d){ return {ok:r.ok,d:d}; }); })
+    .then(function(res){
+      if(!res.ok){ resetOut.className='out bad'; resetOut.textContent=(res.d&&res.d.error)||'Could not reset.'; return; }
+      resetOut.className='out ok';
+      var mailed=res.d.emailed?' It was also emailed to them.':'';
+      resetOut.innerHTML='<strong>Reset link for '+esc(name)+'</strong> (valid 24 hours).'+mailed+'<div class="linkbox">'+esc(res.d.link)+'</div>';
+      resetOut.appendChild(copyBtn(res.d.link,'Copy reset link'));
+      resetOut.scrollIntoView({behavior:'smooth',block:'nearest'});
+    })
+    .catch(function(){ resetOut.className='out bad'; resetOut.textContent='Network error. Try again.'; })
+    .finally(function(){ btn.disabled=false; btn.textContent=orig; });
+  }
+})();
+</script>
+</body>
+</html>
