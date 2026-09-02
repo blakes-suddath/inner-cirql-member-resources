@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inner Cirql Brand Family Source</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Instrument+Serif:ital@1&family=Bebas+Neue&display=swap">
+<style>
+  :root {
+    --gold: #c9a96e;
+    --ink: #000000;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #efece6; font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif; padding: 32px; }
+  .bench { max-width: 1600px; margin: 0 auto; }
+  .bench-label { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: #7a7264; margin: 0 0 10px; font-weight: 700; }
+  .row { display: flex; flex-direction: column; gap: 8px; }
+  .fit { width: 747px; transform-origin: top left; }
+
+  /* ===== The lockup ===== */
+  .lockup {
+    width: 747px; height: 561px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: #ffffff;
+    flex: none;
+    padding-bottom: 16px; /* centers the INK block (icon top to Q-tail bottom) on the true canvas middle */
+  }
+  .lockup.dark { background: #000000; }
+  .lockup .mark { margin-bottom: 10px; } /* ink-to-cap gap = 40px measured: svg inset 20px + font ascent gap 22px + 10px margin, minus rounding */
+  .lockup .wordmark {
+    font-weight: 700; font-size: 72px; letter-spacing: .28em; word-spacing: -.28em;
+    color: var(--ink); line-height: 1; white-space: nowrap;
+    margin-right: -.28em; /* balance trailing letter-space, keep equal to letter-spacing */
+  }
+  .lockup.dark .wordmark { color: #ffffff; }
+  .lockup .sub {
+    font-weight: 700; font-size: 28px; letter-spacing: .42em;
+    color: var(--gold); line-height: 1; margin-top: 20px; white-space: nowrap;
+    margin-right: -.42em;
+  }
+  .lockup .tag1 {
+    font-weight: 700; font-size: 32px; letter-spacing: -.01em;
+    color: var(--ink); line-height: 1.15; margin-top: 48px;
+  }
+  .lockup.dark .tag1 { color: #ffffff; }
+  .lockup .tag2 {
+    font-family: 'Instrument Serif', Georgia, serif; font-style: italic;
+    font-size: 34px; color: var(--gold); line-height: 1.15; margin-top: 4px;
+  }
+
+  /* tagline design */
+  .tag-line { font-family: 'Bebas Neue', 'DM Sans', sans-serif; font-weight: 400; font-size: 112px; letter-spacing: .04em;
+              color: var(--ink); line-height: 1; white-space: nowrap; margin-right: -.04em; }
+  .tag-line.gold-line { color: var(--gold); margin-top: -9.6px; }
+  .sig-wm { font-weight: 700; font-size: 24px; letter-spacing: .28em; color: var(--ink); line-height: 1;
+            white-space: nowrap; margin-right: -.28em; margin-top: 22.3px; }
+  .sig-sub { font-weight: 700; font-size: 13px; letter-spacing: .42em; color: var(--gold); line-height: 1;
+             white-space: nowrap; margin-right: -.42em; margin-top: 10.1px; }
+  #ic-tagline { padding-bottom: 8.8px; }
+
+  /* domain wordmark */
+  .domain { font-weight: 700; font-size: 42px; letter-spacing: .28em; color: var(--ink); line-height: 1;
+            white-space: nowrap; margin-right: -.28em; }
+  .domain .gold { color: var(--gold); }
+  #ic-domain { padding-bottom: 18.3px; }
+  #ic-domain .mark { margin-bottom: 13.7px; }
+
+  /* Blake Suddath: same construction as Inner Cirql, sized to the same margins */
+  #bs-primary .wordmark { font-size: 56px; }
+  #bs-primary { padding-bottom: 17.9px; }
+  #bs-primary .mark { margin-bottom: 11.5px; }
+
+  /* stacked variant: square canvas, same geometry system */
+  .lockup.stacked { width: 561px; height: 561px; padding-bottom: 8px; } /* centers stacked ink block on canvas middle */
+  .lockup.stacked .w2 { margin-top: 2px; } /* measured: baseline-to-cap ink gap = 24px (3 grid units) */
+
+  /* COACHING variants: 32px ink gap wordmark-baseline to COACHING cap, re-centered */
+  .lockup.withsub .sub { margin-top: 16px; }
+  .lockup.withsub { padding-bottom: 16px; }
+  .lockup.stacked.withsub { padding-bottom: 16px; }
+
+
+  /* Always-On Agent System: editorial two-line lockup */
+  .ao1 { font-weight:700; font-size:60px; letter-spacing:-.02em; color:var(--ink); line-height:1; white-space:nowrap; }
+  .ao2 { font-family:'Instrument Serif',Georgia,serif; font-style:italic; font-weight:400; font-size:62px;
+         color:var(--gold); line-height:1; white-space:nowrap; margin-top:18px; }
+
+  /* Territory Takeover candidates */
+  .tt-caps { font-weight:700; font-size:64px; letter-spacing:.28em; color:var(--ink); line-height:1;
+             white-space:nowrap; margin-right:-.28em; }
+  .tt-caps + .tt-caps { margin-top:2px; }
+  .tt-sub { font-weight:700; font-size:26px; letter-spacing:.42em; color:var(--gold); line-height:1;
+            white-space:nowrap; margin-right:-.42em; margin-top:16px; }
+
+  /* per-panel geometric corrections (measured): 40px icon gap, 24px line gap, 32px to sub, ink-centered */
+  #ao-primary .ao2 { margin-top: 8.8px; }
+  #ao-primary { padding-bottom: 0; padding-top: 1.4px; }
+  #tt-a .tt-caps + .tt-caps { margin-top: 4.8px; }
+  #tt-a .tt-sub { margin-top: 17.2px; }
+  #tt-a { padding-bottom: 4.2px; }
+  #tt-b .tt-b2 { margin-top: 10px; }
+  #tt-b { padding-bottom: 0; padding-top: 0.6px; }
+
+
+
+  /* letter-swap concepts */
+  .sym-o { display:inline-block; vertical-align:baseline; }
+
+  /* letter-swap panels: same geometric constants as the icon-free versions */
+  #ao-letterswap .ao2 { margin-top: 8.8px; }
+  #ao-letterswap { padding-bottom: 0; padding-top: 1.6px; }
+  #tt-letterswap .tt-caps + .tt-caps { margin-top: 4.8px; }
+  #tt-letterswap .tt-sub { margin-top: 17.2px; }
+  #tt-letterswap { padding-bottom: 4.2px; }
+
+</style>
+</head>
+<body>
+<div class="bench">
+  <p class="bench-label">Inner Cirql brand family · locked 2026-08-29 · edits here, nothing deploys</p>
+  <div class="row">
+
+    <div>
+      <p class="bench-label">Inner Cirql · primary</p>
+      <div class="fit"><div class="lockup" id="light">
+        <svg class="mark" viewBox="0 0 100 100" width="144" height="144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="wordmark">INNER CIRQL</div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="bench-label">Inner Cirql · stacked</p>
+      <div class="fit"><div class="lockup stacked" id="stackedlight">
+        <svg class="mark" viewBox="0 0 100 100" width="144" height="144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="wordmark w1">INNER</div>
+        <div class="wordmark w2">CIRQL</div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="bench-label">Inner Cirql Coaching · primary</p>
+      <div class="fit"><div class="lockup withsub" id="primarycoaching">
+        <svg class="mark" viewBox="0 0 100 100" width="144" height="144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="wordmark">INNER CIRQL</div>
+        <div class="sub">COACHING</div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="bench-label">Inner Cirql Coaching · stacked</p>
+      <div class="fit"><div class="lockup stacked withsub" id="stackedcoaching">
+        <svg class="mark" viewBox="0 0 100 100" width="144" height="144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="wordmark w1">INNER</div>
+        <div class="wordmark w2">CIRQL</div>
+        <div class="sub">COACHING</div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="bench-label">The offers · Always-On Agent System and Territory Takeover System</p>
+
+      <div class="fit"><div class="lockup" id="ao-letterswap">
+        <div class="ao1">The Always&#8211;<svg class="sym-o" style="margin-bottom:-0.7px" width="47" height="43.4" viewBox="0 0 47 43.4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M 32.9 7.4 A 17.2 17.2 0 1 1 14.1 7.4" stroke="#c9a96e" stroke-width="9" stroke-linecap="butt"/><path d="M 23.5 4.5 L 23.5 13.9" stroke="#c9a96e" stroke-width="9" stroke-linecap="round"/></svg>n</div>
+        <div class="ao2">Agent System</div>
+      </div></div>
+
+      <div class="fit" style="margin-top:24px"><div class="lockup" id="tt-letterswap">
+        <div class="tt-caps">TERRITORY</div>
+        <div class="tt-caps">TAKE<svg class="sym-o" style="margin-right:.28em;margin-bottom:-0.7px" width="50" height="46.2" viewBox="0 0 50 46.2" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="23.1" r="18.3" stroke="#c9a96e" stroke-width="9.6"/><circle cx="25" cy="23.1" r="6.4" fill="#c9a96e"/></svg>VER</div>
+        <div class="tt-sub">SYSTEM</div>
+      </div></div>
+    </div>
+
+
+    <div>
+      <p class="bench-label">Inner Cirql · domain</p>
+      <div class="fit"><div class="lockup" id="ic-domain">
+        <svg class="mark" viewBox="0 0 100 100" width="144" height="144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="domain">THEINNER<span class="gold">CIRQL</span>.COM</div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="bench-label">Tagline design · Stop Chasing. Start Building.</p>
+      <div class="fit"><div class="lockup" id="ic-tagline">
+        <svg class="mark" style="margin-bottom:18.8px" viewBox="0 0 100 100" width="72" height="72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="tag-line">STOP CHASING.</div>
+        <div class="tag-line gold-line">START BUILDING.</div>
+        <div class="sig-wm">THEINNER<span style="color:var(--gold)">CIRQL</span>.COM</div>
+      </div></div>
+    </div>
+
+    <div>
+      <p class="bench-label">Blake Suddath · primary (same construction as Inner Cirql)</p>
+      <div class="fit"><div class="lockup" id="bs-primary">
+        <svg class="mark" viewBox="0 0 100 100" width="144" height="144" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
+          <path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+          <path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        <div class="wordmark">BLAKE SUDDATH</div>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+<script>
+function fit(){var s=Math.min(1,(window.innerWidth-64)/747);document.querySelectorAll(".fit").forEach(function(e){e.style.transform="scale("+s+")";e.style.marginBottom=(-(1-s)*e.scrollHeight)+"px"});}
+window.addEventListener("resize",fit);fit();
+</script>
+</body>
+</html>
