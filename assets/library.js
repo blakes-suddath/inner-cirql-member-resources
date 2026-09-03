@@ -76,11 +76,8 @@
   }
 
   /* ---------- cover art ---------- */
-  var MARK = '<g transform="translate(1030,42) scale(1.25)">' +
-    '<circle cx="50" cy="12" r="5" fill="#c9a96e"/><circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/><circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>' +
-    '<circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/><circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/><circle cx="50" cy="88" r="5" fill="#c9a96e"/>' +
-    '<circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/><circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/><circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>' +
-    '<circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/></g>';
+  /* The Open Cirql mark, exact paths from the locked kit (assets/brand/innercirql-icon.svg). */
+  var MARK = '<g transform="translate(1010,40) scale(1.3)">' + '<path d="M 31 17 A 38 38 0 0 0 31 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M 39 31 A 22 22 0 0 0 39 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/><circle cx="50" cy="50" r="6" fill="#c9a96e"/><path d="M 61 31 A 22 22 0 0 1 61 69" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M 69 17 A 38 38 0 0 1 69 83" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>' + '</g>';
 
   function coverSvg(item, opts) {
     opts = opts || {};
@@ -98,16 +95,16 @@
     if (Math.max(l1.length, l2.length) > 20) size = 54;
     return '<svg viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
       '<defs><radialGradient id="' + uid + '" cx="88%" cy="10%" r="70%"><stop offset="0" stop-color="#c9a96e" stop-opacity="0.28"/><stop offset="1" stop-color="#c9a96e" stop-opacity="0"/></radialGradient></defs>' +
-      '<rect width="1200" height="675" fill="#101010"/>' +
+      '<rect width="1200" height="675" fill="#000000"/>' +
       '<rect width="1200" height="675" fill="url(#' + uid + ')"/>' +
       '<rect x="0" y="0" width="1200" height="675" fill="none" stroke="rgba(255,255,255,0.06)"/>' +
       (opts.plain ? "" : MARK) +
       (opts.plain ? "" :
-        '<text x="72" y="286" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-size="16" letter-spacing="5">' + esc(kicker) + "</text>" +
-        '<text x="72" y="372" fill="#ffffff" font-family="Inter, sans-serif" font-weight="700" font-size="' + size + '" letter-spacing="-2.5">' + esc(l1) + "</text>" +
-        '<text x="72" y="' + (372 + size * 1.08) + '" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="' + size + '" letter-spacing="-2.5">' + esc(l2) + "</text>" +
+        '<text x="72" y="286" fill="#c9a96e" font-family="DM Sans, Inter, sans-serif" font-weight="700" font-size="16" letter-spacing="5">' + esc(kicker) + "</text>" +
+        '<text x="72" y="372" fill="#ffffff" font-family="DM Sans, Inter, sans-serif" font-weight="700" font-size="' + size + '" letter-spacing="-2">' + esc(l1) + "</text>" +
+        '<text x="72" y="' + (372 + size * 1.08) + '" fill="#c9a96e" font-family="Instrument Serif, Georgia, serif" font-weight="400" font-style="italic" font-size="' + (size * 1.08) + '" letter-spacing="0">' + esc(l2) + "</text>" +
         '<text x="72" y="' + (372 + size * 1.08 + 52) + '" fill="rgba(255,255,255,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="22">' + esc(sub) + "</text>" +
-        (foot.length ? '<text x="72" y="612" fill="rgba(255,255,255,0.35)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="3">' + esc(foot.join("  ·  ").toUpperCase()) + "</text>" : "")) +
+        (foot.length ? '<text x="72" y="612" fill="rgba(255,255,255,0.35)" font-family="DM Sans, Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="3">' + esc(foot.join("  ·  ").toUpperCase()) + "</text>" : "")) +
       "</svg>";
   }
   function coverHtml(item) {
