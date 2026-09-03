@@ -6,1097 +6,53 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Inner Cirql — Weekly Slides Library</title>
+<title>Inner Cirql — Slide Library</title>
 <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="Every week's Inner Cirql coaching deck — wins, industry news, the quote of the week, accountability, and the teaching segment. The live deck we run every Wednesday at 10 AM CT.">
-
-<meta name="theme-color" content="#1a1a1a">
-
+<meta name="theme-color" content="#0b0b0b">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://resources.yourinnercirql.com/slides/">
-<meta property="og:title" content="Inner Cirql — Weekly Slides Library">
+<meta property="og:title" content="Inner Cirql — Slide Library">
 <meta property="og:description" content="Every week's Inner Cirql coaching deck. Updated every Wednesday.">
-<meta property="og:site_name" content="Inner Cirql">
-<meta name="twitter:card" content="summary_large_image">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --bg:        #ffffff;
-    --offwhite:  #faf8f4;
-    --ink:       #1a1a1a;
-    --ink-80:    rgba(26,26,26,0.80);
-    --ink-60:    rgba(26,26,26,0.60);
-    --ink-40:    rgba(26,26,26,0.40);
-    --ink-28:    rgba(26,26,26,0.28);
-    --ink-12:    rgba(26,26,26,0.12);
-    --ink-08:    rgba(26,26,26,0.08);
-    --gold:      #c9a96e;
-    --gold-soft: rgba(201,169,110,0.14);
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: var(--bg); color: var(--ink); }
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  a { color: inherit; text-decoration: none; }
-
-  .page {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: clamp(20px, 4vw, 56px) clamp(24px, 6vw, 80px) clamp(64px, 8vw, 96px);
-  }
-
-  /* CHROME */
-  .chrome {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ink-40); font-weight: 600;
-    padding-bottom: 18px; border-bottom: 1px solid var(--ink-08);
-    margin-bottom: clamp(40px, 6vw, 72px);
-    gap: 12px;
-  }
-  .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); }
-  .brand-mark svg { display: block; }
-  .brand-word {
-    font-weight: 600; font-size: 18px;
-    letter-spacing: -0.005em; text-transform: none;
-    white-space: nowrap;
-  }
-  .brand-word .cirql { color: var(--gold); font-weight: 600; }
-  .chrome-right { display: flex; align-items: center; gap: 20px; }
-  .chrome-cta {
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 9px 16px;
-    background: var(--ink); color: var(--bg);
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 0.20em; text-transform: uppercase;
-    line-height: 1;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .chrome-cta:hover { opacity: 0.85; transform: translateY(-1px); }
-  .chrome-cta svg { width: 11px; height: 11px; }
-  .chrome .meta { display: flex; gap: 14px; align-items: center; }
-  .chrome .meta .sep { width: 3px; height: 3px; background: var(--ink-28); border-radius: 50%; }
-  @media (max-width: 720px) {
-    .brand-word { font-size: 14px; }
-    .chrome-cta { padding: 8px 10px; font-size: 0; letter-spacing: 0; }
-    .chrome-cta svg { width: 14px; height: 14px; }
-    .chrome-cta span { display: none; }
-    .chrome .meta { font-size: 9px; gap: 8px; }
-  }
-
-  /* BACK LINK */
-  .back-link {
-    display: inline-flex; align-items: center; gap: 8px;
-    margin-bottom: clamp(24px, 3vw, 32px);
-    font-size: 10px; font-weight: 700;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-40);
-    transition: color 0.2s;
-  }
-  .back-link:hover { color: var(--ink); }
-  .back-link svg { width: 12px; height: 12px; transform: rotate(180deg); }
-
-  /* HERO */
-  .hero { margin-bottom: clamp(40px, 6vw, 64px); }
-  .eyebrow {
-    color: var(--gold); font-weight: 700;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    font-size: 11px; margin-bottom: 24px;
-  }
-  h1 {
-    font-size: clamp(40px, 7vw, 88px);
-    line-height: 1.0; letter-spacing: -0.035em;
-    font-weight: 700;
-  }
-  h1 .cirql { font-style: italic; color: var(--gold); }
-  .lede {
-    margin-top: 24px;
-    font-size: clamp(16px, 1.4vw, 19px);
-    color: var(--ink-60); max-width: 62ch;
-    line-height: 1.55;
-  }
-
-  /* SECTION HEADER */
-  .weeks-section { margin-bottom: clamp(40px, 5vw, 56px); }
-  .weeks-section:last-of-type { margin-bottom: 0; }
-
-  .section-head {
-    display: flex; justify-content: space-between; align-items: baseline;
-    margin-bottom: clamp(16px, 1.8vw, 22px);
-    padding-bottom: clamp(12px, 1.2vw, 16px);
-    border-bottom: 1px solid var(--ink-08);
-    gap: 12px; flex-wrap: wrap;
-  }
-  .section-label {
-    font-size: clamp(15px, 1.4vw, 19px);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-  }
-  .section-meta {
-    font-size: 10px; font-weight: 600;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--ink-40);
-  }
-
-  /* CARD GRID */
-  .weeks-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-  }
-  @media (max-width: 1024px) { .weeks-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 640px) { .weeks-grid { grid-template-columns: 1fr; } }
-
-  /* COMING SOON variant */
-.week-card {
-    background: var(--bg);
-    border: 1px solid var(--ink-12);
-    display: flex; flex-direction: column;
-    box-shadow: 0 1px 2px rgba(26,26,26,0.03), 0 8px 24px rgba(26,26,26,0.04);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
-    color: var(--ink);
-  }
-  .week-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--gold);
-    box-shadow: 0 2px 4px rgba(26,26,26,0.04), 0 16px 40px rgba(26,26,26,0.08);
-  }
-
-  .week-image {
-    display: block; width: 100%;
-    aspect-ratio: 1200 / 630;
-    background: var(--offwhite);
-    position: relative;
-    overflow: hidden;
-  }
-  .week-image svg { display: block; width: 100%; height: 100%; }
-
-  .week-body {
-    padding: clamp(16px, 1.4vw, 22px);
-    display: flex; flex-direction: column;
-    flex: 1;
-  }
-
-  .week-top {
-    display: flex; justify-content: space-between; align-items: flex-start;
-    gap: 10px; margin-bottom: clamp(10px, 1vw, 14px);
-  }
-  .week-date {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 9px; font-weight: 700;
-    letter-spacing: 0.20em; text-transform: uppercase;
-    color: var(--gold);
-    background: var(--gold-soft);
-    padding: 5px 10px;
-    line-height: 1;
-  }
-  .week-tag {
-    font-size: 9px; font-weight: 600;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ink-40);
-    align-self: flex-start;
-    padding-top: 5px;
-  }
-  .week-tag.live {
-    color: var(--ink); background: var(--ink); color: var(--bg);
-    padding: 5px 10px;
-    font-weight: 700; letter-spacing: 0.20em;
-    line-height: 1;
-  }
-
-  .week-title {
-    font-weight: 700;
-    font-size: clamp(16px, 1.4vw, 20px);
-    line-height: 1.25;
-    letter-spacing: -0.02em;
-    margin: 0 0 10px;
-  }
-
-  .week-desc {
-    font-size: clamp(12px, 0.95vw, 13.5px); line-height: 1.55;
-    color: var(--ink-60);
-    margin: 0 0 auto;
-  }
-  .week-desc b { font-weight: 600; color: var(--ink); }
-
-  .week-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    margin-top: clamp(12px, 1.2vw, 18px);
-    padding: 8px 12px;
-    background: var(--ink); color: var(--bg);
-    font-size: 9.5px; font-weight: 600;
-    letter-spacing: 0.20em; text-transform: uppercase;
-    line-height: 1; align-self: flex-start;
-    transition: opacity 0.2s;
-  }
-  .week-card:hover .week-link { opacity: 0.88; }
-  .week-link svg { width: 12px; height: 12px; }
-
-  /* FOOTER */
-  footer {
-    margin-top: clamp(56px, 8vw, 96px);
-    padding-top: 24px;
-    border-top: 1px solid var(--ink-08);
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--ink-40); font-weight: 600;
-    flex-wrap: wrap; gap: 12px;
-  }
-  footer a {
-    color: var(--ink-60);
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 1px;
-    transition: color 0.2s;
-  }
-  footer a:hover { color: var(--ink); }
-
-  /* uniform co-brand header */
-  .cb{display:flex;align-items:center;gap:10px;}
-  .cb svg{display:block;flex-shrink:0;}
-  .ao-word{display:flex;flex-direction:column;line-height:1.06;white-space:nowrap;text-align:left;}
-  .ao-word .ao-sans{font-family:'DM Sans','Inter',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-0.04em;color:var(--ink);text-transform:none;}
-  .ao-word .ao-serif{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:14.5px;letter-spacing:-0.01em;color:var(--gold);text-transform:none;}
-  .brand-div{width:1px;height:26px;background:var(--ink-12);flex-shrink:0;}
-  @media(max-width:640px){.ao-word .ao-sans{font-size:11.5px;}.ao-word .ao-serif{font-size:12.5px;}}
-
-  /* download button on cards */
-  .dl-btn{position:absolute;top:10px;right:10px;z-index:3;display:inline-flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(26,26,26,0.82);color:#fff;font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;border:0;cursor:pointer;font-family:inherit;line-height:1;transition:background .18s ease;}
-  .dl-btn:hover{background:var(--gold);}
-  .dl-btn svg{width:11px;height:11px;}
-  /* download modal */
-  .dlm-overlay{position:fixed;inset:0;background:rgba(26,26,26,0.55);z-index:60;display:none;align-items:center;justify-content:center;padding:24px;}
-  .dlm-overlay.open{display:flex;}
-  .dlm{background:var(--bg);max-width:430px;width:100%;padding:34px 34px 30px;position:relative;box-shadow:0 30px 80px rgba(26,26,26,0.35);}
-  .dlm-close{position:absolute;top:14px;right:14px;background:none;border:0;cursor:pointer;color:var(--ink-40);font-size:20px;line-height:1;padding:6px;font-family:inherit;}
-  .dlm-close:hover{color:var(--ink);}
-  .dlm-eyebrow{color:var(--gold);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;font-size:10px;margin-bottom:10px;}
-  .dlm h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.15;margin-bottom:8px;}
-  .dlm .dlm-deckname{font-size:13px;color:var(--ink-60);margin-bottom:20px;line-height:1.5;}
-  .dlm label{display:block;font-size:10px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-40);margin:14px 0 6px;}
-  .dlm input[type="text"],.dlm input[type="email"]{width:100%;border:1px solid var(--ink-12);padding:12px 14px;font-size:15px;font-family:inherit;color:var(--ink);background:var(--bg);outline:none;transition:border-color .15s ease;}
-  .dlm input:focus{border-color:var(--gold);}
-  .dlm-submit{margin-top:22px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 20px;background:var(--ink);color:var(--bg);border:0;cursor:pointer;font-size:11px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;font-family:inherit;transition:background .18s ease,transform .15s ease;}
-  .dlm-submit:hover{background:var(--gold);transform:translateY(-1px);}
-  .dlm-submit svg{width:13px;height:13px;}
-  .dlm-note{margin-top:12px;font-size:11.5px;color:var(--ink-40);text-align:center;}
-  .dlm-done{display:none;text-align:center;padding:18px 0 6px;}
-  .dlm-done .big{font-size:20px;font-weight:700;margin-bottom:6px;}
-  .dlm-done p{font-size:13.5px;color:var(--ink-60);}
-  .dlm.done form{display:none;}
-  .dlm.done .dlm-done{display:block;}
-
-  /* === unified Inner Cirql Coaching header lockup === */
-  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
-  .hbw{display:flex;flex-direction:column;line-height:1.04;text-align:left;}
-  .hbw-n{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;letter-spacing:0.09em;text-transform:uppercase;white-space:nowrap;color:#1a1a1a;}
-  .hbw-c{font-family:'Inter',sans-serif;font-weight:600;font-size:8.5px;letter-spacing:0.26em;padding-left:0.26em;text-transform:uppercase;color:#c9a96e;margin-top:2px;}
-  @media(max-width:640px){.hbw-n{font-size:13px;}.hbw-c{font-size:8px;}}
-</style>
+<link rel="stylesheet" href="/assets/library.css?v=1">
 </head>
 <body>
-
-<!-- Shared SVG defs -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <symbol id="ao-mark" viewBox="0 0 100 100">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ao-mark" viewBox="0 0 100 100">
     <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
     <path d="M 41.58 29.67 A 22 22 0 0 0 41.58 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
     <circle cx="50" cy="50" r="6" fill="#c9a96e"/>
     <path d="M 58.42 29.67 A 22 22 0 0 1 58.42 70.33" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
     <path d="M 66.66 15.85 A 38 38 0 0 1 66.66 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
   </symbol>
-  <symbol id="brand-mark" viewBox="0 0 100 100">
-      <circle cx="50" cy="12" r="5" fill="#c9a96e"/>
-      <circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/>
-      <circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/>
-      <circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/>
-      <circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/>
-      <circle cx="50" cy="88" r="5" fill="#c9a96e"/>
-      <circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/>
-      <circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/>
-      <circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/>
-      <circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
-    </symbol>
-    <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v13M6 11l6 6 6-6M4 21h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24">
-      <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
-    </symbol>
-  </defs>
-</svg>
+  <symbol id="ic-mark" viewBox="0 0 100 100">
+    <circle cx="50" cy="12" r="5" fill="#c9a96e"/><circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/><circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/><circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/><circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/><circle cx="50" cy="88" r="5" fill="#c9a96e"/><circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/><circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/><circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/><circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
+  </symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v13M6 11l6 6 6-6M4 21h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
+</defs></svg>
 
-<div class="page">
-
-  <!-- CHROME -->
-  <div class="chrome">
-    <a class="brand" href="/"><svg width="34" height="34"><use href="#ao-mark"/></svg><span class="hbw"><span class="hbw-n">INNER CIRQL</span><span class="hbw-c">Coaching</span></span></a>
-    <div class="chrome-right">
-      <div class="meta">
-        <span>Resources</span>
-        <span class="sep"></span>
-        <span>Weekly Slides</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- BACK LINK -->
-  <a class="back-link" href="/">
-    <svg><use href="#i-arrow"/></svg>
-    <span>Home</span>
+<header class="lib-top">
+  <a class="brand" href="/">
+    <span class="cb"><svg width="30" height="30"><use href="#ao-mark"/></svg><span class="ao-word"><span class="ao-sans">The Always-On</span><span class="ao-serif">Client Magnet</span></span></span>
+    <span class="brand-div"></span>
+    <span class="cb"><svg width="26" height="26"><use href="#ic-mark"/></svg><span class="ic-word">Inner <span class="cirql">Cirql</span></span></span>
   </a>
+  <nav class="lib-nav" aria-label="Library">
+    <a href="/">Home</a>
+    <a href="/training/">Training</a>
+    <a href="/slides/" aria-current="page">Slides</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="eyebrow">Weekly Coaching Call</div>
-    <h1>Slide <span class="cirql">Library.</span></h1>
-    <p class="lede">The live coaching call we run every Wednesday at 10 AM CT: wins, industry news, the quote of the week, accountability, and the teaching segment. Every week's deck is here. Open the one you missed.</p>
-  </section>
+<main id="library" aria-live="polite"></main>
 
-  <!-- ALL WEEKS -->
-  <section class="weeks-section">
-    <div class="section-head">
-      <span class="section-label">Past Calls</span>
-      <span class="section-meta">Every Wednesday · 10 AM CT</span>
-    </div>
-    <div class="weeks-grid">
-      <a href="https://coach.theinnercirql.com/2026-09-02/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-09-02.pdf" data-deck="Coaching Call &#183; September 2, 2026" aria-label="Download PDF: Coaching Call, September 2, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 20</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; SEP 2, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">The Sleepless</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Video System.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Sleepless Video Marketing System &#183; VSL + Stories</text>
-            <g transform="translate(72, 522)"><rect width="155" height="32" fill="#1a1a1a"/><text x="16" y="21" fill="#ffffff" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">THIS WEEK</text><circle cx="135" cy="16" r="4" fill="#c9a96e"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">September 2, 2026</span>
-            <span class="week-tag live">This Week</span>
-          </div>
-          <h2 class="week-title">The Sleepless Video Marketing System &#183; Appointments While You Sleep.</h2>
-          <p class="week-desc">Two systems, ninety days: one VSL that sells you around the clock, and a ten-second Story from every showing. Appointments while you sleep. Plus wins, accountability, and the teaching segment.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
+<footer class="lib-footer"><span>Inner Cirql · Slide Library</span><span>Updated every Wednesday · <a href="/">All Resources</a></span></footer>
 
-      <a href="https://coach.theinnercirql.com/2026-08-26/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-08-26.pdf" data-deck="Coaching Call &#183; August 26, 2026" aria-label="Download PDF: Coaching Call, August 26, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 21</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; AUG 26, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Enough</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">People.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Marketing Engine &#183; Week 4 of 4</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">August 26, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Marketing Engine &#183; Week 4 &#183; Enough People.</h2>
-          <p class="week-desc">The finale: eight places to build your database, the 50 people you're not thinking of, and the math that turns contacts into closings. Your engine is only as big as your audience.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-08-19/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-08-19.pdf" data-deck="Coaching Call &#183; August 19, 2026" aria-label="Download PDF: Coaching Call, August 19, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 21</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; AUG 19, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">The Right</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Thing.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Marketing Engine &#183; Week 3 of 4</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">August 19, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Marketing Engine &#183; Week 3 &#183; The Right Thing.</h2>
-          <p class="week-desc">The right message has one job: book the meeting. Stop qualifying, start booking, and let the engine say it right every time. Plus wins, accountability, and the teaching segment.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-08-12/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-08-12.pdf" data-deck="Coaching Call &#183; August 12, 2026" aria-label="Download PDF: Coaching Call, August 12, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 21</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; AUG 12, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Enough</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Times.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Marketing Engine &#183; Week 2 of 4</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">August 12, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Marketing Engine &#183; Week 2 &#183; Enough Times.</h2>
-          <p class="week-desc">Follow-up is marketing. Say it enough times and watch it compound: pick your number, write it into the tracker, and let Clara run the touches. Plus wins, accountability, and the teaching segment.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-08-05/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-08-05.pdf" data-deck="Coaching Call &#183; August 5, 2026" aria-label="Download PDF: Coaching Call, August 5, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 21</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; AUG 5, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">The Marketing</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Engine.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Marketing Engine &#183; Week 1 of 4</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">August 5, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Marketing Engine &#183; Week 1 &#183; The Problem.</h2>
-          <p class="week-desc">Why marketing is the business in the AI era, where most agents fall short, and Origin plus the back-end engine that gets you found so you sell more houses.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-07-29/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-07-29.pdf" data-deck="Coaching Call &#183; July 29, 2026" aria-label="Download PDF: Coaching Call, July 29, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 20</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; JUL 29, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Own Your</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Domain.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The CITED Series &#183; Week 5 of 5</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">July 29, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The CITED Series &#183; Week 5 &#183; Domain.</h2>
-          <p class="week-desc">The finale: your personal landing page, the one source you own. Your Claim as the headline, every profile linked, schema so AI can read it.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-07-22/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-07-22.pdf" data-deck="Coaching Call &#183; July 22, 2026" aria-label="Download PDF: Coaching Call, July 22, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 20</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; JUL 22, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Become an</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Entity.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The CITED Series &#183; Week 4 of 5</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">July 22, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The CITED Series &#183; Week 4 &#183; Entity.</h2>
-          <p class="week-desc">Your Google Business Profile is the most-trusted entity source AI has. Verify it, load your Claim, and go after Google reviews with keyword-rich Q&amp;As.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-07-15/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-07-15.pdf" data-deck="Coaching Call &#183; July 15, 2026" aria-label="Download PDF: Coaching Call, July 15, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 20</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; JUL 15, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Build</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Trust.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The CITED Series &#183; Week 3 of 5</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">July 15, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The CITED Series &#183; Week 3 &#183; Trust.</h2>
-          <p class="week-desc">Realtor.com is the cross-check AI runs on your credibility. Claim it, mirror your Claim word for word, and start a second review stream.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-07-08/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-07-08.pdf" data-deck="Coaching Call &#183; July 8, 2026" aria-label="Download PDF: Coaching Call, July 8, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 20</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED &#183; JUL 8, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Get</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Indexed.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The CITED Series &#183; Week 2 of 5</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">July 8, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The CITED Series &#183; Week 2 &#183; Index.</h2>
-          <p class="week-desc">Your Zillow profile is a live signal feeding ChatGPT. Claim it, open the bio with your <b>Claim</b>, and send one niche-specific review ask for AI recency. RPR's 82%-AI stat, Epictetus, and the first Clara leaderboards.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-07-01/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-07-01.pdf" data-deck="Coaching Call · July 1, 2026" aria-label="Download PDF: Coaching Call · July 1, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 17</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUL 1, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Lock Your</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Claim.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The CITED Series &#183; Week 1 of 5</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">July 1, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The CITED Series &#183; Week 1 &#183; Claim.</h2>
-          <p class="week-desc">Launch of the five places AI looks for you: Claim, Index, Trust, Entity, Domain. Week 1 locks your <b>Claim</b>, the exact words AI repeats. FlyDragon's 91%-invisible stat, Goethe, and the live Claim Read-Off.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-06-24/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-06-24.pdf" data-deck="Coaching Call · June 24, 2026" aria-label="Download PDF: Coaching Call · June 24, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 19</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 24, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Build Your</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Mechanism.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Positioning Series &#183; Week 3 of 3</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">June 24, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Positioning Series &#183; Week 3 &#183; Mechanism.</h2>
-          <p class="week-desc">The capstone: the <b>six-line Mechanism</b> &#8212; why everything they've tried failed, and why your way is different. <b>Simon Sinek</b> on "why," the Forrester differentiation report, and a 'Mechanism Hot Seat' workshop.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-06-17/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-06-17.pdf" data-deck="Coaching Call · June 17, 2026" aria-label="Download PDF: Coaching Call · June 17, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 19</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 17, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Craft Your</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Offer.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Positioning Series &#183; Week 2 of 3</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">June 17, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Positioning Series &#183; Week 2 &#183; Offer.</h2>
-          <p class="week-desc">Wrap your Niche in an <b>Offer</b>: Promise &#183; Container &#183; Guarantee &#183; Pillars. <b>James Clear</b> on systems, the Alloy Advisors 'AI breaks the commission model' report, and an 'Offer Hot Seat' workshop.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-06-10/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-06-10.pdf" data-deck="Coaching Call · June 10, 2026" aria-label="Download PDF: Coaching Call · June 10, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 18</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 10, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Define Your</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Niche.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The Positioning Series &#183; Week 1 of 3</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">June 10, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">The Positioning Series &#183; Week 1 &#183; Niche.</h2>
-          <p class="week-desc">Define your <b>Niche</b> with The 3 P's: Person, Problem, Process. <b>Bren&#233; Brown</b> on clarity, the Realtor.com / ChatGPT story, and a 'Niche Hot Seat' workshop.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/2026-06-03/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-06-03.pdf" data-deck="Coaching Call · June 3, 2026" aria-label="Download PDF: Coaching Call · June 3, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 8</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · JUN 3, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Week</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Two.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">Topic gets locked the morning of.</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">June 3, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">Done-For-You Installs Launch · Week 2.</h2>
-          <p class="week-desc">Melissa's 3.5% listing win. Tony Robbins on consistency. <b>Up Next teed up Niche + Offer</b> for the Positioning Series. Plus four upcoming events in MN.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://coach.theinnercirql.com/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/coaching-call-2026-05-27.pdf" data-deck="Coaching Call · May 27, 2026" aria-label="Download PDF: Coaching Call · May 27, 2026"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 8</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">WED · MAY 27, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Done-For-You</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Installs Launch.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">GEO. Origin. Clara. We install all three.</text>
-            <g transform="translate(72, 522)"><rect width="90" height="32" fill="rgba(26,26,26,0.10)"/><text x="16" y="21" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">PAST</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">May 27, 2026</span>
-            <span class="week-tag live" style="background:var(--ink-08);color:var(--ink-60);">Past</span>
-          </div>
-          <h2 class="week-title">Done-For-You Installs Launch.</h2>
-          <p class="week-desc">Week one of the recurring coaching call. Launching <b>Done-For-You installs</b> of GEO, Origin, and Clara. Plus wins, the Tony Robbins quote on consistency, accountability, and upcoming MN events.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-</div>
-  </section>
-
-  <!-- EVENT KEYNOTES -->
-  <section class="weeks-section">
-    <div class="section-head">
-      <span class="section-label">Event Keynotes</span>
-      <span class="section-meta">Live Events</span>
-    </div>
-    <div class="weeks-grid">
-      <a href="https://resources.theinnercirql.com/brand-keynote/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/brand-keynote-grand-rapids.pdf" data-deck="Become a Client Magnet · BRAND Keynote" aria-label="Download PDF: Become a Client Magnet · BRAND Keynote"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 36</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">GRAND RAPIDS &#183; LIVE EVENT</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="64" letter-spacing="-2">Become a Client</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="64" letter-spacing="-2">Magnet.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The BRAND Keynote &#183; 36 slides</text>
-            <g transform="translate(72, 522)"><rect width="100" height="32" fill="rgba(201,169,110,0.18)"/><text x="16" y="21" fill="#a8874e" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">EVENT</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">Grand Rapids</span>
-            <span class="week-tag live">Event</span>
-          </div>
-          <h2 class="week-title">Become a Client Magnet &#183; BRAND Keynote.</h2>
-          <p class="week-desc">The full event keynote: brand positioning, AI visibility, the <b>Always-On Client Magnet</b>, and the offer. 36 slides, exactly as presented live.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-
-      <a href="https://becomeaclientmagnetlive.com/slides/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/invisible-agent-problem-webinar.pdf" data-deck="The Invisible Agent Problem · Webinar" aria-label="Download PDF: The Invisible Agent Problem · Webinar"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 39</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">BECOME A CLIENT MAGNET LIVE</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="60" letter-spacing="-2">The Invisible</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="60" letter-spacing="-2">Agent Problem.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The full webinar deck &#183; 39 slides</text>
-            <g transform="translate(72, 522)"><rect width="130" height="32" fill="rgba(201,169,110,0.18)"/><text x="16" y="21" fill="#a8874e" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">WEBINAR</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">Client Magnet LIVE</span>
-            <span class="week-tag live">Webinar</span>
-          </div>
-          <h2 class="week-title">The Invisible Agent Problem.</h2>
-          <p class="week-desc">The full webinar deck: the <b>Invisible Agent problem</b>, what the data says, and the way out. 39 slides, exactly as presented live.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-
-      <a href="https://becomeaclientmagnetlive.com/slides-hopkins/" target="_blank" rel="noopener" class="week-card">
-        <button class="dl-btn" type="button" data-pdf="/assets/decks/anti-invisible-agent-workshop-hopkins.pdf" data-deck="The ANTI-Invisible Agent Workshop · Hopkins" aria-label="Download PDF: The ANTI-Invisible Agent Workshop · Hopkins"><svg><use href="#i-dl"/></svg>PDF</button>
-        <div class="week-image" aria-hidden="true">
-          <svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <rect width="1200" height="630" fill="#faf8f4"/>
-            <g transform="translate(720, 180)">
-              <rect x="40" y="40" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="20" y="20" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.12)" stroke-width="1"/>
-              <rect x="0" y="0" width="380" height="220" fill="#ffffff" stroke="rgba(26,26,26,0.22)" stroke-width="1"/>
-              <rect x="24" y="28" width="64" height="6" fill="#c9a96e"/>
-              <rect x="24" y="56" width="220" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="80" width="280" height="14" fill="#1a1a1a"/>
-              <rect x="24" y="120" width="180" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="136" width="240" height="6" fill="rgba(26,26,26,0.25)"/>
-              <rect x="24" y="152" width="160" height="6" fill="rgba(26,26,26,0.25)"/>
-              <text x="356" y="206" fill="rgba(26,26,26,0.40)" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="2" text-anchor="end">1 / 35</text>
-            </g>
-            <use href="#brand-mark" x="72" y="72" width="60" height="60"/>
-            <text x="72" y="260" fill="rgba(26,26,26,0.45)" font-family="Inter, sans-serif" font-weight="700" font-size="14" letter-spacing="4">HOPKINS, MN &#183; JUN 30, 2026</text>
-            <text x="72" y="340" fill="#1a1a1a" font-family="Inter, sans-serif" font-weight="700" font-size="56" letter-spacing="-2">The ANTI-Invisible</text>
-            <text x="72" y="412" fill="#c9a96e" font-family="Inter, sans-serif" font-weight="700" font-style="italic" font-size="56" letter-spacing="-2">Agent Workshop.</text>
-            <text x="72" y="464" fill="rgba(26,26,26,0.55)" font-family="Inter, sans-serif" font-weight="400" font-size="20">The 5-step AI visibility GEO framework &#183; 35 slides</text>
-            <g transform="translate(72, 522)"><rect width="145" height="32" fill="rgba(201,169,110,0.18)"/><text x="16" y="21" fill="#a8874e" font-family="Inter, sans-serif" font-weight="700" font-size="12" letter-spacing="3">WORKSHOP</text></g>
-          </svg>
-        </div>
-        <div class="week-body">
-          <div class="week-top">
-            <span class="week-date">Hopkins &#183; June 30</span>
-            <span class="week-tag live">Workshop</span>
-          </div>
-          <h2 class="week-title">The ANTI-Invisible Agent Workshop.</h2>
-          <p class="week-desc">The full workshop deck: the 3 things killing your AI visibility and the <b>5-step GEO framework</b> that fixes them. 35 slides, exactly as presented live.</p>
-          <span class="week-link">
-            <span>Open Slides</span>
-            <svg><use href="#i-arrow"/></svg>
-          </span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>Inner Cirql · Weekly Slides Library</span>
-    <span>Updated every Wednesday · <a href="/">All Resources →</a></span>
-  </footer>
-
-</div>
-
-
-<!-- DOWNLOAD MODAL -->
+<!-- DOWNLOAD MODAL (Netlify form: slide-download) -->
 <div class="dlm-overlay" id="dlm-overlay" role="dialog" aria-modal="true" aria-labelledby="dlm-title">
   <div class="dlm" id="dlm">
     <button class="dlm-close" type="button" id="dlm-close" aria-label="Close">&#215;</button>
@@ -1133,12 +89,7 @@
     setTimeout(function(){ document.getElementById('dlm-name').focus(); },50);
   }
   function close(){ overlay.classList.remove('open'); }
-  document.querySelectorAll('.dl-btn').forEach(function(b){
-    b.addEventListener('click',function(e){
-      e.preventDefault(); e.stopPropagation();
-      open(b.getAttribute('data-pdf'), b.getAttribute('data-deck'));
-    });
-  });
+  document.addEventListener('lib:pdf',function(e){ open(e.detail.pdf, e.detail.deck); });
   document.getElementById('dlm-close').addEventListener('click',close);
   overlay.addEventListener('click',function(e){ if(e.target===overlay) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
@@ -1151,7 +102,7 @@
     e.preventDefault();
     var data=new URLSearchParams(new FormData(form)).toString();
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:data})
-      .catch(function(){}) 
+      .catch(function(){})
       .finally(function(){
         box.classList.add('done');
         triggerDownload();
@@ -1162,5 +113,395 @@
 })();
 </script>
 
+<script>
+/* Add a week: append one item below and it shows up in Recently Added, its series row, and (if newest) the billboard. */
+window.LIBRARY = {
+  "kind": "slides",
+  "series": [
+    {
+      "id": "sleepless",
+      "name": "The Sleepless Video Marketing System",
+      "tagline": "Appointments while you sleep",
+      "total": 1
+    },
+    {
+      "id": "engine",
+      "name": "The Marketing Engine",
+      "tagline": "Build it once and it markets you every day",
+      "total": 4
+    },
+    {
+      "id": "cited",
+      "name": "The CITED Series",
+      "tagline": "The five places AI looks for you",
+      "total": 5
+    },
+    {
+      "id": "positioning",
+      "name": "The Positioning Series",
+      "tagline": "Niche, Offer, Mechanism",
+      "total": 3
+    },
+    {
+      "id": "dfy",
+      "name": "Done-For-You Installs",
+      "tagline": "GEO, Origin, and Clara, installed for you",
+      "total": 2
+    },
+    {
+      "id": "events",
+      "name": "Event Keynotes",
+      "tagline": "The full decks from the live events",
+      "meta": "Live events",
+      "extra": true
+    }
+  ],
+  "items": [
+    {
+      "id": "d-2026-09-02",
+      "date": "2026-09-02",
+      "dateLabel": "September 2, 2026",
+      "kicker": null,
+      "series": "sleepless",
+      "week": 1,
+      "name": "Appointments While You Sleep.",
+      "title": "The Sleepless Video Marketing System · Appointments While You Sleep.",
+      "headline": [
+        "The Sleepless",
+        "Video System."
+      ],
+      "sub": "The Sleepless Video Marketing System · VSL + Stories",
+      "desc": "Two systems, ninety days: one VSL that sells you around the clock, and a ten-second Story from every showing. Appointments while you sleep. Plus wins, accountability, and the teaching segment.",
+      "href": "https://coach.theinnercirql.com/2026-09-02/",
+      "pdf": "/assets/decks/coaching-call-2026-09-02.pdf",
+      "slides": 20
+    },
+    {
+      "id": "d-2026-08-26",
+      "date": "2026-08-26",
+      "dateLabel": "August 26, 2026",
+      "kicker": null,
+      "series": "engine",
+      "week": 4,
+      "name": "Enough People.",
+      "title": "The Marketing Engine · Week 4 · Enough People.",
+      "headline": [
+        "Enough",
+        "People."
+      ],
+      "sub": "The Marketing Engine · Week 4 of 4",
+      "desc": "The finale: eight places to build your database, the 50 people you're not thinking of, and the math that turns contacts into closings. Your engine is only as big as your audience.",
+      "href": "https://coach.theinnercirql.com/2026-08-26/",
+      "pdf": "/assets/decks/coaching-call-2026-08-26.pdf",
+      "slides": 21
+    },
+    {
+      "id": "d-2026-08-19",
+      "date": "2026-08-19",
+      "dateLabel": "August 19, 2026",
+      "kicker": null,
+      "series": "engine",
+      "week": 3,
+      "name": "The Right Thing.",
+      "title": "The Marketing Engine · Week 3 · The Right Thing.",
+      "headline": [
+        "The Right",
+        "Thing."
+      ],
+      "sub": "The Marketing Engine · Week 3 of 4",
+      "desc": "The right message has one job: book the meeting. Stop qualifying, start booking, and let the engine say it right every time. Plus wins, accountability, and the teaching segment.",
+      "href": "https://coach.theinnercirql.com/2026-08-19/",
+      "pdf": "/assets/decks/coaching-call-2026-08-19.pdf",
+      "slides": 21
+    },
+    {
+      "id": "d-2026-08-12",
+      "date": "2026-08-12",
+      "dateLabel": "August 12, 2026",
+      "kicker": null,
+      "series": "engine",
+      "week": 2,
+      "name": "Enough Times.",
+      "title": "The Marketing Engine · Week 2 · Enough Times.",
+      "headline": [
+        "Enough",
+        "Times."
+      ],
+      "sub": "The Marketing Engine · Week 2 of 4",
+      "desc": "Follow-up is marketing. Say it enough times and watch it compound: pick your number, write it into the tracker, and let Clara run the touches. Plus wins, accountability, and the teaching segment.",
+      "href": "https://coach.theinnercirql.com/2026-08-12/",
+      "pdf": "/assets/decks/coaching-call-2026-08-12.pdf",
+      "slides": 21
+    },
+    {
+      "id": "d-2026-08-05",
+      "date": "2026-08-05",
+      "dateLabel": "August 5, 2026",
+      "kicker": null,
+      "series": "engine",
+      "week": 1,
+      "name": "The Problem.",
+      "title": "The Marketing Engine · Week 1 · The Problem.",
+      "headline": [
+        "The Marketing",
+        "Engine."
+      ],
+      "sub": "The Marketing Engine · Week 1 of 4",
+      "desc": "Why marketing is the business in the AI era, where most agents fall short, and Origin plus the back-end engine that gets you found so you sell more houses.",
+      "href": "https://coach.theinnercirql.com/2026-08-05/",
+      "pdf": "/assets/decks/coaching-call-2026-08-05.pdf",
+      "slides": 21
+    },
+    {
+      "id": "d-2026-07-29",
+      "date": "2026-07-29",
+      "dateLabel": "July 29, 2026",
+      "kicker": null,
+      "series": "cited",
+      "week": 5,
+      "name": "Domain.",
+      "title": "The CITED Series · Week 5 · Domain.",
+      "headline": [
+        "Own Your",
+        "Domain."
+      ],
+      "sub": "The CITED Series · Week 5 of 5",
+      "desc": "The finale: your personal landing page, the one source you own. Your Claim as the headline, every profile linked, schema so AI can read it.",
+      "href": "https://coach.theinnercirql.com/2026-07-29/",
+      "pdf": "/assets/decks/coaching-call-2026-07-29.pdf",
+      "slides": 20
+    },
+    {
+      "id": "d-2026-07-22",
+      "date": "2026-07-22",
+      "dateLabel": "July 22, 2026",
+      "kicker": null,
+      "series": "cited",
+      "week": 4,
+      "name": "Entity.",
+      "title": "The CITED Series · Week 4 · Entity.",
+      "headline": [
+        "Become an",
+        "Entity."
+      ],
+      "sub": "The CITED Series · Week 4 of 5",
+      "desc": "Your Google Business Profile is the most-trusted entity source AI has. Verify it, load your Claim, and go after Google reviews with keyword-rich Q&As.",
+      "href": "https://coach.theinnercirql.com/2026-07-22/",
+      "pdf": "/assets/decks/coaching-call-2026-07-22.pdf",
+      "slides": 20
+    },
+    {
+      "id": "d-2026-07-15",
+      "date": "2026-07-15",
+      "dateLabel": "July 15, 2026",
+      "kicker": null,
+      "series": "cited",
+      "week": 3,
+      "name": "Trust.",
+      "title": "The CITED Series · Week 3 · Trust.",
+      "headline": [
+        "Build",
+        "Trust."
+      ],
+      "sub": "The CITED Series · Week 3 of 5",
+      "desc": "Realtor.com is the cross-check AI runs on your credibility. Claim it, mirror your Claim word for word, and start a second review stream.",
+      "href": "https://coach.theinnercirql.com/2026-07-15/",
+      "pdf": "/assets/decks/coaching-call-2026-07-15.pdf",
+      "slides": 20
+    },
+    {
+      "id": "d-2026-07-08",
+      "date": "2026-07-08",
+      "dateLabel": "July 8, 2026",
+      "kicker": null,
+      "series": "cited",
+      "week": 2,
+      "name": "Index.",
+      "title": "The CITED Series · Week 2 · Index.",
+      "headline": [
+        "Get",
+        "Indexed."
+      ],
+      "sub": "The CITED Series · Week 2 of 5",
+      "desc": "Your Zillow profile is a live signal feeding ChatGPT. Claim it, open the bio with your <b>Claim<\/b>, and send one niche-specific review ask for AI recency. RPR's 82%-AI stat, Epictetus, and the first Clara leaderboards.",
+      "href": "https://coach.theinnercirql.com/2026-07-08/",
+      "pdf": "/assets/decks/coaching-call-2026-07-08.pdf",
+      "slides": 20
+    },
+    {
+      "id": "d-2026-07-01",
+      "date": "2026-07-01",
+      "dateLabel": "July 1, 2026",
+      "kicker": null,
+      "series": "cited",
+      "week": 1,
+      "name": "Claim.",
+      "title": "The CITED Series · Week 1 · Claim.",
+      "headline": [
+        "Lock Your",
+        "Claim."
+      ],
+      "sub": "The CITED Series · Week 1 of 5",
+      "desc": "Launch of the five places AI looks for you: Claim, Index, Trust, Entity, Domain. Week 1 locks your <b>Claim<\/b>, the exact words AI repeats. FlyDragon's 91%-invisible stat, Goethe, and the live Claim Read-Off.",
+      "href": "https://coach.theinnercirql.com/2026-07-01/",
+      "pdf": "/assets/decks/coaching-call-2026-07-01.pdf",
+      "slides": 17
+    },
+    {
+      "id": "d-2026-06-24",
+      "date": "2026-06-24",
+      "dateLabel": "June 24, 2026",
+      "kicker": null,
+      "series": "positioning",
+      "week": 3,
+      "name": "Mechanism.",
+      "title": "The Positioning Series · Week 3 · Mechanism.",
+      "headline": [
+        "Build Your",
+        "Mechanism."
+      ],
+      "sub": "The Positioning Series · Week 3 of 3",
+      "desc": "The capstone: the <b>six-line Mechanism<\/b> — why everything they've tried failed, and why your way is different. <b>Simon Sinek<\/b> on \"why,\" the Forrester differentiation report, and a 'Mechanism Hot Seat' workshop.",
+      "href": "https://coach.theinnercirql.com/2026-06-24/",
+      "pdf": "/assets/decks/coaching-call-2026-06-24.pdf",
+      "slides": 19
+    },
+    {
+      "id": "d-2026-06-17",
+      "date": "2026-06-17",
+      "dateLabel": "June 17, 2026",
+      "kicker": null,
+      "series": "positioning",
+      "week": 2,
+      "name": "Offer.",
+      "title": "The Positioning Series · Week 2 · Offer.",
+      "headline": [
+        "Craft Your",
+        "Offer."
+      ],
+      "sub": "The Positioning Series · Week 2 of 3",
+      "desc": "Wrap your Niche in an <b>Offer<\/b>: Promise · Container · Guarantee · Pillars. <b>James Clear<\/b> on systems, the Alloy Advisors 'AI breaks the commission model' report, and an 'Offer Hot Seat' workshop.",
+      "href": "https://coach.theinnercirql.com/2026-06-17/",
+      "pdf": "/assets/decks/coaching-call-2026-06-17.pdf",
+      "slides": 19
+    },
+    {
+      "id": "d-2026-06-10",
+      "date": "2026-06-10",
+      "dateLabel": "June 10, 2026",
+      "kicker": null,
+      "series": "positioning",
+      "week": 1,
+      "name": "Niche.",
+      "title": "The Positioning Series · Week 1 · Niche.",
+      "headline": [
+        "Define Your",
+        "Niche."
+      ],
+      "sub": "The Positioning Series · Week 1 of 3",
+      "desc": "Define your <b>Niche<\/b> with The 3 P's: Person, Problem, Process. <b>Brené Brown<\/b> on clarity, the Realtor.com / ChatGPT story, and a 'Niche Hot Seat' workshop.",
+      "href": "https://coach.theinnercirql.com/2026-06-10/",
+      "pdf": "/assets/decks/coaching-call-2026-06-10.pdf",
+      "slides": 18
+    },
+    {
+      "id": "d-2026-06-03",
+      "date": "2026-06-03",
+      "dateLabel": "June 3, 2026",
+      "kicker": null,
+      "series": "dfy",
+      "week": 2,
+      "name": "Installs, Week 2.",
+      "title": "Done-For-You Installs Launch · Week 2.",
+      "headline": [
+        "Week",
+        "Two."
+      ],
+      "sub": "Topic gets locked the morning of.",
+      "desc": "Melissa's 3.5% listing win. Tony Robbins on consistency. <b>Up Next teed up Niche + Offer<\/b> for the Positioning Series. Plus four upcoming events in MN.",
+      "href": "https://coach.theinnercirql.com/2026-06-03/",
+      "pdf": "/assets/decks/coaching-call-2026-06-03.pdf",
+      "slides": 8
+    },
+    {
+      "id": "d-2026-05-27",
+      "date": "2026-05-27",
+      "dateLabel": "May 27, 2026",
+      "kicker": null,
+      "series": "dfy",
+      "week": 1,
+      "name": "The Installs Launch.",
+      "title": "Done-For-You Installs Launch.",
+      "headline": [
+        "Done-For-You",
+        "Installs Launch."
+      ],
+      "sub": "GEO. Origin. Clara. We install all three.",
+      "desc": "Week one of the recurring coaching call. Launching <b>Done-For-You installs<\/b> of GEO, Origin, and Clara. Plus wins, the Tony Robbins quote on consistency, accountability, and upcoming MN events.",
+      "href": "https://coach.theinnercirql.com/",
+      "pdf": "/assets/decks/coaching-call-2026-05-27.pdf",
+      "slides": 8
+    },
+    {
+      "id": "e-become-a-client-magnet-b",
+      "date": null,
+      "dateLabel": null,
+      "kicker": "Grand Rapids",
+      "series": "events",
+      "week": null,
+      "name": "Become a Client Magnet: BRAND Keynote.",
+      "title": "Become a Client Magnet · BRAND Keynote.",
+      "headline": [
+        "Become a Client",
+        "Magnet."
+      ],
+      "sub": "The BRAND Keynote · 36 slides",
+      "desc": "The full event keynote: brand positioning, AI visibility, the <b>Always-On Client Magnet<\/b>, and the offer. 36 slides, exactly as presented live.",
+      "href": "https://resources.theinnercirql.com/brand-keynote/",
+      "pdf": "/assets/decks/brand-keynote-grand-rapids.pdf",
+      "slides": 36
+    },
+    {
+      "id": "e-the-invisible-agent-prob",
+      "date": null,
+      "dateLabel": null,
+      "kicker": "Client Magnet LIVE",
+      "series": "events",
+      "week": null,
+      "name": "The Invisible Agent Problem.",
+      "title": "The Invisible Agent Problem.",
+      "headline": [
+        "",
+        ""
+      ],
+      "sub": "The full webinar deck · 39 slides",
+      "desc": "The full webinar deck: the <b>Invisible Agent problem<\/b>, what the data says, and the way out. 39 slides, exactly as presented live.",
+      "href": "https://becomeaclientmagnetlive.com/slides/",
+      "pdf": "/assets/decks/invisible-agent-problem-webinar.pdf",
+      "slides": 39
+    },
+    {
+      "id": "e-the-anti-invisible-agent",
+      "date": null,
+      "dateLabel": null,
+      "kicker": "Hopkins · June 30",
+      "series": "events",
+      "week": null,
+      "name": "The ANTI-Invisible Agent Workshop.",
+      "title": "The ANTI-Invisible Agent Workshop.",
+      "headline": [
+        "",
+        ""
+      ],
+      "sub": "The 5-step AI visibility GEO framework · 35 slides",
+      "desc": "The full workshop deck: the 3 things killing your AI visibility and the <b>5-step GEO framework<\/b> that fixes them. 35 slides, exactly as presented live.",
+      "href": "https://becomeaclientmagnetlive.com/slides-hopkins/",
+      "pdf": "/assets/decks/anti-invisible-agent-workshop-hopkins.pdf",
+      "slides": 35
+    }
+  ]
+};
+</script>
+<script src="/assets/library.js?v=1"></script>
 </body>
 </html>

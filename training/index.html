@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script defer src="/assets/portal-chrome.js"></script>
 <meta charset="UTF-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,98 +9,17 @@
 <link rel="icon" href="/favicon.png" type="image/png" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0b0b0b">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://resources.yourinnercirql.com/training/">
 <meta property="og:title" content="Training Library | The Inner Cirql">
-<meta property="og:description" content="Every course, on demand. The full video library behind the coaching.">
+<meta property="og:description" content="Every coaching call replay and course, on demand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Sans:wght@700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#ffffff; --offwhite:#faf8f4; --ink:#1a1a1a;
-    --ink-60:rgba(26,26,26,0.60); --ink-40:rgba(26,26,26,0.40); --ink-28:rgba(26,26,26,0.28); --ink-12:rgba(26,26,26,0.12); --ink-08:rgba(26,26,26,0.08);
-    --gold:#c9a96e; --gold-soft:rgba(201,169,110,0.14);
-    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{background:var(--bg);color:var(--ink);}
-  body{font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;}
-  a{color:inherit;text-decoration:none;}
-  img{display:block;}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 28px;}
-
-  /* chrome */
-  .chrome{display:flex;align-items:center;justify-content:space-between;padding:26px 0 18px;border-bottom:1px solid var(--ink-08);gap:12px;}
-  .brand{display:flex;align-items:center;gap:16px;}
-  .cb{display:flex;align-items:center;gap:10px;}
-  .cb svg{display:block;flex-shrink:0;}
-  .ao-word{display:flex;flex-direction:column;line-height:1.06;white-space:nowrap;text-align:left;}
-  .ao-word .ao-sans{font-family:'DM Sans','Inter',sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-0.04em;color:var(--ink);}
-  .ao-word .ao-serif{font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-style:italic;font-weight:400;font-size:14.5px;letter-spacing:-0.01em;color:var(--gold);}
-  .ic-word{font-weight:600;font-size:17px;letter-spacing:-0.005em;white-space:nowrap;}
-  .ic-word .cirql{color:var(--gold);}
-  .brand-div{width:1px;height:26px;background:var(--ink-12);flex-shrink:0;}
-  .back{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-40);display:inline-flex;align-items:center;gap:7px;transition:color .15s ease;}
-  .back:hover{color:var(--ink);}
-  .back svg{width:13px;height:13px;color:var(--gold);}
-  @media(max-width:640px){.ao-word .ao-sans{font-size:11.5px;}.ao-word .ao-serif{font-size:12.5px;}.ic-word{font-size:14px;}}
-
-  /* hero */
-  header.hero{padding:clamp(40px,7vw,72px) 0 clamp(24px,4vw,36px);}
-  .eyebrow{color:var(--gold);font-weight:700;letter-spacing:0.22em;text-transform:uppercase;font-size:11px;margin-bottom:14px;}
-  h1{font-size:clamp(38px,6vw,58px);line-height:1.03;letter-spacing:-0.03em;font-weight:700;}
-  h1 .cirql{font-style:italic;color:var(--gold);}
-  .lede{font-size:16.5px;color:var(--ink-60);max-width:56ch;margin:16px 0 0;line-height:1.6;}
-
-  /* groups */
-  .group{padding:0 0 clamp(30px,4vw,48px);}
-  .group-head{display:flex;justify-content:space-between;align-items:baseline;padding:0 0 14px;border-bottom:1px solid var(--ink-12);margin-bottom:18px;gap:12px;flex-wrap:wrap;}
-  .group-title{font-size:12px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-40);}
-  .group-meta{font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-28);}
-
-  /* video grid */
-  .vids{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  @media(max-width:920px){.vids{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:600px){.vids{grid-template-columns:1fr;}}
-  .vid{
-    background:var(--bg);border:1px solid var(--ink-08);border-radius:16px;overflow:hidden;
-    display:flex;flex-direction:column;
-    box-shadow:0 1px 2px rgba(26,26,26,0.04),0 4px 14px -6px rgba(26,26,26,0.05);
-    transition:transform .22s cubic-bezier(.2,.7,.3,1),border-color .22s ease,box-shadow .22s ease;
-  }
-  .vid:hover{transform:translateY(-3px);border-color:rgba(201,169,110,0.55);box-shadow:0 1px 2px rgba(26,26,26,0.04),0 20px 40px -14px rgba(26,26,26,0.16);}
-  .vid-frame{position:relative;aspect-ratio:16/9;background:linear-gradient(160deg,var(--offwhite) 0%,#f5f0e7 100%);overflow:hidden;display:block;width:100%;border:0;padding:0;cursor:pointer;font:inherit;}
-  .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .vid-frame .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .3s cubic-bezier(.2,.7,.3,1);}
-  .vid-frame:hover .poster{transform:scale(1.03);}
-  .vid-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
-  .vid-play span{width:58px;height:58px;border-radius:50%;background:rgba(201,169,110,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(26,26,26,0.22);transition:transform .2s ease,background .2s ease;}
-  .vid-frame:hover .vid-play span{transform:scale(1.08);background:rgba(201,169,110,0.92);}
-  .vid-play svg{width:22px;height:22px;fill:#fff;margin-left:3px;}
-  .vid-body{padding:16px 18px 16px;display:flex;flex-direction:column;flex:1;}
-  .vid-kicker{font-size:9.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink-40);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
-  .vid-kicker .dot{width:4px;height:4px;border-radius:50%;background:var(--gold);}
-  .vid h3{font-size:16px;font-weight:700;letter-spacing:-0.01em;line-height:1.25;margin-bottom:5px;}
-  .vid p{font-size:13px;color:var(--ink-60);line-height:1.5;flex:1;}
-
-  .empty-note{font-size:14px;color:var(--ink-40);padding:10px 4px 0;font-style:italic;}
-
-  footer{border-top:1px solid var(--ink-08);padding:26px 0 40px;text-align:center;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-40);font-weight:600;margin-top:24px;}
-
-  /* video lightbox */
-  .vlb-overlay{position:fixed;inset:0;background:rgba(15,14,12,0.92);z-index:70;display:none;align-items:center;justify-content:center;padding:clamp(16px,4vw,48px);}
-  .vlb-overlay.open{display:flex;}
-  .vlb{width:min(1140px,100%);}
-  .vlb-frame{position:relative;aspect-ratio:16/9;background:#000;box-shadow:0 40px 120px rgba(0,0,0,0.6);}
-  .vlb-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-  .vlb-title{margin-top:14px;color:rgba(255,255,255,0.85);font-size:14px;font-weight:600;letter-spacing:0.01em;text-align:center;}
-  .vlb-close{position:fixed;top:18px;right:22px;z-index:71;background:none;border:0;color:rgba(255,255,255,0.7);font-size:34px;line-height:1;cursor:pointer;padding:8px;font-family:inherit;transition:color .15s ease;}
-  .vlb-close:hover{color:var(--gold);}
-</style>
+<link rel="stylesheet" href="/assets/library.css?v=1">
 </head>
 <body>
-
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <symbol id="ao-mark" viewBox="0 0 100 100">
     <path d="M 33.34 15.85 A 38 38 0 0 0 33.34 84.15" stroke="#c9a96e" stroke-width="6" stroke-linecap="round" fill="none"/>
@@ -111,286 +31,387 @@
   <symbol id="ic-mark" viewBox="0 0 100 100">
     <circle cx="50" cy="12" r="5" fill="#c9a96e"/><circle cx="72.34" cy="19.27" r="5" fill="#c9a96e"/><circle cx="86.14" cy="38.26" r="5" fill="#c9a96e"/><circle cx="86.14" cy="61.74" r="5" fill="#c9a96e"/><circle cx="72.34" cy="80.73" r="5" fill="#c9a96e"/><circle cx="50" cy="88" r="5" fill="#c9a96e"/><circle cx="27.66" cy="80.73" r="5" fill="#c9a96e"/><circle cx="13.86" cy="61.74" r="5" fill="#c9a96e"/><circle cx="13.86" cy="38.26" r="5" fill="#c9a96e"/><circle cx="27.66" cy="19.27" r="5" fill="#c9a96e"/>
   </symbol>
-  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
-  <symbol id="i-play-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v13M6 11l6 6 6-6M4 21h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></symbol>
 </defs></svg>
 
-<div class="wrap">
-  <div class="chrome">
-    <a class="brand" href="/">
-      <span class="cb"><svg width="32" height="32"><use href="#ao-mark"/></svg><span class="ao-word"><span class="ao-sans">The Always-On</span><span class="ao-serif">Agent System</span></span></span>
-      <span class="brand-div"></span>
-      <span class="cb"><svg width="27" height="27"><use href="#ic-mark"/></svg><span class="ic-word">Inner <span class="cirql">Cirql</span></span></span>
-    </a>
-    <a class="back" href="/"><svg><use href="#i-back"/></svg> Home</a>
-  </div>
+<header class="lib-top">
+  <a class="brand" href="/">
+    <span class="cb"><svg width="30" height="30"><use href="#ao-mark"/></svg><span class="ao-word"><span class="ao-sans">The Always-On</span><span class="ao-serif">Client Magnet</span></span></span>
+    <span class="brand-div"></span>
+    <span class="cb"><svg width="26" height="26"><use href="#ic-mark"/></svg><span class="ic-word">Inner <span class="cirql">Cirql</span></span></span>
+  </a>
+  <nav class="lib-nav" aria-label="Library">
+    <a href="/">Home</a>
+    <a href="/training/" aria-current="page">Training</a>
+    <a href="/slides/">Slides</a>
+  </nav>
+</header>
 
-  <header class="hero">
-    <div class="eyebrow">On Demand</div>
-    <h1>Training <span class="cirql">Library.</span></h1>
-    <p class="lede">Every course, on demand. The full video library behind the coaching, ready whenever a question comes up.</p>
-  </header>
+<main id="library" aria-live="polite"></main>
 
-  <!-- Video groups: one section.group per category; each video is a .vid card
-       with a click-to-play poster button (data-embed = player URL). -->
-
-  <section class="group">
-    <div class="group-head">
-      <div class="group-title">Coaching Call Replays</div>
-      <div class="group-meta">More coming in</div>
-    </div>
-    <div class="vids">
-
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1222268152?h=57d3cf3ea3&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: Aug 26 Coaching Call">
-          <img class="poster" src="/assets/thumbs/aug-26-call.jpg?v=6" alt="Aug 26 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · Aug 26, 2026</div>
-          <h3>Aug 26 Coaching Call</h3>
-          <p>The Marketing Engine, Week 4 &mdash; the final week of the series. Wins, accountability, and the week's teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1220069139?h=f40ebe2edb&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: Aug 19 Coaching Call">
-          <img class="poster" src="/assets/thumbs/aug-19-call.jpg?v=6" alt="Aug 19 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · Aug 19, 2026</div>
-          <h3>Aug 19 Coaching Call</h3>
-          <p>The Marketing Engine, Week 3: The Right Thing &mdash; the right message books the meeting. Stop qualifying, start booking. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1219425807?h=5712faddde&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: Aug 5 Coaching Call">
-          <img class="poster" src="/assets/thumbs/aug-5-call.jpg?v=6" alt="Aug 5 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · Aug 5, 2026</div>
-          <h3>Aug 5 Coaching Call</h3>
-          <p>The Marketing Engine, Week 1: The Problem &mdash; leads are downstream of authority. Build the engine once and it markets you every day. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1217503149?h=18223c4f16&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: July 29 Coaching Call">
-          <img class="poster" src="/assets/thumbs/july-29-call.jpg?v=4" alt="July 29 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · July 29, 2026</div>
-          <h3>July 29 Coaching Call</h3>
-          <p>The CITED Series, Week 5: Domain &mdash; the finale. Your personal landing page, the one source you actually own. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1217829570?h=425775a936&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: July 22 Coaching Call">
-          <img class="poster" src="/assets/thumbs/july-22-call.jpg?v=6" alt="July 22 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · July 22, 2026</div>
-          <h3>July 22 Coaching Call</h3>
-          <p>The CITED Series, Week 4: Entity &mdash; lock your Google Business Profile, the most-trusted entity source AI has. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1218452404?h=3a66aed9f7&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: July 15 Coaching Call">
-          <img class="poster" src="/assets/thumbs/july-15-call.jpg?v=5" alt="July 15 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · July 15, 2026</div>
-          <h3>July 15 Coaching Call</h3>
-          <p>The CITED Series, Week 3: Trust &mdash; lock your Realtor.com profile, the cross-check AI uses on your credibility. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1214424400?h=de80130d91&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: July 8 Coaching Call">
-          <img class="poster" src="/assets/thumbs/july-8-call.jpg?v=4" alt="July 8 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · July 8, 2026</div>
-          <h3>July 8 Coaching Call</h3>
-          <p>The CITED Series, Week 2: Index &mdash; put your Claim on Zillow, the live signal feeding ChatGPT. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1212525955?h=28db58f785&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: July 1 Coaching Call">
-          <img class="poster" src="/assets/thumbs/july-1-call.jpg?v=4" alt="July 1 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · July 1, 2026</div>
-          <h3>July 1 Coaching Call</h3>
-          <p>Wins, accountability, and the week's teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1211517114?h=44930a1c43&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: June 24 Coaching Call">
-          <img class="poster" src="/assets/thumbs/june-24-call.jpg?v=4" alt="June 24 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · June 24, 2026</div>
-          <h3>June 24 Coaching Call</h3>
-          <p>The Positioning Series, Week 3: Build Your Mechanism, the capstone. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1208601661?h=761b4ac56e&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: June 17 Coaching Call">
-          <img class="poster" src="/assets/thumbs/june-17-call.jpg?v=4" alt="June 17 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · June 17, 2026</div>
-          <h3>June 17 Coaching Call</h3>
-          <p>The Positioning Series, Week 2: wrap your Niche in an Offer. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1208545532?h=ce24682107&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: June 10 Coaching Call">
-          <img class="poster" src="/assets/thumbs/june-10-call.jpg?v=4" alt="June 10 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · June 10, 2026</div>
-          <h3>June 10 Coaching Call</h3>
-          <p>The Positioning Series, Week 1: define your Niche with the 3 P's. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1207942998?h=31c87182be&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: June 3 Coaching Call">
-          <img class="poster" src="/assets/thumbs/june-3-call.jpg?v=4" alt="June 3 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · June 3, 2026</div>
-          <h3>June 3 Coaching Call</h3>
-          <p>Done-For-You Installs, Week 2. Wins, accountability, and the week's teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1210649406?h=520fd67079&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: May 27 Coaching Call">
-          <img class="poster" src="/assets/thumbs/may-27-call.jpg?v=4" alt="May 27 Coaching Call" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Wed · May 27, 2026</div>
-          <h3>May 27 Coaching Call</h3>
-          <p>Week one: the Done-For-You Installs launch of GEO, Origin, and Clara. Wins, accountability, and the teaching segment, edited replay.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="group">
-    <div class="group-head">
-      <div class="group-title">Trainings</div>
-      <div class="group-meta">On demand</div>
-    </div>
-    <div class="vids">
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1170413377?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: Become a Listing Magnet, Implementation is key.">
-          <img class="poster" src="/assets/thumbs/listing-magnet.jpg" alt="Become a Listing Magnet, Implementation is key." loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Training</div>
-          <h3>Become a Listing Magnet</h3>
-          <p>Implementation is key. Putting the system to work so listings start coming to you.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1169964148?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: Secret #1: SOI Intelligence AI System">
-          <img class="poster" src="/assets/thumbs/soi-intelligence.jpg" alt="Secret #1: SOI Intelligence AI System" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Training</div>
-          <h3>Secret #1: SOI Intelligence AI System</h3>
-          <p>Your sphere of influence, run by AI: know who to reach, when, and with what, before they list.</p>
-        </div>
-      </div>
-
-      <div class="vid">
-        <button class="vid-frame" type="button" data-embed="https://player.vimeo.com/video/1170148881?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" aria-label="Play: Secret #2: Open House AI Automation">
-          <img class="poster" src="/assets/thumbs/open-house-ai.jpg" alt="Secret #2: Open House AI Automation" loading="lazy">
-          <span class="vid-play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
-        </button>
-        <div class="vid-body">
-          <div class="vid-kicker"><span class="dot"></span>Training</div>
-          <h3>Secret #2: Open House AI Automation</h3>
-          <p>The open house, automated with AI: capture every visitor and follow up without lifting a finger.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-</div>
-
-<footer>The Inner Cirql · Training Library</footer>
-
-<!-- VIDEO LIGHTBOX -->
-<div class="vlb-overlay" id="vlb" role="dialog" aria-modal="true" aria-label="Video player">
-  <button class="vlb-close" type="button" id="vlb-close" aria-label="Close video">&#215;</button>
-  <div class="vlb">
-    <div class="vlb-frame" id="vlb-frame"></div>
-    <div class="vlb-title" id="vlb-title"></div>
-  </div>
-</div>
+<footer class="lib-footer"><span>Inner Cirql · Training Library</span><span>New replays every week · <a href="/">All Resources</a></span></footer>
 
 <script>
-(function(){
-  var overlay=document.getElementById('vlb');
-  var frame=document.getElementById('vlb-frame');
-  var titleEl=document.getElementById('vlb-title');
-  function open(embed,title){
-    var f=document.createElement('iframe');
-    f.src=embed+'&autoplay=1';
-    f.allow='autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share';
-    f.setAttribute('allowfullscreen','');
-    f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
-    f.title=title;
-    frame.replaceChildren(f);
-    titleEl.textContent=title;
-    overlay.classList.add('open');
-    document.body.style.overflow='hidden';
-  }
-  function close(){
-    overlay.classList.remove('open');
-    frame.replaceChildren();
-    document.body.style.overflow='';
-  }
-  document.querySelectorAll('.vid-frame[data-embed]').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      open(btn.dataset.embed,(btn.getAttribute('aria-label')||'Video').replace('Play: ',''));
-    });
-  });
-  document.getElementById('vlb-close').addEventListener('click',close);
-  overlay.addEventListener('click',function(e){ if(e.target===overlay) close(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
-})();
+/* Add a week: append one item below and it shows up in Recently Added, its series row, and (if newest) the billboard. */
+window.LIBRARY = {
+  "kind": "training",
+  "series": [
+    {
+      "id": "sleepless",
+      "name": "The Sleepless Video Marketing System",
+      "tagline": "Appointments while you sleep",
+      "total": 1
+    },
+    {
+      "id": "engine",
+      "name": "The Marketing Engine",
+      "tagline": "Build it once and it markets you every day",
+      "total": 4
+    },
+    {
+      "id": "cited",
+      "name": "The CITED Series",
+      "tagline": "The five places AI looks for you",
+      "total": 5
+    },
+    {
+      "id": "positioning",
+      "name": "The Positioning Series",
+      "tagline": "Niche, Offer, Mechanism",
+      "total": 3
+    },
+    {
+      "id": "dfy",
+      "name": "Done-For-You Installs",
+      "tagline": "GEO, Origin, and Clara, installed for you",
+      "total": 2
+    },
+    {
+      "id": "trainings",
+      "name": "Trainings",
+      "tagline": "Courses, on demand",
+      "meta": "On demand",
+      "extra": true
+    }
+  ],
+  "items": [
+    {
+      "id": "v-2026-08-26",
+      "date": "2026-08-26",
+      "dateLabel": "August 26, 2026",
+      "series": "engine",
+      "week": 4,
+      "name": "Enough People.",
+      "title": "The Marketing Engine · Week 4 · Enough People.",
+      "headline": [
+        "Enough",
+        "People."
+      ],
+      "sub": "The Marketing Engine · Week 4 of 4",
+      "desc": "The Marketing Engine, Week 4: the final week of the series. Wins, accountability, and the week's teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-08-26/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1222268152?h=57d3cf3ea3&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/aug-26-call.jpg?v=6"
+    },
+    {
+      "id": "v-2026-08-19",
+      "date": "2026-08-19",
+      "dateLabel": "August 19, 2026",
+      "series": "engine",
+      "week": 3,
+      "name": "The Right Thing.",
+      "title": "The Marketing Engine · Week 3 · The Right Thing.",
+      "headline": [
+        "The Right",
+        "Thing."
+      ],
+      "sub": "The Marketing Engine · Week 3 of 4",
+      "desc": "The Marketing Engine, Week 3: The Right Thing: the right message books the meeting. Stop qualifying, start booking. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-08-19/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1220069139?h=f40ebe2edb&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/aug-19-call.jpg?v=6"
+    },
+    {
+      "id": "v-2026-08-05",
+      "date": "2026-08-05",
+      "dateLabel": "August 5, 2026",
+      "series": "engine",
+      "week": 1,
+      "name": "The Problem.",
+      "title": "The Marketing Engine · Week 1 · The Problem.",
+      "headline": [
+        "The Marketing",
+        "Engine."
+      ],
+      "sub": "The Marketing Engine · Week 1 of 4",
+      "desc": "The Marketing Engine, Week 1: The Problem: leads are downstream of authority. Build the engine once and it markets you every day. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-08-05/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1219425807?h=5712faddde&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/aug-5-call.jpg?v=6"
+    },
+    {
+      "id": "v-2026-07-29",
+      "date": "2026-07-29",
+      "dateLabel": "July 29, 2026",
+      "series": "cited",
+      "week": 5,
+      "name": "Domain.",
+      "title": "The CITED Series · Week 5 · Domain.",
+      "headline": [
+        "Own Your",
+        "Domain."
+      ],
+      "sub": "The CITED Series · Week 5 of 5",
+      "desc": "The CITED Series, Week 5: Domain: the finale. Your personal landing page, the one source you actually own. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-07-29/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1217503149?h=18223c4f16&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/july-29-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-07-22",
+      "date": "2026-07-22",
+      "dateLabel": "July 22, 2026",
+      "series": "cited",
+      "week": 4,
+      "name": "Entity.",
+      "title": "The CITED Series · Week 4 · Entity.",
+      "headline": [
+        "Become an",
+        "Entity."
+      ],
+      "sub": "The CITED Series · Week 4 of 5",
+      "desc": "The CITED Series, Week 4: Entity: lock your Google Business Profile, the most-trusted entity source AI has. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-07-22/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1217829570?h=425775a936&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/july-22-call.jpg?v=6"
+    },
+    {
+      "id": "v-2026-07-15",
+      "date": "2026-07-15",
+      "dateLabel": "July 15, 2026",
+      "series": "cited",
+      "week": 3,
+      "name": "Trust.",
+      "title": "The CITED Series · Week 3 · Trust.",
+      "headline": [
+        "Build",
+        "Trust."
+      ],
+      "sub": "The CITED Series · Week 3 of 5",
+      "desc": "The CITED Series, Week 3: Trust: lock your Realtor.com profile, the cross-check AI uses on your credibility. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-07-15/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1218452404?h=3a66aed9f7&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/july-15-call.jpg?v=5"
+    },
+    {
+      "id": "v-2026-07-08",
+      "date": "2026-07-08",
+      "dateLabel": "July 8, 2026",
+      "series": "cited",
+      "week": 2,
+      "name": "Index.",
+      "title": "The CITED Series · Week 2 · Index.",
+      "headline": [
+        "Get",
+        "Indexed."
+      ],
+      "sub": "The CITED Series · Week 2 of 5",
+      "desc": "The CITED Series, Week 2: Index: put your Claim on Zillow, the live signal feeding ChatGPT. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-07-08/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1214424400?h=de80130d91&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/july-8-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-07-01",
+      "date": "2026-07-01",
+      "dateLabel": "July 1, 2026",
+      "series": "cited",
+      "week": 1,
+      "name": "Claim.",
+      "title": "The CITED Series · Week 1 · Claim.",
+      "headline": [
+        "Lock Your",
+        "Claim."
+      ],
+      "sub": "The CITED Series · Week 1 of 5",
+      "desc": "Wins, accountability, and the week's teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-07-01/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1212525955?h=28db58f785&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/july-1-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-06-24",
+      "date": "2026-06-24",
+      "dateLabel": "June 24, 2026",
+      "series": "positioning",
+      "week": 3,
+      "name": "Mechanism.",
+      "title": "The Positioning Series · Week 3 · Mechanism.",
+      "headline": [
+        "Build Your",
+        "Mechanism."
+      ],
+      "sub": "The Positioning Series · Week 3 of 3",
+      "desc": "The Positioning Series, Week 3: Build Your Mechanism, the capstone. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-06-24/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1211517114?h=44930a1c43&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/june-24-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-06-17",
+      "date": "2026-06-17",
+      "dateLabel": "June 17, 2026",
+      "series": "positioning",
+      "week": 2,
+      "name": "Offer.",
+      "title": "The Positioning Series · Week 2 · Offer.",
+      "headline": [
+        "Craft Your",
+        "Offer."
+      ],
+      "sub": "The Positioning Series · Week 2 of 3",
+      "desc": "The Positioning Series, Week 2: wrap your Niche in an Offer. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-06-17/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1208601661?h=761b4ac56e&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/june-17-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-06-10",
+      "date": "2026-06-10",
+      "dateLabel": "June 10, 2026",
+      "series": "positioning",
+      "week": 1,
+      "name": "Niche.",
+      "title": "The Positioning Series · Week 1 · Niche.",
+      "headline": [
+        "Define Your",
+        "Niche."
+      ],
+      "sub": "The Positioning Series · Week 1 of 3",
+      "desc": "The Positioning Series, Week 1: define your Niche with the 3 P's. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-06-10/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1208545532?h=ce24682107&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/june-10-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-06-03",
+      "date": "2026-06-03",
+      "dateLabel": "June 3, 2026",
+      "series": "dfy",
+      "week": 2,
+      "name": "Installs, Week 2.",
+      "title": "Done-For-You Installs Launch · Week 2.",
+      "headline": [
+        "Week",
+        "Two."
+      ],
+      "sub": "Topic gets locked the morning of.",
+      "desc": "Done-For-You Installs, Week 2. Wins, accountability, and the week's teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/2026-06-03/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1207942998?h=31c87182be&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/june-3-call.jpg?v=4"
+    },
+    {
+      "id": "v-2026-05-27",
+      "date": "2026-05-27",
+      "dateLabel": "May 27, 2026",
+      "series": "dfy",
+      "week": 1,
+      "name": "The Installs Launch.",
+      "title": "Done-For-You Installs Launch.",
+      "headline": [
+        "Done-For-You",
+        "Installs Launch."
+      ],
+      "sub": "GEO. Origin. Clara. We install all three.",
+      "desc": "Week one: the Done-For-You Installs launch of GEO, Origin, and Clara. Wins, accountability, and the teaching segment, edited replay.",
+      "href": "https://coach.theinnercirql.com/",
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1210649406?h=520fd67079&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/may-27-call.jpg?v=4"
+    },
+    {
+      "id": "t-become-a-listing-magnet",
+      "date": null,
+      "dateLabel": null,
+      "kicker": "Training",
+      "series": "trainings",
+      "week": null,
+      "name": "Become a Listing Magnet",
+      "title": "Become a Listing Magnet",
+      "headline": null,
+      "sub": "",
+      "desc": "Implementation is key. Putting the system to work so listings start coming to you.",
+      "href": null,
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1170413377?badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/listing-magnet.jpg"
+    },
+    {
+      "id": "t-secret-1-soi-intelligenc",
+      "date": null,
+      "dateLabel": null,
+      "kicker": "Training",
+      "series": "trainings",
+      "week": null,
+      "name": "Secret #1: SOI Intelligence AI System",
+      "title": "Secret #1: SOI Intelligence AI System",
+      "headline": null,
+      "sub": "",
+      "desc": "Your sphere of influence, run by AI: know who to reach, when, and with what, before they list.",
+      "href": null,
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1169964148?badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/soi-intelligence.jpg"
+    },
+    {
+      "id": "t-secret-2-open-house-ai-a",
+      "date": null,
+      "dateLabel": null,
+      "kicker": "Training",
+      "series": "trainings",
+      "week": null,
+      "name": "Secret #2: Open House AI Automation",
+      "title": "Secret #2: Open House AI Automation",
+      "headline": null,
+      "sub": "",
+      "desc": "The open house, automated with AI: capture every visitor and follow up without lifting a finger.",
+      "href": null,
+      "pdf": null,
+      "slides": null,
+      "embed": "https://player.vimeo.com/video/1170148881?badge=0&autopause=0&player_id=0&app_id=58479",
+      "thumb": "/assets/thumbs/open-house-ai.jpg"
+    }
+  ]
+};
 </script>
+<script src="/assets/library.js?v=1"></script>
 </body>
 </html>
