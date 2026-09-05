@@ -1,0 +1,146 @@
+[
+ {
+  "file": "innercirql-printful-front-stacked-domain-white-gold-12x16.png",
+  "placement": "front",
+  "design": "stacked-domain",
+  "colorway": "white-gold",
+  "canvas": "12 x 16 in",
+  "art": "7.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-pocket-stacked-domain-white-gold-4x4.png",
+  "placement": "pocket",
+  "design": "stacked-domain",
+  "colorway": "white-gold",
+  "canvas": "4 x 4 in",
+  "art": "3.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-domain-white-gold-12x16.png",
+  "placement": "front",
+  "design": "domain",
+  "colorway": "white-gold",
+  "canvas": "12 x 16 in",
+  "art": "10.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-back-tagline-white-gold-12x16.png",
+  "placement": "back",
+  "design": "tagline",
+  "colorway": "white-gold",
+  "canvas": "12 x 16 in",
+  "art": "11.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-stacked-domain-all-white-12x16.png",
+  "placement": "front",
+  "design": "stacked-domain",
+  "colorway": "all-white",
+  "canvas": "12 x 16 in",
+  "art": "7.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-pocket-stacked-domain-all-white-4x4.png",
+  "placement": "pocket",
+  "design": "stacked-domain",
+  "colorway": "all-white",
+  "canvas": "4 x 4 in",
+  "art": "3.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-domain-all-white-12x16.png",
+  "placement": "front",
+  "design": "domain",
+  "colorway": "all-white",
+  "canvas": "12 x 16 in",
+  "art": "10.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-back-tagline-all-white-12x16.png",
+  "placement": "back",
+  "design": "tagline",
+  "colorway": "all-white",
+  "canvas": "12 x 16 in",
+  "art": "11.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-stacked-domain-black-gold-12x16.png",
+  "placement": "front",
+  "design": "stacked-domain",
+  "colorway": "black-gold",
+  "canvas": "12 x 16 in",
+  "art": "7.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-pocket-stacked-domain-black-gold-4x4.png",
+  "placement": "pocket",
+  "design": "stacked-domain",
+  "colorway": "black-gold",
+  "canvas": "4 x 4 in",
+  "art": "3.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-domain-black-gold-12x16.png",
+  "placement": "front",
+  "design": "domain",
+  "colorway": "black-gold",
+  "canvas": "12 x 16 in",
+  "art": "10.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-back-tagline-black-gold-12x16.png",
+  "placement": "back",
+  "design": "tagline",
+  "colorway": "black-gold",
+  "canvas": "12 x 16 in",
+  "art": "11.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-stacked-domain-all-black-12x16.png",
+  "placement": "front",
+  "design": "stacked-domain",
+  "colorway": "all-black",
+  "canvas": "12 x 16 in",
+  "art": "7.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-pocket-stacked-domain-all-black-4x4.png",
+  "placement": "pocket",
+  "design": "stacked-domain",
+  "colorway": "all-black",
+  "canvas": "4 x 4 in",
+  "art": "3.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-domain-all-black-12x16.png",
+  "placement": "front",
+  "design": "domain",
+  "colorway": "all-black",
+  "canvas": "12 x 16 in",
+  "art": "10.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-back-tagline-all-black-12x16.png",
+  "placement": "back",
+  "design": "tagline",
+  "colorway": "all-black",
+  "canvas": "12 x 16 in",
+  "art": "11.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-wordmark-white-12x16.png",
+  "placement": "front",
+  "design": "wordmark",
+  "colorway": "white",
+  "canvas": "12 x 16 in",
+  "art": "7.5 in wide"
+ },
+ {
+  "file": "innercirql-printful-front-wordmark-black-12x16.png",
+  "placement": "front",
+  "design": "wordmark",
+  "colorway": "black",
+  "canvas": "12 x 16 in",
+  "art": "7.5 in wide"
+ }
+]
