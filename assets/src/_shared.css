@@ -1,0 +1,32 @@
+/* Shared print styles for the Always-On Agent System one-pagers.
+   Render: Chrome headless --print-to-pdf (Letter). Preview PNG = page 1 at 150 dpi. */
+:root{--bg:#fff;--offwhite:#faf8f4;--ink:#1a1a1a;--ink-60:rgba(26,26,26,.6);--ink-40:rgba(26,26,26,.4);--ink-12:rgba(26,26,26,.12);--ink-08:rgba(26,26,26,.08);--gold:#c9a96e;--gold-soft:rgba(201,169,110,.14)}
+@page{size:Letter;margin:0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:8.5in;height:11in;padding:.55in .62in .5in;position:relative;page-break-after:always;display:flex;flex-direction:column}
+.page:last-child{page-break-after:auto}
+.top{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:26px}
+.mark{display:flex;align-items:center;gap:10px;font-size:16px;letter-spacing:-.01em}
+.mark .ao{color:var(--ink-60)}.mark .ao b{color:var(--gold);font-weight:600}.mark .sys{font-weight:600}
+.mark svg{width:26px;height:26px}
+.kicker{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-40)}
+.eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+h1{font-size:50px;line-height:1;letter-spacing:-.03em;font-weight:700}
+h1 .sub{display:block;font-size:24px;font-weight:600;font-style:italic;color:var(--gold);letter-spacing:-.01em;margin-top:6px}
+.lede{font-size:13.5px;line-height:1.55;color:var(--ink-60);max-width:66ch;margin-top:14px}
+.lede b{color:var(--ink);font-weight:600}
+.foot{margin-top:auto;padding-top:12px;border-top:1px solid var(--ink-08);display:flex;justify-content:space-between;font-size:8.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-40)}
+.foot .pg{color:var(--gold)}
+h2{font-size:22px;letter-spacing:-.02em;font-weight:700}
+h2 .it{font-style:italic;color:var(--gold);font-weight:600}
+.band{background:var(--ink);color:#fff;padding:26px 30px;display:flex;align-items:center;gap:22px;border-radius:12px;margin-top:auto;margin-bottom:22px}
+.band .k{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.band p{font-size:17px;font-weight:600;line-height:1.3;letter-spacing:-.01em}
+.band p i{font-style:normal;color:var(--gold)}
+.band svg{width:52px;height:52px;flex:none}
+.sec-k{font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+.check{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;margin-top:14px}
+.check div{display:flex;gap:10px;font-size:12.5px;line-height:1.45}
+.check div:before{content:"";flex:none;width:15px;height:15px;border:1.5px solid var(--ink);border-radius:3px;margin-top:2px}
+.check b{font-weight:600}
